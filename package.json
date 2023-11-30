@@ -6,7 +6,8 @@
   "license": "ISC",
   "type": "module",
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "dev:vue": "pnpm --filter vite-vue run dev"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",
