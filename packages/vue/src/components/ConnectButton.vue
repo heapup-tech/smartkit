@@ -1,17 +1,23 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+
+defineProps({
+  msg: { type: String }
+})
+
+const count = ref(0)
+</script>
+
 <template>
-  <div>Connect</div>
+  <h1>{{ msg }}</h1>
+
+  <div class="card">
+    <button type="button" @click="count++">count is {{ count }}</button>
+  </div>
 </template>
 
-<script setup lang="ts"></script>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-export default defineComponent({
-  name: 'ConnectButton'
-})
-</script>
 <style scoped>
-.read-the-docs {
-  color: #888;
+h1 {
+  color: #7e22ce;
 }
 </style>

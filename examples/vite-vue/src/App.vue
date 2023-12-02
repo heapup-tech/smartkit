@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import '@heapup/connectkit-vue/style.css'
 import { ConnectButton } from '@heapup/connectkit-vue'
 </script>
 
 <template>
-  <ConnectButton />
+  <ConnectButton msg="asdsad" />
 </template>
 
 <style scoped>

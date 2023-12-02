@@ -4,13 +4,9 @@ import dts from 'vite-plugin-dts'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    dts({
-      tsconfigPath: './tsconfig.json'
-    })
-  ],
+  plugins: [vue(), dts()],
   build: {
+    emptyOutDir: true,
     rollupOptions: {
       external: ['vue'],
       output: {
