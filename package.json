@@ -8,7 +8,11 @@
   "scripts": {
     "prepare": "husky install",
     "dev:vue": "pnpm --filter vite-vue run dev",
-    "build:vue": "pnpm --filter packages/vue run build"
+    "build:vue": "pnpm --filter @heapup/smartkit-vue run build",
+    "test": "pnpm test:unit",
+    "test:unit": "vitest",
+    "test:update": "vitest --update",
+    "test:watch": "vitest --watch"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",
@@ -23,7 +27,8 @@
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",
     "ts-node": "^10.9.1",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.6"
   },
   "lint-staged": {
     "src/**/*.{js,ts,cjs}": [

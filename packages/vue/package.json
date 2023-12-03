@@ -1,5 +1,5 @@
 {
-  "name": "@heapup/connectkit-vue",
+  "name": "@heapup/smartkit-vue",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,13 +11,13 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/connectkit-vue.umd.cjs",
-  "module": "./dist/connectkit-vue.js",
+  "main": "./dist/smartkit-vue.umd.cjs",
+  "module": "./dist/smartkit-vue.js",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/connectkit-vue.js",
-      "require": "./dist/connectkit-vue.umd.cjs"
+      "import": "./src/smartkit-vue.js",
+      "require": "./dist/smartkit-vue.umd.cjs"
     },
     "./style.css": "./dist/style.css"
   },

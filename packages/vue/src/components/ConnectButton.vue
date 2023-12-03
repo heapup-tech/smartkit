@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-
+import { useDisclosure } from '../hooks/useDisclosure'
 defineProps({
   msg: { type: String }
 })
-
+const { isOpen, onOpen, onToggle } = useDisclosure()
 const count = ref(0)
 </script>
 
@@ -12,7 +12,17 @@ const count = ref(0)
   <h1>{{ msg }}</h1>
 
   <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
+    <button
+      type="button"
+      @click="
+        () => {
+          console.log('121321')
+          onToggle()
+        }
+      "
+    >
+      count is {{ isOpen }}222
+    </button>
   </div>
 </template>
 

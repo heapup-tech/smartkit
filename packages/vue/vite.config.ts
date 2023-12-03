@@ -17,8 +17,7 @@ export default defineConfig({
     },
     lib: {
       entry: './src/index.ts',
-      name: 'connectkit-vue',
-      formats: ['es', 'cjs']
+      name: 'smartkit-vue'
     }
   }
 })
