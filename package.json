@@ -7,7 +7,7 @@
   "type": "module",
   "scripts": {
     "prepare": "husky install",
-    "dev:vue": "pnpm --filter vite-vue run dev",
+    "dev:vue": "pnpm --filter @heapup/smartkit-vue run dev",
     "build:vue": "pnpm --filter @heapup/smartkit-vue run build",
     "test": "pnpm test:unit",
     "test:unit": "vitest",
