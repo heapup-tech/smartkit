@@ -1,0 +1,24 @@
+{
+  "name": "@heapup/smartkit",
+  "version": "0.0.1",
+  "main": "index.js",
+  "type": "module",
+  "description": "Connect to the Sui network in a simple way",
+  "keywords": [
+    "sui",
+    "react",
+    "blockchain",
+    "connectmodal",
+    "hooks"
+  ],
+  "engines": {
+    "node": ">=12.4"
+  },
+  "author": "HeapUp",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heapup-tech/smartkit.git",
+    "directory": "packages/smartkit"
+  }
+}

@@ -1,7 +1,6 @@
 {
   "name": "smartkit",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.0.0",
   "author": "syen",
   "license": "MIT",
   "type": "module",
@@ -12,6 +11,7 @@
   "scripts": {
     "prepare": "husky install"
   },
+  "packageManager": "pnpm@9.0.6",
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
