@@ -1,5 +1,5 @@
 {
-  "name": "@heapup/smartkit",
+  "name": "@heapup/sui-connectkit",
   "version": "0.0.1",
   "main": "index.js",
   "type": "module",
@@ -18,7 +18,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/heapup-tech/smartkit.git",
-    "directory": "packages/smartkit"
+    "url": "git+https://github.com/heapup-tech/connectkit.git",
+    "directory": "packages/sui-connectkit"
   }
 }

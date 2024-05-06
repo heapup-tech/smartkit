@@ -1,12 +1,12 @@
 {
-  "name": "smartkit",
+  "name": "connectkit",
   "version": "0.0.0",
   "author": "syen",
   "license": "MIT",
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/heapup-tech/smartkit.git"
+    "url": "git+https://github.com/heapup-tech/connectkit.git"
   },
   "scripts": {
     "prepare": "husky install"
