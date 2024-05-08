@@ -1,5 +1,3 @@
-import React, { useContext, useEffect, useState } from 'react'
-
 export interface ConnectButtonProps {
   label?: string
   showBalance?: boolean
@@ -8,10 +6,10 @@ export interface ConnectButtonProps {
 }
 
 export function ConnectButton({
-  label = 'Connect',
-  showBalance = true,
-  showAvatar = true,
-  mode = 'light'
+  label = 'Connect'
+  // showBalance = true,
+  // showAvatar = true,
+  // mode = 'light'
 }) {
   return <div>{label}</div>
 }
