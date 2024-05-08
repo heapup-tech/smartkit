@@ -1,5 +1,4 @@
 import { ConnectButton } from '@heapup/sui-connectkit'
-import './App.css'
 
 function App() {
   return (

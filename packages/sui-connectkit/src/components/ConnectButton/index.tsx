@@ -11,5 +11,15 @@ export function ConnectButton({
   // showAvatar = true,
   // mode = 'light'
 }) {
-  return <div>{label}</div>
+  return (
+    <button
+      style={
+        {
+          // backgroundColor: 'red'
+        }
+      }
+    >
+      {label}
+    </button>
+  )
 }
