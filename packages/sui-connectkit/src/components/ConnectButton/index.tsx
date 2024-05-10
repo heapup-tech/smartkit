@@ -1,3 +1,6 @@
+import { useState } from 'react'
+import { ConnectModal } from '../ConnectModal'
+
 export interface ConnectButtonProps {
   label?: string
   showBalance?: boolean
@@ -11,15 +14,12 @@ export function ConnectButton({
   // showAvatar = true,
   // mode = 'light'
 }) {
+  const [open, setOpen] = useState(false)
   return (
-    <button
-      style={
-        {
-          // backgroundColor: 'red'
-        }
-      }
-    >
-      {label}
-    </button>
+    <>
+      <button onClick={() => setOpen(true)}>{label}</button>
+
+      <ConnectModal open={open} onClose={() => setOpen(false)} />
+    </>
   )
 }
