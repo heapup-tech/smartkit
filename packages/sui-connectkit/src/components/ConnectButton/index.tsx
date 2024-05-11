@@ -9,10 +9,10 @@ export interface ConnectButtonProps {
 }
 
 export function ConnectButton({
-  label = 'Connect'
-  // showBalance = true,
-  // showAvatar = true,
-  // mode = 'light'
+  label = 'Connect',
+  showBalance = true,
+  showAvatar = true,
+  mode = 'light'
 }) {
   const [open, setOpen] = useState(false)
   return (

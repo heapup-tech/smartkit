@@ -1,6 +1,8 @@
 import { createPortal } from 'react-dom'
 import { RemoveScroll } from 'react-remove-scroll'
-import styles from './styles.css'
+import * as styles from './styles.css'
+
+// console.log(overlay)
 
 interface DialogProps {
   children: React.ReactNode
