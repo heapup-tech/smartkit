@@ -35,9 +35,9 @@ importers:
 
   apps/vite:
     dependencies:
-      '@heapup/sui-connectkit':
+      '@heapup/smartkit':
         specifier: workspace:*
-        version: link:../../packages/sui-connectkit
+        version: link:../../packages/smartkit
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -61,7 +61,7 @@ importers:
         specifier: ^5.2.0
         version: 5.2.11(@types/node@20.12.8)
 
-  packages/sui-connectkit:
+  packages/smartkit:
     dependencies:
       '@vanilla-extract/css':
         specifier: ^1.15.1

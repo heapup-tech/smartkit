@@ -1,14 +1,12 @@
-import { ConnectButton } from '@heapup/sui-connectkit'
-import '@heapup/sui-connectkit/styles.css'
+import { ConnectButton } from '@heapup/smartkit'
+import '@heapup/smartkit/styles.css'
 
 function App() {
   return (
     <div
-      style={
-        {
-          // height: '800px'
-        }
-      }
+      style={{
+        height: '2000px'
+      }}
     >
       <ConnectButton />
 

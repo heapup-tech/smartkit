@@ -11,7 +11,8 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "dev:connectkit": "pnpm --filter sui-connectkit dev",
+    "dev": "pnpm dev:connectkit & pnpm preview:vite",
+    "dev:connectkit": "pnpm --filter smartkit dev",
     "preview:vite": "pnpm --filter vite dev"
   },
   "devDependencies": {

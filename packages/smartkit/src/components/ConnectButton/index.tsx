@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { ConnectModal } from '../ConnectModal'
+import { useSmartKitContext } from '../SmartKitProvider'
 
 export interface ConnectButtonProps {
   label?: string
@@ -11,8 +12,7 @@ export interface ConnectButtonProps {
 export function ConnectButton({
   label = 'Connect',
   showBalance = true,
-  showAvatar = true,
-  mode = 'light'
+  showAvatar = true
 }) {
   const [open, setOpen] = useState(false)
   return (
