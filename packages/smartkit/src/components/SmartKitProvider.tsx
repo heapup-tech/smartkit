@@ -4,7 +4,7 @@ import { Mode, Theme } from '../theme/types'
 interface SmartKitProviderProps {
   children: React.ReactNode
   theme?: Theme
-  mode: Mode
+  mode?: Mode
 }
 
 export const SmartKitContext = createContext<Omit<

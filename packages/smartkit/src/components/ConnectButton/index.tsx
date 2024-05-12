@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { ConnectModal } from '../ConnectModal'
+import Button from '../Button'
 
 export interface ConnectButtonProps {
   label?: string
@@ -16,6 +17,7 @@ export function ConnectButton({
   return (
     <>
       <button onClick={() => setOpen(true)}>{label}</button>
+      <Button>asd</Button>
 
       <ConnectModal open={open} onClose={() => setOpen(false)} />
     </>

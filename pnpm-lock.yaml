@@ -66,6 +66,9 @@ importers:
       '@vanilla-extract/css':
         specifier: ^1.15.1
         version: 1.15.1
+      '@vanilla-extract/sprinkles':
+        specifier: ^1.6.1
+        version: 1.6.1(@vanilla-extract/css@1.15.1)
       framer-motion:
         specifier: ^11.1.8
         version: 11.1.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -938,6 +941,11 @@ packages:
 
   '@vanilla-extract/private@1.0.4':
     resolution: {integrity: sha512-8FGD6AejeC/nXcblgNCM5rnZb9KXa4WNkR03HCWtdJBpANjTgjHEglNLFnhuvdQ78tC6afaxBPI+g7F2NX3tgg==}
+
+  '@vanilla-extract/sprinkles@1.6.1':
+    resolution: {integrity: sha512-N/RGKwGAAidBupZ436RpuweRQHEFGU+mvAqBo8PRMAjJEmHoPDttV8RObaMLrJHWLqvX+XUMinHUnD0hFRQISw==}
+    peerDependencies:
+      '@vanilla-extract/css': ^1.0.0
 
   '@vitejs/plugin-react@4.2.1':
     resolution: {integrity: sha512-oojO9IDc4nCUUi8qIR11KoQm0XFFLIwsRBwHRR4d/88IWghn1y6ckz/bJ8GHDCsYEJee8mDzqtJxh15/cisJNQ==}
@@ -2734,6 +2742,10 @@ snapshots:
       - terser
 
   '@vanilla-extract/private@1.0.4': {}
+
+  '@vanilla-extract/sprinkles@1.6.1(@vanilla-extract/css@1.15.1)':
+    dependencies:
+      '@vanilla-extract/css': 1.15.1
 
   '@vitejs/plugin-react@4.2.1(vite@5.2.11(@types/node@20.12.8))':
     dependencies:
