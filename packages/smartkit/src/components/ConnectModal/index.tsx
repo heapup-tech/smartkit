@@ -1,4 +1,4 @@
-import Dialog from '../Common/Dialog'
+import Dialog from '../Dialog'
 
 interface ConnectModalProps {
   open: boolean

@@ -1,8 +1,7 @@
-import { createPortal } from 'react-dom'
 import { RemoveScroll } from 'react-remove-scroll'
 import * as styles from './styles.css'
 import { motion } from 'framer-motion'
-import Portal from '../Protal'
+import Portal from '../Portal'
 import ThemeContainer from '../ThemeContainer'
 
 interface DialogProps {

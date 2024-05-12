@@ -1,9 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 
-interface PortalProps {
-  children: React.ReactNode
-}
 export default function Portal({ children }: { children: React.ReactNode }) {
   const ref = useRef<Element>()
   const [mounted, setMounted] = useState(false)
@@ -11,6 +8,7 @@ export default function Portal({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (!ref.current) {
       const div = document.createElement('div')
+      // TODO add version
       div.setAttribute('data-smartkit-version', '1.0.0')
       document.body.appendChild(div)
       ref.current = div

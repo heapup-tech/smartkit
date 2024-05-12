@@ -8,3 +8,4 @@
 - [ ] more built-in themes
 - [ ] social login
 - [ ] recent tansaction
+- [ ] auto switch between mainnet and testnet
