@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css'
 import { themeVars } from '../../theme/themeVars'
 
-const overlay = style({
+const dialogOverlay = style({
   position: 'fixed',
   inset: 0,
   background: themeVars.background.overlay,
@@ -10,12 +10,23 @@ const overlay = style({
   justifyContent: 'center'
 })
 
-const content = style({
+const dialogContent = style({
+  boxSizing: 'border-box',
+  width: themeVars.width.connectModal,
+  height: themeVars.height.connectModal,
   borderRadius: themeVars.radii.connectModal,
-  background: themeVars.background.connectModal
+  background: themeVars.background.connectModal,
+  paddingBlock: themeVars.padding.connectModal.paddingBlock,
+  paddingInline: themeVars.padding.connectModal.paddingInline
+})
+
+const dialogHeader = style({
+  display: 'flex',
+  justifyContent: 'space-between'
 })
 
 export default {
-  overlay,
-  content
+  dialogOverlay,
+  dialogContent,
+  dialogHeader
 }

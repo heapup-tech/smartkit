@@ -1,5 +1,5 @@
 import Dialog from '../Dialog'
-import { content } from './styles.css'
+import WalletOptions from '../WalletOptions'
 
 interface ConnectModalProps {
   open: boolean
@@ -9,7 +9,7 @@ interface ConnectModalProps {
 export function ConnectModal({ open, onClose }: ConnectModalProps) {
   return (
     <Dialog open={open} onClose={onClose}>
-      <div className={content}>dialog content</div>
+      <WalletOptions />
     </Dialog>
   )
 }

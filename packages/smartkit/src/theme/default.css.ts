@@ -18,7 +18,17 @@ export const DefaultTheme = createGlobalTheme(
       connectButton: {
         paddingInline: '12px',
         paddingBlock: '0'
+      },
+      connectModal: {
+        paddingInline: '24px',
+        paddingBlock: '29px 24px'
       }
+    },
+    width: {
+      connectModal: '360px'
+    },
+    height: {
+      connectModal: '446px'
     },
     background: {
       connectButton: {

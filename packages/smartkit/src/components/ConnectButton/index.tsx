@@ -13,7 +13,7 @@ export function ConnectButton({
   label = 'Connect Wallet',
   showBalance = true
 }: ConnectButtonProps) {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(true)
   const [connected] = useState(false)
   return (
     <>

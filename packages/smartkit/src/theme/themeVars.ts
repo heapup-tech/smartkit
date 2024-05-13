@@ -13,7 +13,17 @@ export const themeVars = createGlobalThemeContract(
       connectButton: {
         paddingInline: '',
         paddingBlock: ''
+      },
+      connectModal: {
+        paddingInline: '',
+        paddingBlock: ''
       }
+    },
+    width: {
+      connectModal: ''
+    },
+    height: {
+      connectModal: ''
     },
     background: {
       connectButton: {
