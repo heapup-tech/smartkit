@@ -6,7 +6,6 @@ export default function ThemeContainer({
   children: React.ReactNode
 }) {
   const { theme } = useSmartKitContext()
-  console.log(theme)
 
   return <div {...{ [`data-theme-${theme}`]: '' }}>{children}</div>
 }

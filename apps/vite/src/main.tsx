@@ -5,7 +5,7 @@ import { SmartKitProvider } from '@heapup/smartkit'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <SmartKitProvider theme="retro">
+    <SmartKitProvider>
       <App />
     </SmartKitProvider>
   </React.StrictMode>

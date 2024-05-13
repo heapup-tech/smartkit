@@ -1,25 +1,46 @@
 import { useState } from 'react'
 import { ConnectModal } from '../ConnectModal'
-import Button from '../Button'
+import styles from './styles.css'
+import ThemeContainer from '../ThemeContainer'
+import { motion } from 'framer-motion'
 
 export interface ConnectButtonProps {
   label?: string
   showBalance?: boolean
-  showAvatar?: boolean
 }
 
 export function ConnectButton({
-  label = 'Connect',
-  showBalance = true,
-  showAvatar = true
+  label = 'Connect Wallet',
+  showBalance = true
 }: ConnectButtonProps) {
   const [open, setOpen] = useState(false)
+  const [connected] = useState(false)
   return (
     <>
-      <button onClick={() => setOpen(true)}>{label}</button>
-      <Button>asd</Button>
+      <ThemeContainer>
+        {connected ? (
+          <></>
+        ) : (
+          <motion.button
+            className={styles.connectButton}
+            onClick={() => setOpen(true)}
+            whileHover={{
+              scale: 1.05
+            }}
+            whileTap={{
+              scale: 0.95
+            }}
+            transition={{
+              ease: 'linear',
+              duration: 0.1
+            }}
+          >
+            <span>{label}</span>
+          </motion.button>
+        )}
 
-      <ConnectModal open={open} onClose={() => setOpen(false)} />
+        <ConnectModal open={open} onClose={() => setOpen(false)} />
+      </ThemeContainer>
     </>
   )
 }

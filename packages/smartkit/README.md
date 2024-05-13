@@ -2,6 +2,7 @@
 
 ## TODO
 
+- [ ] theme with dark mode and light mode
 - [ ] i18n
 - [ ] custom avatar
 - [ ] support more wallets
