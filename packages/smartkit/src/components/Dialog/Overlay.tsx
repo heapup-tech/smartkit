@@ -5,6 +5,7 @@ export default function Overlay({ children }: { children: React.ReactNode }) {
   return (
     <motion.div
       className={styles.overlay}
+      role="dialog"
       initial={{
         opacity: 0
       }}
