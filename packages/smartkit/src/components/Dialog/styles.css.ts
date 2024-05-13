@@ -1,13 +1,21 @@
 import { style } from '@vanilla-extract/css'
+import { themeVars } from '../../theme/themeVars'
 
-export const overlay = style({
+const overlay = style({
   position: 'fixed',
-  top: 0,
-  left: 0,
-  width: '100vw',
-  height: '100vh',
-  background: 'rgba(0, 0, 0, 0.5)',
+  inset: 0,
+  background: themeVars.background.overlay,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center'
 })
+
+const content = style({
+  borderRadius: themeVars.radii.connectModal,
+  background: themeVars.background.connectModal
+})
+
+export default {
+  overlay,
+  content
+}

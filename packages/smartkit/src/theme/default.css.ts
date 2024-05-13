@@ -8,11 +8,11 @@ export const DefaultTheme = createGlobalTheme(
   themeVars,
   {
     color: {
-      primary: '#ff0000',
-      secondary: '#00ff00'
+      primary: '#373737'
     },
     radii: {
-      connectButton: '10px'
+      connectButton: '10px',
+      connectModal: '10px'
     },
     padding: {
       connectButton: {
@@ -25,7 +25,9 @@ export const DefaultTheme = createGlobalTheme(
         normal: '#F6F7F9',
         hover: '#EAECF1',
         active: '#EAECF1'
-      }
+      },
+      overlay: 'rgba(71, 88, 107, 0.24)',
+      connectModal: '#fff'
     }
   }
 )

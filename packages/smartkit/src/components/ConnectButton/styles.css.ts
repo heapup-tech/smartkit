@@ -14,10 +14,11 @@ const connectButton = style({
   cursor: 'pointer',
   height: '40px',
   lineHeight: '40px',
-  paddingInline: themeVars.padding.connectButton.paddingInline,
-  background: themeVars.background.connectButton.normal,
   borderWidth: 0,
   fontWeight: 500,
+  paddingInline: themeVars.padding.connectButton.paddingInline,
+  background: themeVars.background.connectButton.normal,
+  color: themeVars.color.primary,
   ':active': {
     background: themeVars.background.connectButton.active
   }

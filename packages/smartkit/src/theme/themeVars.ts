@@ -3,11 +3,11 @@ import { createGlobalThemeContract } from '@vanilla-extract/css'
 export const themeVars = createGlobalThemeContract(
   {
     color: {
-      primary: '',
-      secondary: ''
+      primary: ''
     },
     radii: {
-      connectButton: ''
+      connectButton: '',
+      connectModal: ''
     },
     padding: {
       connectButton: {
@@ -20,7 +20,9 @@ export const themeVars = createGlobalThemeContract(
         normal: '',
         hover: '',
         active: ''
-      }
+      },
+      overlay: '',
+      connectModal: ''
     }
   },
   (_, path) => `sk-${path.join('-')}`

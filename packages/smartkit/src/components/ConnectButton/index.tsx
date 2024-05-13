@@ -19,7 +19,7 @@ export function ConnectButton({
     <>
       <ThemeContainer>
         {connected ? (
-          <></>
+          showBalance && <></>
         ) : (
           <motion.button
             className={styles.connectButton}

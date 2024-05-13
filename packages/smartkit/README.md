@@ -8,5 +8,6 @@
 - [ ] support more wallets
 - [ ] more built-in themes
 - [ ] social login
+- [ ] mobile adaptation
 - [ ] recent tansaction
 - [ ] auto switch between mainnet and testnet
