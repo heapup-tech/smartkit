@@ -10,9 +10,9 @@ interface DialogHeaderProps {
 export default function DialogHeader({ onClose }: DialogHeaderProps) {
   return (
     <div className={styles.dialogHeader}>
-      <IconButton icon={<InfoIcon onClick={onClose} />} />
+      <IconButton icon={<InfoIcon />} onClick={onClose} />
       <span className={styles.dialogHeaderTitle}>Connect Wallet</span>
-      <IconButton icon={<CloseIcon onClick={onClose} />} />
+      <IconButton icon={<CloseIcon />} onClick={onClose} />
     </div>
   )
 }

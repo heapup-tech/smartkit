@@ -1,6 +1,10 @@
-import React from 'react'
 import AnimateButton from './AnimateButton'
 import styles from './styles.css'
-export default function IconButton({ icon }: { icon: React.ReactNode }) {
-  return <AnimateButton className={styles.iconButton}>{icon}</AnimateButton>
+import { ButtonProps } from './types'
+export default function IconButton({ icon, onClick }: ButtonProps) {
+  return (
+    <AnimateButton className={styles.iconButton} onClick={onClick}>
+      {icon}
+    </AnimateButton>
+  )
 }
