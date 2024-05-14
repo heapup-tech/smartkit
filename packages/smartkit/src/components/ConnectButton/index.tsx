@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { ConnectModal } from '../ConnectModal'
 import styles from './styles.css'
 import ThemeContainer from '../ThemeContainer'
-import { motion } from 'framer-motion'
+import AnimateButton from '../Button/AnimateButton'
 
 export interface ConnectButtonProps {
   label?: string
@@ -21,22 +21,12 @@ export function ConnectButton({
         {connected ? (
           showBalance && <></>
         ) : (
-          <motion.button
-            className={styles.connectButton}
+          <AnimateButton
             onClick={() => setOpen(true)}
-            whileHover={{
-              scale: 1.05
-            }}
-            whileTap={{
-              scale: 0.95
-            }}
-            transition={{
-              ease: 'linear',
-              duration: 0.1
-            }}
+            className={styles.connectButton}
           >
-            <span>{label}</span>
-          </motion.button>
+            {label}
+          </AnimateButton>
         )}
 
         <ConnectModal open={open} onClose={() => setOpen(false)} />

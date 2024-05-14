@@ -26,13 +26,16 @@ export const themeVars = createGlobalThemeContract(
       connectModal: ''
     },
     background: {
-      connectButton: {
+      clickable: {
         normal: '',
         hover: '',
         active: ''
       },
       overlay: '',
       connectModal: ''
+    },
+    fontSizes: {
+      title: ''
     }
   },
   (_, path) => `sk-${path.join('-')}`

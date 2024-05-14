@@ -22,11 +22,18 @@ const dialogContent = style({
 
 const dialogHeader = style({
   display: 'flex',
-  justifyContent: 'space-between'
+  justifyContent: 'space-between',
+  alignItems: 'center'
+})
+
+const dialogHeaderTitle = style({
+  fontSize: themeVars.fontSizes.title,
+  fontWeight: 600
 })
 
 export default {
   dialogOverlay,
   dialogContent,
-  dialogHeader
+  dialogHeader,
+  dialogHeaderTitle
 }

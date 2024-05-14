@@ -12,7 +12,7 @@ export const DefaultTheme = createGlobalTheme(
     },
     radii: {
       connectButton: '10px',
-      connectModal: '10px'
+      connectModal: '20px'
     },
     padding: {
       connectButton: {
@@ -21,7 +21,7 @@ export const DefaultTheme = createGlobalTheme(
       },
       connectModal: {
         paddingInline: '24px',
-        paddingBlock: '29px 24px'
+        paddingBlock: '24px'
       }
     },
     width: {
@@ -31,13 +31,16 @@ export const DefaultTheme = createGlobalTheme(
       connectModal: '446px'
     },
     background: {
-      connectButton: {
+      clickable: {
         normal: '#F6F7F9',
         hover: '#EAECF1',
         active: '#EAECF1'
       },
       overlay: 'rgba(71, 88, 107, 0.24)',
       connectModal: '#fff'
+    },
+    fontSizes: {
+      title: '16px'
     }
   }
 )

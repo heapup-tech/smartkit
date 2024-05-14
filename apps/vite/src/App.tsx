@@ -8,7 +8,17 @@ function App() {
         height: '2000px'
       }}
     >
-      <ConnectButton />
+      <div
+        style={{
+          position: 'fixed',
+          inset: 0,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+      >
+        <ConnectButton />
+      </div>
 
       {/* <ConnectModal /> */}
     </div>

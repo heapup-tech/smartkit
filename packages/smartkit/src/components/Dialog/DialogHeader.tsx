@@ -1,3 +1,6 @@
+import CloseIcon from '../../icons/CloseIcon'
+import InfoIcon from '../../icons/InfoIcon'
+import IconButton from '../Button/IconButton'
 import styles from './styles.css'
 
 interface DialogHeaderProps {
@@ -7,9 +10,9 @@ interface DialogHeaderProps {
 export default function DialogHeader({ onClose }: DialogHeaderProps) {
   return (
     <div className={styles.dialogHeader}>
-      <span></span>
-      <span>Connect Wallet</span>
-      <button onClick={onClose}>×</button>
+      <IconButton icon={<InfoIcon onClick={onClose} />} />
+      <span className={styles.dialogHeaderTitle}>Connect Wallet</span>
+      <IconButton icon={<CloseIcon onClick={onClose} />} />
     </div>
   )
 }
