@@ -1,5 +1,7 @@
 import { createContext, useContext } from 'react'
 import { Mode, Theme } from '../theme/types'
+import { useSmartKitClientContext } from '@heapup/smartkit-hooks'
+// import { useSmartKitClientContext } from '@heapup/smartkit-hooks'
 
 interface SmartKitProviderProps {
   children: React.ReactNode
@@ -17,6 +19,9 @@ export function SmartKitProvider({
   theme = 'default',
   mode = 'auto'
 }: SmartKitProviderProps) {
+  const client = useSmartKitClientContext()
+  console.log(client)
+
   return (
     <SmartKitContext.Provider
       value={{

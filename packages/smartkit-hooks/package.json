@@ -1,5 +1,5 @@
 {
-  "name": "@heapup/sui-hooks",
+  "name": "@heapup/smartkit-hooks",
   "version": "0.0.1",
   "type": "module",
   "description": "Connect to the Sui network in a simple way",
@@ -11,8 +11,11 @@
     "hooks"
   ],
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./dist/index.js"
   },
+  "files": [
+    "dist"
+  ],
   "author": "HeapUp",
   "license": "MIT",
   "repository": {
@@ -20,9 +23,14 @@
     "url": "git+https://github.com/heapup-tech/connectkit.git",
     "directory": "packages/sui-hooks"
   },
-  "scripts": {},
+  "scripts": {
+    "build:watch": "tsx build.ts --watch",
+    "typegen:watch": "tsc --emitDeclarationOnly --watch",
+    "dev": "pnpm build:watch & pnpm typegen:watch"
+  },
   "dependencies": {
-    "@mysten/sui.js": "^0.53.0",
+    "@mysten/sui.js": "^0.54.1",
+    "@mysten/wallet-standard": "^0.11.6",
     "react": "^18.3.1"
   },
   "devDependencies": {
