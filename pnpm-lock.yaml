@@ -41,6 +41,9 @@ importers:
       '@heapup/smartkit-hooks':
         specifier: workspace:*
         version: link:../../packages/smartkit-hooks
+      '@mysten/sui.js':
+        specifier: ^0.54.1
+        version: 0.54.1(svelte@4.2.17)(typescript@5.4.5)
       react:
         specifier: ^18.2.0
         version: 18.3.1

@@ -14,8 +14,6 @@ export function useConnect() {
     (wallet): wallet is WalletWithFeatures<MinimallyRequiredFeatures> =>
       isWalletWithRequiredFeatureSet(wallet, ['sui:signTransactionBlock'])
   )
-  console.log(suiWallets)
-
   return {
     connect: () => {
       console.log(suiWallets)

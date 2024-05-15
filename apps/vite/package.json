@@ -12,6 +12,7 @@
   "dependencies": {
     "@heapup/smartkit": "workspace:*",
     "@heapup/smartkit-hooks": "workspace:*",
+    "@mysten/sui.js": "^0.54.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

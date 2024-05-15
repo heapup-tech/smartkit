@@ -1,5 +1,5 @@
+import ConnectorList from '../ConnectorList'
 import Dialog from '../Dialog'
-import WalletOptions from '../WalletOptions'
 
 interface ConnectModalProps {
   open: boolean
@@ -9,7 +9,7 @@ interface ConnectModalProps {
 export function ConnectModal({ open, onClose }: ConnectModalProps) {
   return (
     <Dialog open={open} onClose={onClose}>
-      <WalletOptions />
+      <ConnectorList />
     </Dialog>
   )
 }
