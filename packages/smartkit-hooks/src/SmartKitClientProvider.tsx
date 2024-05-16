@@ -1,8 +1,12 @@
 import { getFullnodeUrl, SuiClient } from '@mysten/sui.js/client'
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQueryClient
+} from '@tanstack/react-query'
 import { createContext, useContext } from 'react'
 
 interface SmartKitClientProviderProps {
-  children: React.ReactNode
   client?: SuiClient
 }
 
@@ -10,16 +14,20 @@ const DEFAULT_CLIENT = new SuiClient({
   url: getFullnodeUrl('mainnet')
 })
 
-const SmartKitClientContext = createContext<Omit<
-  SmartKitClientProviderProps,
-  'children'
-> | null>(null)
+const SmartKitClientContext = createContext<SmartKitClientProviderProps | null>(
+  null
+)
 
 export function SmartKitClientProvider({
   children,
   client = DEFAULT_CLIENT
-}: SmartKitClientProviderProps) {
-  return (
+}: React.PropsWithChildren<SmartKitClientProviderProps>) {
+  let queryClient: QueryClient | null = null
+  try {
+    queryClient = useQueryClient()
+  } catch (error) {}
+
+  const Provider = (
     <SmartKitClientContext.Provider
       value={{
         client
@@ -28,7 +36,16 @@ export function SmartKitClientProvider({
       {children}
     </SmartKitClientContext.Provider>
   )
+
+  return !queryClient ? (
+    <QueryClientProvider client={new QueryClient()}>
+      {Provider}
+    </QueryClientProvider>
+  ) : (
+    Provider
+  )
 }
+
 export const useSmartKitClientContext = () => {
   const context = useContext(SmartKitClientContext)
   if (!context) {
