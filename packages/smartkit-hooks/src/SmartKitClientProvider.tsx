@@ -7,20 +7,23 @@ import {
 import { createContext, useContext } from 'react'
 
 interface SmartKitClientProviderProps {
-  client?: SuiClient
+  suiClient?: SuiClient
 }
 
-const DEFAULT_CLIENT = new SuiClient({
+const DEFAULT_SUI_CLIENT = new SuiClient({
   url: getFullnodeUrl('mainnet')
 })
 
-const SmartKitClientContext = createContext<SmartKitClientProviderProps | null>(
+type SmartKitClientContextType = SmartKitClientProviderProps &
+  Required<Pick<SmartKitClientProviderProps, 'suiClient'>>
+
+const SmartKitClientContext = createContext<SmartKitClientContextType | null>(
   null
 )
 
 export function SmartKitClientProvider({
   children,
-  client = DEFAULT_CLIENT
+  suiClient = DEFAULT_SUI_CLIENT
 }: React.PropsWithChildren<SmartKitClientProviderProps>) {
   let queryClient: QueryClient | null = null
   try {
@@ -30,7 +33,7 @@ export function SmartKitClientProvider({
   const Provider = (
     <SmartKitClientContext.Provider
       value={{
-        client
+        suiClient
       }}
     >
       {children}
