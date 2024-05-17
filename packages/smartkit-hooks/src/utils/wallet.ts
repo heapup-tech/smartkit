@@ -8,33 +8,31 @@ import {
   isWalletWithRequiredFeatureSet
 } from '@mysten/wallet-standard'
 
-export function getRegisteredWallets<
+export function getInstalledWallets<
   AdditionalFeatures extends Wallet['features']
->(preferredWallets: string[], requiredFeatures?: (keyof AdditionalFeatures)[]) {
-  const walletsApi = getWallets()
-  const wallets = walletsApi.get()
-
-  const suiWallets = wallets.filter(
-    (
-      wallet
-    ): wallet is WalletWithFeatures<
-      MinimallyRequiredFeatures & AdditionalFeatures
-    > => isWalletWithRequiredFeatureSet(wallet, requiredFeatures)
-  )
+>(
+  preferredWallets: string[] = [],
+  requiredFeatures: (keyof AdditionalFeatures)[] = ['sui:signTransactionBlock']
+) {
+  const suiInstalledWallets = getInstalledFeaturesWallets(requiredFeatures)
 
   return [
-    // Preferred wallets, in order:
-    ...(preferredWallets
-      .map((name) => suiWallets.find((wallet) => wallet.name === name))
-      .filter(Boolean) as WalletWithFeatures<
-      MinimallyRequiredFeatures & AdditionalFeatures
-    >[]),
-
-    // Wallets in default order:
-    ...suiWallets.filter((wallet) => !preferredWallets.includes(wallet.name))
+    ...(preferredWallets.map((name) =>
+      suiInstalledWallets.find((wallet) => wallet.name === name)
+    ) as WalletWithFeatures<MinimallyRequiredFeatures & AdditionalFeatures>[]),
+    ...suiInstalledWallets.filter(
+      (wallet) => !preferredWallets.includes(wallet.name)
+    )
   ]
 }
 
-export function getWalletUniqueIdentifier(wallet?: Wallet) {
-  return wallet?.id ?? wallet?.name
+export function getInstalledFeaturesWallets<
+  AdditionalFeatures extends Wallet['features']
+>(requiredFeatures: (keyof AdditionalFeatures)[] = []) {
+  const walletsApi = getWallets()
+  const allInstalledWallets = walletsApi.get()
+
+  return allInstalledWallets.filter((wallet) =>
+    isWalletWithRequiredFeatureSet(wallet, requiredFeatures)
+  )
 }

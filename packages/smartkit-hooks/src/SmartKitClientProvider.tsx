@@ -1,29 +1,25 @@
-import { getFullnodeUrl, SuiClient } from '@mysten/sui.js/client'
 import {
   QueryClient,
   QueryClientProvider,
   useQueryClient
 } from '@tanstack/react-query'
 import { createContext, useContext } from 'react'
+import { Config } from './createConfig'
 
 interface SmartKitClientProviderProps {
-  suiClient?: SuiClient
+  config: Config
 }
 
-const DEFAULT_SUI_CLIENT = new SuiClient({
-  url: getFullnodeUrl('mainnet')
-})
-
-type SmartKitClientContextType = SmartKitClientProviderProps &
-  Required<Pick<SmartKitClientProviderProps, 'suiClient'>>
-
-const SmartKitClientContext = createContext<SmartKitClientContextType | null>(
-  null
-)
+const SmartKitClientContext = createContext<
+  | {
+      config: Config
+    }
+  | undefined
+>(undefined)
 
 export function SmartKitClientProvider({
   children,
-  suiClient = DEFAULT_SUI_CLIENT
+  config
 }: React.PropsWithChildren<SmartKitClientProviderProps>) {
   let queryClient: QueryClient | null = null
   try {
@@ -33,7 +29,7 @@ export function SmartKitClientProvider({
   const Provider = (
     <SmartKitClientContext.Provider
       value={{
-        suiClient
+        config
       }}
     >
       {children}

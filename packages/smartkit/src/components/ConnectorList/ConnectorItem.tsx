@@ -13,8 +13,6 @@ export default function ConnectorItem() {
     // console.log('connectSuccess:', isSuccess)
   }, [isSuccess])
 
-  console.log(data?.address)
-
   return (
     <div>
       <AnimateButton onClick={connect}>Sui Wallet</AnimateButton>

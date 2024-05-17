@@ -1,7 +1,6 @@
-import { useSmartKitClientContext } from '../SmartKitClientProvider'
+import { useConfig } from './useConfig'
 
 export function useSuiClient() {
-  const { suiClient } = useSmartKitClientContext()
-
-  return suiClient
+  const config = useConfig()
+  return config.suiClient
 }
