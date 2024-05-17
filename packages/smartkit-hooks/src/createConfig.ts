@@ -2,7 +2,6 @@ import { SuiClient } from '@mysten/sui.js/client'
 import { Evaluate } from './types/utils'
 import { suiWallet } from './wallets/suiWallet'
 import { Wallet } from './types/wallet'
-import { okxWallet } from './wallets/okxWallet'
 import { getInstalledWallets } from './utils/wallet'
 
 export type WalletGroup = {
@@ -10,11 +9,12 @@ export type WalletGroup = {
   wallets: Wallet[]
 }
 
-export const DEAFULT_WALLETS: Wallet[] = [suiWallet, okxWallet]
+const DEAFULT_WALLETS: Wallet[] = [suiWallet]
 
 export type Config = Evaluate<{
   suiClient: SuiClient
-  wallets?: Array<WalletGroup> | Array<Wallet>
+  wallets?: Array<WalletGroup | Wallet>
+  walletGroups?: WalletGroup[]
 }>
 
 export function excludeInOtherWalletGroup(
@@ -31,7 +31,9 @@ export function excludeInOtherWalletGroup(
   return wallets.filter((wallet) => !includeInWalletSet.has(wallet.name))
 }
 
-export function createConfig(config: Config) {
+type createConfigParams = Omit<Config, 'walletGroups'>
+
+export function createConfig(config: createConfigParams): Config {
   const { suiClient, wallets = [] } = config
 
   let wishWallets: Array<WalletGroup | Wallet> = wallets
@@ -71,6 +73,11 @@ export function createConfig(config: Config) {
             walletGroups.map((walletGroup) => walletGroup.groupName)
           )
         }
+      })
+    } else {
+      walletGroups.push({
+        groupName: 'Other',
+        wallets: excludeInOtherWalletGroup(walletGroups, [walletOrGroup])
       })
     }
   })

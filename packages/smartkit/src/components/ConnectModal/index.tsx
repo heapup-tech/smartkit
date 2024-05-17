@@ -1,4 +1,4 @@
-import ConnectorList from '../ConnectorList'
+import ConnectOptions from '../ConnectOptions'
 import Dialog from '../Dialog'
 
 interface ConnectModalProps {
@@ -9,7 +9,7 @@ interface ConnectModalProps {
 export function ConnectModal({ open, onClose }: ConnectModalProps) {
   return (
     <Dialog open={open} onClose={onClose}>
-      <ConnectorList />
+      <ConnectOptions />
     </Dialog>
   )
 }
