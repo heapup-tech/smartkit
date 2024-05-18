@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { ConnectModal } from '../ConnectModal'
 import styles from './styles.css'
 import ThemeContainer from '../ThemeContainer'
 import AnimateButton from '../Button/AnimateButton'
+import { useSmartKitContext } from '../SmartKitProvider'
 
 export interface ConnectButtonProps {
   label?: string
@@ -13,7 +13,7 @@ export function ConnectButton({
   label = 'Connect Wallet',
   showBalance = true
 }: ConnectButtonProps) {
-  const [open, setOpen] = useState(true)
+  const smartKitContext = useSmartKitContext()
   const [connected] = useState(false)
   return (
     <>
@@ -22,14 +22,12 @@ export function ConnectButton({
           showBalance && <></>
         ) : (
           <AnimateButton
-            onClick={() => setOpen(true)}
+            onClick={() => smartKitContext.setOpen(true)}
             className={styles.connectButton}
           >
             {label}
           </AnimateButton>
         )}
-
-        <ConnectModal open={open} onClose={() => setOpen(false)} />
       </ThemeContainer>
     </>
   )

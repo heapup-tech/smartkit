@@ -10,7 +10,7 @@ interface SmartKitClientProviderProps {
   config: Config
 }
 
-const SmartKitClientContext = createContext<
+export const SmartKitClientContext = createContext<
   | {
       config: Config
     }

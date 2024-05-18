@@ -1,5 +1,5 @@
 // provider
-export { SmartKitClientProvider } from './SmartKitClientProvider'
+export * from './SmartKitClientProvider'
 
 // hooks
 export * from './hooks'

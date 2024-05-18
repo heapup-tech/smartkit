@@ -1,5 +1,6 @@
-import { createContext, useContext } from 'react'
+import { createContext, useContext, useState } from 'react'
 import { Mode, Theme } from '../theme/types'
+import { ConnectModal } from './ConnectModal'
 
 interface SmartKitProviderProps {
   children: React.ReactNode
@@ -7,24 +8,35 @@ interface SmartKitProviderProps {
   mode?: Mode
 }
 
-export const SmartKitContext = createContext<Omit<
-  SmartKitProviderProps,
-  'children'
-> | null>(null)
+interface SmartKitProviderContext {
+  theme?: Theme
+  mode?: Mode
+  open: boolean
+  setOpen: (open: boolean) => void
+}
+
+export const SmartKitContext = createContext<SmartKitProviderContext | null>(
+  null
+)
 
 export function SmartKitProvider({
   children,
   theme = 'default',
   mode = 'auto'
 }: SmartKitProviderProps) {
+  const [open, setOpen] = useState(false)
   return (
     <SmartKitContext.Provider
       value={{
         theme,
-        mode
+        mode,
+        open,
+        setOpen
       }}
     >
       {children}
+
+      <ConnectModal />
     </SmartKitContext.Provider>
   )
 }

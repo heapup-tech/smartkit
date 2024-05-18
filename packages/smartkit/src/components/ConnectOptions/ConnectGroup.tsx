@@ -7,6 +7,7 @@ export interface ConnectGroupProps {
 }
 
 export function ConnectGroup({ walletGroup, onClick }: ConnectGroupProps) {
+  // TODO: with arrow-right icon
   const ConnectItem = ({ wallet }: { wallet: Wallet }) => {
     return (
       <div className={styles.walletItem} onClick={() => onClick(wallet)}>
@@ -19,6 +20,7 @@ export function ConnectGroup({ walletGroup, onClick }: ConnectGroupProps) {
       </div>
     )
   }
+
   return (
     <div className={styles.connectGroup}>
       <div className={styles.connectGroupTitle}>{walletGroup.groupName}</div>

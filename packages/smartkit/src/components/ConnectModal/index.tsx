@@ -1,14 +1,16 @@
 import ConnectOptions from '../ConnectOptions'
 import Dialog from '../Dialog'
+import { useSmartKitContext } from '../SmartKitProvider'
 
-interface ConnectModalProps {
-  open: boolean
-  onClose: () => void
-}
-
-export function ConnectModal({ open, onClose }: ConnectModalProps) {
+export function ConnectModal() {
+  const smartKitContext = useSmartKitContext()
   return (
-    <Dialog open={open} onClose={onClose}>
+    <Dialog
+      open={smartKitContext.open}
+      onClose={() => {
+        smartKitContext.setOpen(false)
+      }}
+    >
       <ConnectOptions />
     </Dialog>
   )

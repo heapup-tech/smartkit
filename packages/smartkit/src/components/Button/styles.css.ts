@@ -17,9 +17,9 @@ const animateButton = style({
   lineHeight: '40px',
   borderWidth: 0,
   fontWeight: 500,
+  fontSize: '14px',
   paddingInline: '5px',
   background: themeVars.background.clickable.normal,
-  color: themeVars.color.primary,
   ':hover': {
     background: themeVars.background.clickable.hover
   },
