@@ -36,7 +36,8 @@ const iconButton = style([
     width: '32px',
     height: '32px',
     padding: 0,
-    background: 'transparent'
+    background: 'transparent',
+    color: '#999999'
   }
 ])
 

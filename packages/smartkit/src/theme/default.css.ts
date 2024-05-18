@@ -8,7 +8,8 @@ export const DefaultTheme = createGlobalTheme(
   themeVars,
   {
     color: {
-      primary: '#373737'
+      accent: '#EAECF1',
+      accentForeground: '#999999'
     },
     radii: {
       connectButton: '10px',

@@ -3,7 +3,8 @@ import { createGlobalThemeContract } from '@vanilla-extract/css'
 export const themeVars = createGlobalThemeContract(
   {
     color: {
-      primary: ''
+      accent: '',
+      accentForeground: ''
     },
     radii: {
       connectButton: '',

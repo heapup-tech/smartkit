@@ -1,11 +1,10 @@
 import { useConnect, useWalletGroups } from '@heapup/smartkit-hooks'
 import type { Wallet } from '@heapup/smartkit-hooks'
 import AnimateButton from '../Button/AnimateButton'
+import { ConnectGroup } from './ConnectGroup'
 
 export default function ConnectOptions() {
   const walletGroups = useWalletGroups()
-
-  console.log(walletGroups)
 
   const { connect, isSuccess: connectSuccess } = useConnect()
 
@@ -18,20 +17,13 @@ export default function ConnectOptions() {
       console.log(`${wallet.name} not installed`)
     }
   }
+
   return (
     <div>
       {walletGroups.map((walletGroup) => {
         return (
           <div key={walletGroup.groupName}>
-            {walletGroup.wallets.map((wallet) => {
-              return (
-                <div key={wallet.name}>
-                  <AnimateButton onClick={() => handleConnect(wallet)}>
-                    {wallet.name}
-                  </AnimateButton>
-                </div>
-              )
-            })}
+            <ConnectGroup walletGroup={walletGroup} onClick={handleConnect} />
           </div>
         )
       })}

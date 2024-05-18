@@ -2,7 +2,7 @@ import { WalletWithRequiredFeatures } from '@mysten/wallet-standard'
 
 export type UninstalledWallet = {
   name: string
-  icon: string | (() => Promise<string>)
+  icon: string
   downloadUrl?: string
 }
 

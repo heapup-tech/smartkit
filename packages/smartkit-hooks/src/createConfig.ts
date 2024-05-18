@@ -76,7 +76,7 @@ export function createConfig(config: createConfigParams): Config {
       })
     } else {
       walletGroups.push({
-        groupName: 'Other',
+        groupName: 'Popular',
         wallets: excludeInOtherWalletGroup(walletGroups, [walletOrGroup])
       })
     }
