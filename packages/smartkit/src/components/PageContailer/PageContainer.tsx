@@ -1,52 +1,54 @@
 import { AnimatePresence, motion, Variants } from 'framer-motion'
 import { usePageContext } from '../../pages/PageProvider'
+import styles from './styles.css'
+import { PropsWithChildren } from 'react'
 
 const pageAnims: Variants = {
   fadeInScaleUpInitial: {
-    scale: 0.8,
+    scale: 0.97,
     opacity: 0
   },
-  fadeInScaleUpFinal: {
-    scale: 1,
-    opacity: 1
-  },
-  fadeOutScaleUpInitial: {
+  final: {
     scale: 1,
     opacity: 1
   },
   fadeOutScaleUpFinal: {
-    scale: 1.2,
+    scale: 1.03,
     opacity: 0
   }
 }
 
+const Page = ({ children }: PropsWithChildren) => {
+  return <div className={styles.page}>{children}</div>
+}
+
 export function PageContainer() {
   const { currentPage, pages } = usePageContext()
-  // console.log(pageContext.pages)
-
-  const prevPage = 'connectOptions'
+  const prevPage = 'ss'
 
   return (
-    <div>
+    <div className={styles.pageContainer}>
       {Object.keys(pages).map((key) => {
         const page = pages[key]
         return (
-          <AnimatePresence key={key}>
-            {currentPage === key && (
-              <motion.div
-                layout
-                variants={pageAnims}
-                initial={
-                  prevPage ? 'fadeOutScaleUpFinal' : 'fadeInScaleUpInitial'
-                }
-                animate={{ scale: 1, opacity: 1 }}
-                exit={'fadeOutScaleUpFinal'}
-                transition={{ duration: 0.15, ease: 'linear' }}
-              >
-                {page}
-              </motion.div>
-            )}
-          </AnimatePresence>
+          <Page key={key}>
+            <AnimatePresence>
+              {currentPage === key && (
+                <motion.div
+                  layout
+                  variants={pageAnims}
+                  initial={
+                    prevPage ? 'fadeOutScaleUpFinal' : 'fadeInScaleUpInitial'
+                  }
+                  animate={'final'}
+                  exit={'fadeOutScaleUpFinal'}
+                  transition={{ duration: 0.15, ease: 'linear' }}
+                >
+                  {page}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </Page>
         )
       })}
     </div>

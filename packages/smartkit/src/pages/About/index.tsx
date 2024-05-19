@@ -6,7 +6,7 @@ export default function About() {
     <div>
       <button
         onClick={() => {
-          pageContext.setCurrentPage('connectOptions')
+          pageContext.popPage()
         }}
       >
         goback

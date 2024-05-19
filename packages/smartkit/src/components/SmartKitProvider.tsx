@@ -11,6 +11,7 @@ interface SmartKitProviderProps {
 interface SmartKitProviderContext {
   theme?: Theme
   mode?: Mode
+  // TODO: move to modal context
   open: boolean
   setOpen: (open: boolean) => void
 }
