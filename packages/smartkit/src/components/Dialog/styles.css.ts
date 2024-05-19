@@ -20,20 +20,7 @@ const dialogContent = style({
   paddingInline: themeVars.padding.connectModal.paddingInline
 })
 
-const dialogHeader = style({
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center'
-})
-
-const dialogHeaderTitle = style({
-  fontSize: themeVars.fontSizes.title,
-  fontWeight: 600
-})
-
 export default {
   dialogOverlay,
-  dialogContent,
-  dialogHeader,
-  dialogHeaderTitle
+  dialogContent
 }

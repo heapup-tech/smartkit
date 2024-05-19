@@ -30,12 +30,3 @@ export function ConnectGroup({ walletGroup, onClick }: ConnectGroupProps) {
     </div>
   )
 }
-// {walletGroup.wallets.map((wallet) => {
-//   return (
-//     <div key={wallet.name}>
-//       <AnimateButton onClick={() => handleConnect(wallet)}>
-//         {wallet.name}
-//       </AnimateButton>
-//     </div>
-//   )
-// })}

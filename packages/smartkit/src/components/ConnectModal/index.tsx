@@ -1,17 +1,21 @@
-import ConnectOptions from '../ConnectOptions'
+import { PageProvider } from '../../pages/PageProvider'
 import Dialog from '../Dialog'
+import { PageContainer } from '../PageContailer/PageContainer'
 import { useSmartKitContext } from '../SmartKitProvider'
 
 export function ConnectModal() {
   const smartKitContext = useSmartKitContext()
+
   return (
-    <Dialog
-      open={smartKitContext.open}
-      onClose={() => {
-        smartKitContext.setOpen(false)
-      }}
-    >
-      <ConnectOptions />
-    </Dialog>
+    <PageProvider>
+      <Dialog
+        open={smartKitContext.open}
+        onClose={() => {
+          smartKitContext.setOpen(false)
+        }}
+      >
+        <PageContainer />
+      </Dialog>
+    </PageProvider>
   )
 }

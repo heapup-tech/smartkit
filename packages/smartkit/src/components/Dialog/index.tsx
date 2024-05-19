@@ -5,7 +5,6 @@ import DialogOverlay from './DialogOverlay'
 import DialogContent from './DialogContent'
 import { AnimatePresence } from 'framer-motion'
 import { useCallback } from 'react'
-import DialogHeader from './DialogHeader'
 
 interface DialogProps {
   children: React.ReactNode
@@ -14,7 +13,7 @@ interface DialogProps {
 }
 
 export default function Dialog({ children, open, onClose }: DialogProps) {
-  const handleDismissDialog = useCallback(() => {
+  const handleCloseDialog = useCallback(() => {
     onClose()
   }, [onClose])
   return (
@@ -24,11 +23,8 @@ export default function Dialog({ children, open, onClose }: DialogProps) {
           <RemoveScroll>
             <Portal>
               <ThemeContainer>
-                <DialogOverlay onClose={handleDismissDialog}>
-                  <DialogContent>
-                    <DialogHeader onClose={handleDismissDialog} />
-                    <div>{children}</div>
-                  </DialogContent>
+                <DialogOverlay onClose={handleCloseDialog}>
+                  <DialogContent>{children}</DialogContent>
                 </DialogOverlay>
               </ThemeContainer>
             </Portal>
