@@ -29,13 +29,17 @@ export default function ConnectOptions() {
         //   />
         // }
       />
-      {walletGroups.map((walletGroup) => {
-        return (
-          <div key={walletGroup.groupName}>
-            <ConnectGroup walletGroup={walletGroup} onClick={handleConnect} />
-          </div>
-        )
-      })}
+      <div>
+        {walletGroups.map((walletGroup) => {
+          return (
+            <ConnectGroup
+              key={walletGroup.groupName}
+              walletGroup={walletGroup}
+              onClick={handleConnect}
+            />
+          )
+        })}
+      </div>
     </div>
   )
 }

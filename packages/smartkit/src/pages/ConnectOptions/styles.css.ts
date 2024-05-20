@@ -2,7 +2,10 @@ import { style } from '@vanilla-extract/css'
 import { themeVars } from '../../theme/themeVars'
 
 const connectGroup = style({
-  marginTop: '20px'
+  marginTop: '20px',
+  ':first-child': {
+    marginTop: 0
+  }
 })
 
 const connectGroupTitle = style({

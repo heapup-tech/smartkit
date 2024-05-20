@@ -31,24 +31,21 @@ export function PageContainer() {
       {Object.keys(pages).map((key) => {
         const page = pages[key]
         return (
-          <Page key={key}>
-            <AnimatePresence>
-              {currentPage === key && (
-                <motion.div
-                  layout
-                  variants={pageAnims}
-                  initial={
-                    prevPage ? 'fadeOutScaleUpFinal' : 'fadeInScaleUpInitial'
-                  }
-                  animate={'final'}
-                  exit={'fadeOutScaleUpFinal'}
-                  transition={{ duration: 0.15, ease: 'linear' }}
-                >
-                  {page}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </Page>
+          <AnimatePresence>
+            {currentPage === key && (
+              <motion.div
+                variants={pageAnims}
+                initial={
+                  prevPage ? 'fadeOutScaleUpFinal' : 'fadeInScaleUpInitial'
+                }
+                animate={'final'}
+                exit={'fadeOutScaleUpFinal'}
+                transition={{ duration: 0.15, ease: 'linear' }}
+              >
+                <Page>{page}</Page>
+              </motion.div>
+            )}
+          </AnimatePresence>
         )
       })}
     </div>
