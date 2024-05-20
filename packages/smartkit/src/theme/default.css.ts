@@ -9,7 +9,8 @@ export const DefaultTheme = createGlobalTheme(
   {
     color: {
       accent: '#EAECF1',
-      accentForeground: '#999999'
+      accentForeground: '#999999',
+      destructiveForeground: '#EF4544'
     },
     radii: {
       connectButton: '10px',

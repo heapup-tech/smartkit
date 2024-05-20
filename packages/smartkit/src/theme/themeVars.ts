@@ -4,7 +4,8 @@ export const themeVars = createGlobalThemeContract(
   {
     color: {
       accent: '',
-      accentForeground: ''
+      accentForeground: '',
+      destructiveForeground: ''
     },
     radii: {
       connectButton: '',

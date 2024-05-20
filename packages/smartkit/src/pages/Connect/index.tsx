@@ -1,14 +1,8 @@
-import {
-  InstalledWallet,
-  UninstalledWallet,
-  useConnect,
-  Wallet
-} from '@heapup/smartkit-hooks'
+import { UninstalledWallet, useConnect } from '@heapup/smartkit-hooks'
 import { useEffect, useState } from 'react'
 import { usePageContext } from '../PageProvider'
 import { useSmartKitContext } from '../../components/SmartKitProvider'
 import PageHeader from '../../components/PageContailer/PageHeader'
-import InfoIcon from '../../icons/InfoIcon'
 import styles from './styles.css'
 import AnimateButton from '../../components/Button/AnimateButton'
 
@@ -48,13 +42,11 @@ export default function Connect() {
 
   const notInstalled = (
     <div className={styles.notInstalled}>
-      {selectedWallet && selectedWallet.icon && (
-        <img
-          src={selectedWallet?.icon}
-          alt={selectedWallet?.name}
-          className={styles.walletIcon}
-        />
-      )}
+      <img
+        src={selectedWallet?.icon}
+        alt={selectedWallet?.name}
+        className={styles.walletIcon}
+      />
       <div>{selectedWallet?.name} has not been installed</div>
       <a
         href={(selectedWallet as UninstalledWallet).downloadUrl}
@@ -71,12 +63,32 @@ export default function Connect() {
     </div>
   )
 
+  const connectStatus = (
+    <div className={styles.connectStatus}>
+      <img
+        src={selectedWallet?.icon}
+        alt={selectedWallet?.name}
+        className={styles.walletIcon}
+      />
+      {connecting ? (
+        <div className={styles.connectingText}>Connecting...</div>
+      ) : connectFailed ? (
+        <div className={styles.connectFailedText}>Connect failed</div>
+      ) : null}
+      {connectFailed && (
+        <AnimateButton className={styles.retryButton} onClick={handleConnect}>
+          Retry
+        </AnimateButton>
+      )}
+    </div>
+  )
+
   return (
     <div className={styles.connectContainer}>
       <PageHeader label={selectedWallet?.name || 'Connect Wallet'} backable />
 
       <div className={styles.connectContent}>
-        {isInstalled ? <div></div> : notInstalled}
+        {isInstalled ? connectStatus : notInstalled}
 
         {/* {connecting ? (
           <div>Connecting...</div>

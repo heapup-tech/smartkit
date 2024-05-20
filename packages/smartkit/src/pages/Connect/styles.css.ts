@@ -35,10 +35,41 @@ const downloadButton = style([
   }
 ])
 
+const connectStatus = style({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  gap: '10px'
+})
+
+const connectingText = style({
+  color: themeVars.color.accentForeground,
+  fontSize: themeVars.fontSizes.title
+})
+
+const connectFailedText = style({
+  color: themeVars.color.destructiveForeground,
+  fontSize: themeVars.fontSizes.title,
+  fontWeight: 500
+})
+
+const retryButton = style([
+  buttonStyle.animateButton,
+  {
+    borderRadius: themeVars.radii.connectButton,
+    paddingInline: themeVars.padding.connectButton.paddingInline,
+    cursor: 'pointer'
+  }
+])
+
 export default {
   connectContainer,
   connectContent,
   walletIcon,
+  connectStatus,
   notInstalled,
-  downloadButton
+  downloadButton,
+  connectingText,
+  connectFailedText,
+  retryButton
 }
