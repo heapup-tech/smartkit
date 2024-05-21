@@ -3,6 +3,7 @@ import styles from './styles.css'
 import ThemeContainer from '../ThemeContainer'
 import AnimateButton from '../Button/AnimateButton'
 import { useSmartKitContext } from '../SmartKitProvider'
+import { useAccount } from '@heapup/smartkit-hooks'
 
 export interface ConnectButtonProps {
   label?: string
@@ -14,12 +15,17 @@ export function ConnectButton({
   showBalance = true
 }: ConnectButtonProps) {
   const smartKitContext = useSmartKitContext()
-  const [connected] = useState(false)
+
+  const { isConnected, address } = useAccount()
   return (
     <>
       <ThemeContainer>
-        {connected ? (
-          showBalance && <></>
+        {isConnected ? (
+          showBalance && (
+            <AnimateButton className={styles.connectButton}>
+              {address}
+            </AnimateButton>
+          )
         ) : (
           <AnimateButton
             onClick={() => smartKitContext.setOpen(true)}

@@ -10,12 +10,9 @@ interface SmartKitClientProviderProps {
   config: Config
 }
 
-export const SmartKitClientContext = createContext<
-  | {
-      config: Config
-    }
-  | undefined
->(undefined)
+export const SmartKitClientContext = createContext<Config | undefined>(
+  undefined
+)
 
 export function SmartKitClientProvider({
   children,
@@ -27,11 +24,7 @@ export function SmartKitClientProvider({
   } catch (error) {}
 
   const Provider = (
-    <SmartKitClientContext.Provider
-      value={{
-        config
-      }}
-    >
+    <SmartKitClientContext.Provider value={config}>
       {children}
     </SmartKitClientContext.Provider>
   )

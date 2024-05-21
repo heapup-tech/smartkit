@@ -3,6 +3,31 @@ import { Evaluate } from './types/utils'
 import { suiWallet } from './wallets/suiWallet'
 import { Wallet } from './types/wallet'
 import { getInstalledWallets } from './utils/wallet'
+import { createStore, StoreApi } from 'zustand'
+import {
+  WalletAccount,
+  WalletWithRequiredFeatures
+} from '@mysten/wallet-standard'
+import { Address } from './types/account'
+import { createConnectStore } from './createConnectStore'
+
+export type WalletAction = {
+  onConnected: (
+    wallet: WalletWithRequiredFeatures,
+    accounts: WalletAccount[]
+  ) => void
+  onDisConnected: () => void
+  onSwitchedAccount: (account: WalletAccount) => void
+}
+
+export type State = {
+  accounts: WalletAccount[]
+  currentAccount: WalletAccount | null
+  currentWallet: WalletWithRequiredFeatures | null
+  recentAccountAddress: Address | null
+  recentConnectorId: string
+  status: 'connected' | 'connecting' | 'disconnected' | 'reconnecting'
+} & WalletAction
 
 export type WalletGroup = {
   groupName: string
@@ -13,8 +38,10 @@ const DEAFULT_WALLETS: Wallet[] = [suiWallet]
 
 export type Config = Evaluate<{
   suiClient: SuiClient
+  storage?: Storage
   wallets?: Array<WalletGroup | Wallet>
   walletGroups?: WalletGroup[]
+  store: StoreApi<State>
 }>
 
 export function excludeInOtherWalletGroup(
@@ -31,7 +58,7 @@ export function excludeInOtherWalletGroup(
   return wallets.filter((wallet) => !includeInWalletSet.has(wallet.name))
 }
 
-type createConfigParams = Omit<Config, 'walletGroups'>
+type createConfigParams = Omit<Config, 'walletGroups' | 'store'>
 
 export function createConfig(config: createConfigParams): Config {
   const { suiClient, wallets = [] } = config
@@ -86,12 +113,15 @@ export function createConfig(config: createConfigParams): Config {
     (walletGroup) => walletGroup.wallets.length > 0
   )
 
+  createStore
+
   return {
     suiClient,
     walletGroups: walletGroups,
     wallets: walletGroups.reduce<Wallet[]>((acc, walletGroup) => {
       acc.push(...walletGroup.wallets)
       return acc
-    }, [])
+    }, []),
+    store: createConnectStore()
   }
 }
