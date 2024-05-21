@@ -12,7 +12,7 @@ const pageAnims: Variants = {
     scale: 1,
     opacity: 1
   },
-  fadeOutScaleUpFinal: {
+  fadeOutScaleDownInitial: {
     scale: 1.03,
     opacity: 0
   }
@@ -23,23 +23,22 @@ const Page = ({ children }: PropsWithChildren) => {
 }
 
 export function PageContainer() {
-  const { currentPage, pages } = usePageContext()
-  const prevPage = 'ss'
+  const { currentPage, pages, prevPage } = usePageContext()
 
   return (
     <div className={styles.pageContainer}>
       {Object.keys(pages).map((key) => {
         const page = pages[key]
         return (
-          <AnimatePresence>
+          <AnimatePresence key={key}>
             {currentPage === key && (
               <motion.div
                 variants={pageAnims}
                 initial={
-                  prevPage ? 'fadeOutScaleUpFinal' : 'fadeInScaleUpInitial'
+                  prevPage ? 'fadeOutScaleDownInitial' : 'fadeInScaleUpInitial'
                 }
                 animate={'final'}
-                exit={'fadeOutScaleUpFinal'}
+                exit={'fadeOutScaleDownInitial'}
                 transition={{ duration: 0.15, ease: 'linear' }}
               >
                 <Page>{page}</Page>

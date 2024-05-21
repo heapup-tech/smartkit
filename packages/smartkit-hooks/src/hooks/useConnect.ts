@@ -30,8 +30,6 @@ export function useConnect(parameters: UseConnectParameters = {}) {
         account.chains.some((chain) => chain.split(':')[0] === 'sui')
       )
 
-      console.log(connectedAccounts)
-
       return {
         accounts: connectedAccounts
       }

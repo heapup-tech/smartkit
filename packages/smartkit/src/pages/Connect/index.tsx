@@ -11,8 +11,7 @@ export default function Connect() {
     connect,
     isSuccess: connectSuccess,
     isPending: connecting,
-    isError: connectFailed,
-    error: connectError
+    isError: connectFailed
   } = useConnect()
 
   const { selectedWallet } = usePageContext()
@@ -89,13 +88,6 @@ export default function Connect() {
 
       <div className={styles.connectContent}>
         {isInstalled ? connectStatus : notInstalled}
-
-        {/* {connecting ? (
-          <div>Connecting...</div>
-        ) : connectFailed ? (
-          <div>Connect failed</div>
-        ) : null}
-        <div onClick={handleConnect}>retry</div> */}
       </div>
     </div>
   )
