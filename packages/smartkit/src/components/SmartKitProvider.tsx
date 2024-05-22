@@ -2,6 +2,7 @@ import { createContext, useContext, useState } from 'react'
 import { Mode, Theme } from '../theme/types'
 import { ConnectModal } from './ConnectModal'
 import { useAutoConnect } from '@heapup/smartkit-hooks'
+import { PageProvider } from '../pages/PageProvider'
 
 interface SmartKitProviderProps {
   children: React.ReactNode
@@ -37,9 +38,11 @@ export function SmartKitProvider({
         setOpen
       }}
     >
-      {children}
+      <PageProvider>
+        {children}
 
-      <ConnectModal />
+        <ConnectModal />
+      </PageProvider>
     </SmartKitContext.Provider>
   )
 }

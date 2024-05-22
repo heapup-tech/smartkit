@@ -1,8 +1,9 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 import About from './About'
 import ConnectOptions from './ConnectOptions'
 import Connect from './Connect'
-import { Wallet } from '@heapup/smartkit-hooks'
+import { useAccount, Wallet } from '@heapup/smartkit-hooks'
+import Profile from './Profile'
 
 type PageName = keyof typeof pages
 type PageProviderContext = {
@@ -20,10 +21,13 @@ const PageContext = createContext<PageProviderContext | null>(null)
 const pages = {
   connectOptions: <ConnectOptions />,
   about: <About />,
-  connect: <Connect />
+  connect: <Connect />,
+  profile: <Profile />
 } as const
 
 export function PageProvider({ children }: React.PropsWithChildren<{}>) {
+  const { isConnected } = useAccount()
+
   const [currentPage, setCurrentPage] = useState<PageName>('connectOptions')
   const [selectedWallet, setSelectedWallet] = useState<Wallet | undefined>(
     undefined
@@ -44,6 +48,10 @@ export function PageProvider({ children }: React.PropsWithChildren<{}>) {
       setPrevPage(null)
     }
   }
+
+  useEffect(() => {
+    isConnected && setCurrentPage('profile')
+  }, [isConnected])
 
   return (
     <PageContext.Provider

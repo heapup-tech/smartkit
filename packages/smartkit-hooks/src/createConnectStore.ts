@@ -30,7 +30,7 @@ export const createConnectStore = () => {
                 currentWallet: wallet,
                 recentConnectAddress: account?.address as Address,
                 recentConnectorId: wallet.name,
-                status: 'connected'
+                status: accounts.length === 0 ? 'disconnected' : 'connected'
               }
             })
           },
