@@ -1,9 +1,10 @@
 import { ConnectButton } from '@heapup/smartkit'
-import { useAccount } from '@heapup/smartkit-hooks'
+import { useAccount, useBalance } from '@heapup/smartkit-hooks'
 import '@heapup/smartkit/styles.css'
+import { useEffect } from 'react'
 
 function App() {
-  const { accounts } = useAccount()
+  const { accounts, account } = useAccount()
   console.log(accounts?.map((account) => account.address))
 
   return (

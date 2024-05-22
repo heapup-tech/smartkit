@@ -12,19 +12,21 @@ export interface ConnectButtonProps {
 
 export function ConnectButton({
   label = 'Connect Wallet',
-  showBalance = false
+  showBalance = true
 }: ConnectButtonProps) {
   const smartKitContext = useSmartKitContext()
-  const pageContext = usePageContext()
 
   const { isConnected, account } = useAccount()
-  useBalance()
 
   const handleConnectButtonClick = () => {
-    console.log(pageContext.currentPage)
-
     smartKitContext.setOpen(true)
   }
+
+  const { data: balance } = useBalance({
+    address: account?.address
+  })
+
+  console.log(balance?.totalBalance)
 
   return (
     <>
@@ -36,6 +38,7 @@ export function ConnectButton({
               onClick={handleConnectButtonClick}
             >
               {account?.label || account?.address}
+              {100} sui
             </AnimateButton>
           ) : (
             <AnimateButton

@@ -1,4 +1,9 @@
-import { UseMutationOptions } from '@tanstack/react-query'
+import {
+  DefaultError,
+  QueryKey,
+  UseMutationOptions,
+  UseQueryOptions
+} from '@tanstack/react-query'
 
 export type Evaluate<type> = { [key in keyof type]: type[key] } & unknown
 
@@ -15,5 +20,17 @@ export type UseMutationParameters<
   Omit<
     UseMutationOptions<data, error, Evaluate<variables>, context>,
     'mutationFn' | 'mutationKey' | 'throwOnError'
+  >
+>
+
+export type UseQueryParameters<
+  queryFnData = unknown,
+  error = DefaultError,
+  data = queryFnData,
+  queryKey extends QueryKey = QueryKey
+> = Evaluate<
+  Omit<
+    UseQueryOptions<queryFnData, error, data, queryKey>,
+    'queryFn' | 'queryHash' | 'queryKey' | 'queryKeyHashFn' | 'throwOnError'
   >
 >

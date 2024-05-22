@@ -1,4 +1,4 @@
-import { useAccount, useDisconnect } from '@heapup/smartkit-hooks'
+import { useAccount, useBalance, useDisconnect } from '@heapup/smartkit-hooks'
 import PageHeader from '../../components/PageContailer/PageHeader'
 import styles from './styles.css'
 import AnimateButton from '../../components/Button/AnimateButton'
@@ -8,6 +8,12 @@ export default function Profile() {
   const { account } = useAccount()
   const { disconnect } = useDisconnect()
   const { setOpen } = useSmartKitContext()
+
+  const { data: balance } = useBalance({
+    address: account?.address
+  })
+
+  console.log(balance?.totalBalance)
   const handleDisconnect = () => {
     console.log('disconnect')
     disconnect()
@@ -20,6 +26,7 @@ export default function Profile() {
       <div className={styles.profileContent}>
         <div className={styles.address}>
           {account?.label || account?.address}
+          {balance?.totalBalance} Sui
         </div>
 
         <AnimateButton onClick={handleDisconnect}>Disconnect</AnimateButton>

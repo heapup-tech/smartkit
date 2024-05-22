@@ -10,7 +10,7 @@ import { getFullnodeUrl, SuiClient } from '@mysten/sui.js/client'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 const client = new SuiClient({
-  url: getFullnodeUrl('testnet')
+  url: getFullnodeUrl('mainnet')
 })
 const queryClient = new QueryClient()
 

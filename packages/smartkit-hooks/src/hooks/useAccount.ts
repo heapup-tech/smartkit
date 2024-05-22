@@ -40,8 +40,8 @@ export function useAccount() {
 
     case 'disconnected':
       return {
-        account: undefined,
-        accounts: undefined,
+        account: null,
+        accounts: [],
         isConnected: false,
         isConnecting: false,
         isDisconnected: true,
