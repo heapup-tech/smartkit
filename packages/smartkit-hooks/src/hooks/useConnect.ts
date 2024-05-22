@@ -6,9 +6,11 @@ import type {
 } from '@mysten/wallet-standard'
 import { UseMutationParameters } from '../types/utils'
 import { useConnectStore } from './useConnectStore'
+import { Address } from '../types/account'
 
 type ConnectParameters = {
   wallet: WalletWithRequiredFeatures
+  accountAddress?: Address
 } & StandardConnectInput
 
 type ConnectReturn = StandardConnectOutput
@@ -25,7 +27,7 @@ export function useConnect(parameters: UseConnectParameters = {}) {
   const { mutate, mutateAsync, ...result } = useMutation({
     ...mutation,
     mutationKey: ['connect'],
-    mutationFn: async ({ wallet, ...connectInput }) => {
+    mutationFn: async ({ wallet, accountAddress, ...connectInput }) => {
       const connectResult = await wallet.features['standard:connect'].connect(
         connectInput
       )
@@ -33,8 +35,15 @@ export function useConnect(parameters: UseConnectParameters = {}) {
         account.chains.some((chain) => chain.split(':')[0] === 'sui')
       )
 
-      console.log(connectedAccounts)
-      onConnected(wallet, connectedAccounts)
+      let connectedAccount = connectedAccounts.find(
+        (account) => account.address === accountAddress
+      )
+
+      if (!connectedAccount && connectedAccounts.length) {
+        connectedAccount = connectedAccounts[0]
+      }
+
+      onConnected(wallet, connectedAccounts, connectedAccount ?? null)
 
       return {
         accounts: connectedAccounts

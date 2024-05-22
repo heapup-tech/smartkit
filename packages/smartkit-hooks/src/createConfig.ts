@@ -14,7 +14,8 @@ import { createConnectStore } from './createConnectStore'
 export type WalletAction = {
   onConnected: (
     wallet: WalletWithRequiredFeatures,
-    accounts: WalletAccount[]
+    accounts: WalletAccount[],
+    account: WalletAccount | null
   ) => void
   onDisConnected: () => void
   onSwitchedAccount: (account: WalletAccount) => void
@@ -24,8 +25,8 @@ export type State = {
   accounts: WalletAccount[]
   currentAccount: WalletAccount | null
   currentWallet: WalletWithRequiredFeatures | null
-  recentAccountAddress: Address | null
-  recentConnectorId: string
+  recentConnectAddress: Address | null
+  recentConnectorId: string | null
   status: 'connected' | 'connecting' | 'disconnected' | 'reconnecting'
 } & WalletAction
 

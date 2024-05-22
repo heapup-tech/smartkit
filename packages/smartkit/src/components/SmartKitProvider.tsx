@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from 'react'
 import { Mode, Theme } from '../theme/types'
 import { ConnectModal } from './ConnectModal'
+import { useAutoConnect } from '@heapup/smartkit-hooks'
 
 interface SmartKitProviderProps {
   children: React.ReactNode
@@ -26,6 +27,7 @@ export function SmartKitProvider({
   mode = 'auto'
 }: SmartKitProviderProps) {
   const [open, setOpen] = useState(false)
+  useAutoConnect()
   return (
     <SmartKitContext.Provider
       value={{

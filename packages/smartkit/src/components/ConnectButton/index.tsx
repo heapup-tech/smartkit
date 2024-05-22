@@ -1,9 +1,8 @@
-import { useState } from 'react'
 import styles from './styles.css'
 import ThemeContainer from '../ThemeContainer'
 import AnimateButton from '../Button/AnimateButton'
 import { useSmartKitContext } from '../SmartKitProvider'
-import { useAccount } from '@heapup/smartkit-hooks'
+import { useAccount, useBalance } from '@heapup/smartkit-hooks'
 
 export interface ConnectButtonProps {
   label?: string
@@ -12,18 +11,24 @@ export interface ConnectButtonProps {
 
 export function ConnectButton({
   label = 'Connect Wallet',
-  showBalance = true
+  showBalance = false
 }: ConnectButtonProps) {
   const smartKitContext = useSmartKitContext()
 
-  const { isConnected, address } = useAccount()
+  const { isConnected, account } = useAccount()
+  useBalance()
+
   return (
     <>
       <ThemeContainer>
         {isConnected ? (
-          showBalance && (
+          showBalance ? (
             <AnimateButton className={styles.connectButton}>
-              {address}
+              {account?.label || account?.address}
+            </AnimateButton>
+          ) : (
+            <AnimateButton className={styles.connectButton}>
+              {account?.label || account?.address}
             </AnimateButton>
           )
         ) : (

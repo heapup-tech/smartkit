@@ -5,6 +5,7 @@ import {
 } from '@tanstack/react-query'
 import { createContext, useContext } from 'react'
 import { Config } from './createConfig'
+import { useAutoConnect } from './hooks'
 
 interface SmartKitClientProviderProps {
   config: Config

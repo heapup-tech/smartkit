@@ -1,9 +1,9 @@
-import { Address } from '../types/account'
+import { WalletAccount } from '@mysten/wallet-standard'
 import { useConnectStore } from './useConnectStore'
 
 export type UseAccountReturn = {
-  address: Address
-  addresses: Address[]
+  account: WalletAccount
+  accounts: WalletAccount[]
   isConnected: boolean
   isConnecting: boolean
   isDisconnected: boolean
@@ -13,15 +13,14 @@ export type UseAccountReturn = {
 
 export function useAccount() {
   const accounts = useConnectStore((state) => state.accounts)
-  const addresses = accounts.map((account) => account.address as Address)
-  const address = addresses?.[0]
+  const currentAccount = useConnectStore((state) => state.currentAccount)
 
   const status = useConnectStore((state) => state.status)
   switch (status) {
     case 'connected':
       return {
-        address: accounts[0].address,
-        addresses: accounts.map((account) => account.address),
+        account: currentAccount,
+        accounts: accounts,
         isConnected: true,
         isConnecting: false,
         isDisconnected: false,
@@ -30,8 +29,8 @@ export function useAccount() {
       }
     case 'connecting':
       return {
-        address: '',
-        addresses: [],
+        account: currentAccount,
+        accounts: accounts,
         isConnecting: true,
         isReconnecting: false,
         isConnected: false,
@@ -41,8 +40,8 @@ export function useAccount() {
 
     case 'disconnected':
       return {
-        address: undefined,
-        addresses: undefined,
+        account: undefined,
+        accounts: undefined,
         isConnected: false,
         isConnecting: false,
         isDisconnected: true,
@@ -52,9 +51,9 @@ export function useAccount() {
 
     case 'reconnecting':
       return {
-        address: undefined,
-        addresses: undefined,
-        isConnected: !!address,
+        account: currentAccount,
+        accounts: accounts,
+        isConnected: !!currentAccount,
         isConnecting: false,
         isDisconnected: false,
         isReconnecting: true,
