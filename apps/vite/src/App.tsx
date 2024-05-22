@@ -4,7 +4,7 @@ import '@heapup/smartkit/styles.css'
 
 function App() {
   const { accounts } = useAccount()
-  console.log(accounts)
+  console.log(accounts?.map((account) => account.address))
 
   return (
     <div

@@ -40,6 +40,8 @@ export const createConnectStore = () => {
                 accounts: [],
                 currentAccount: null,
                 currentWallet: null,
+                recentConnectAddress: null,
+                recentConnectorId: null,
                 status: 'disconnected'
               }
             })

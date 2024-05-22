@@ -26,8 +26,6 @@ export function ConnectButton({
     smartKitContext.setOpen(true)
   }
 
-  console.log('isConnected', isConnected)
-
   return (
     <>
       <ThemeContainer>

@@ -15,7 +15,7 @@ type ConnectParameters = {
 
 type ConnectReturn = StandardConnectOutput
 
-export type UseConnectParameters = {
+type UseConnectParameters = {
   mutation?: UseMutationParameters<ConnectReturn, Error, ConnectParameters>
 }
 
@@ -34,9 +34,6 @@ export function useConnect(parameters: UseConnectParameters = {}) {
       const connectedAccounts = connectResult.accounts.filter((account) =>
         account.chains.some((chain) => chain.split(':')[0] === 'sui')
       )
-      console.log('connectedAccounts')
-
-      console.log(connectedAccounts)
 
       let connectedAccount = connectedAccounts.find(
         (account) => account.address === accountAddress
