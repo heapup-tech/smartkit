@@ -1,13 +1,13 @@
 import { useAccount, useBalance, useDisconnect } from '@heapup/smartkit-hooks'
 import PageHeader from '../../components/PageContailer/PageHeader'
 import styles from './styles.css'
-import AnimateButton from '../../components/Button/AnimateButton'
 import { useSmartKitContext } from '../../components/SmartKitProvider'
 import { formatSui, truncateAddress } from '../../utils'
 import { DisconnectIcon } from '../../icons/DisconnectIcon'
 import CopyIcon from '../../icons/CopyIcon'
 import { useState } from 'react'
 import CheckedIcon from '../../icons/CheckedIcon'
+import Avatar from '../../components/Avatar'
 
 export default function Profile() {
   const { account } = useAccount()
@@ -42,6 +42,7 @@ export default function Profile() {
     <div>
       <PageHeader label="Connected" />
       <div className={styles.profileContent}>
+        <Avatar address={account?.address} />
         <div className={styles.address}>
           {truncateAddress(account?.address)}
         </div>

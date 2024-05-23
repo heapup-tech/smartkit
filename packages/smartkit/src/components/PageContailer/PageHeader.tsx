@@ -22,20 +22,25 @@ export default function PageHeader({
   const { popPage } = usePageContext()
   return (
     <div className={styles.pageHeader}>
-      {backable ? (
-        <IconButton icon={<BackIcon />} onClick={popPage} />
-      ) : (
-        <span>{attach}</span>
-      )}
+      <div className={styles.pageHeaderIcon}>
+        {backable ? (
+          <IconButton icon={<BackIcon />} onClick={popPage} />
+        ) : (
+          <div>{attach}</div>
+        )}
+      </div>
       <span className={styles.pageHeaderTitle}>{label}</span>
-      {closeable && (
-        <IconButton
-          icon={<CloseIcon />}
-          onClick={() => {
-            setOpen(false)
-          }}
-        />
-      )}
+
+      <div className={styles.pageHeaderIcon}>
+        {closeable && (
+          <IconButton
+            icon={<CloseIcon />}
+            onClick={() => {
+              setOpen(false)
+            }}
+          />
+        )}
+      </div>
     </div>
   )
 }

@@ -25,9 +25,19 @@ const pageHeaderTitle = style({
   fontWeight: 500
 })
 
+const pageHeaderIcon = style({
+  borderRadius: '50%',
+  width: '32px',
+  height: '32px',
+  padding: 0,
+  background: 'transparent',
+  color: '#999999'
+})
+
 export default {
   page,
   pageContainer,
   pageHeader,
-  pageHeaderTitle
+  pageHeaderTitle,
+  pageHeaderIcon
 }
