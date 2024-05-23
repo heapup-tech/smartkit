@@ -24,7 +24,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/heapup-tech/connectkit.git",
+    "url": "git+https://github.com/heapup-tech/smartkit.git",
     "directory": "packages/smartkit"
   },
   "scripts": {

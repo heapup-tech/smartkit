@@ -1,5 +1,5 @@
 {
-  "name": "connectkit",
+  "name": "smartkit",
   "private": true,
   "version": "0.0.0",
   "author": "syen",
@@ -7,7 +7,7 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/heapup-tech/connectkit.git"
+    "url": "git+https://github.com/heapup-tech/smartkit.git"
   },
   "scripts": {
     "prepare": "husky install",

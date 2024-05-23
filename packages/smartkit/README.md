@@ -1,4 +1,4 @@
-# ConnectKit
+# Smartkit
 
 ## TODO
 
