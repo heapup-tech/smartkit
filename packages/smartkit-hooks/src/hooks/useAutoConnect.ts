@@ -15,20 +15,20 @@ export function useAutoConnect() {
   return useQuery({
     queryKey: ['auto-connect'],
     queryFn: async () => {
-      if (recentConnectorId) {
-        const installedWallet = getInstalledWallets()
-        const wallet = installedWallet.find(
-          (wallet) => wallet.name === recentConnectorId
-        )
-        wallet &&
-          connectAsync({
-            wallet,
-            accountAddress: recentConnectAddress,
-            silent: true
-          })
-      }
+      const installedWallet = getInstalledWallets()
+
+      const wallet = installedWallet.find(
+        (wallet) => wallet.name === recentConnectorId
+      )
+      wallet &&
+        connectAsync({
+          wallet,
+          accountAddress: recentConnectAddress!,
+          silent: true
+        })
 
       return null
-    }
+    },
+    enabled: !!recentConnectorId && !!recentConnectAddress
   })
 }

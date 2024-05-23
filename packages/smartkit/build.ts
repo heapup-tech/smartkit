@@ -25,6 +25,9 @@ const executeBuild = async (buildOptions: BuildOptions) => {
 }
 
 const buildOptions: BuildOptions = {
+  banner: {
+    js: '"use client";'
+  },
   entryPoints: ['./src/index.ts'],
   outdir: 'dist',
   bundle: true,
