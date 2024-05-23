@@ -32,11 +32,11 @@
     "@mysten/sui.js": "^0.54.1",
     "@mysten/wallet-standard": "^0.11.6",
     "@tanstack/react-query": "^5.36.2",
-    "react": "^18.3.1",
+    "react": "^18",
     "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@heapup/typescript-config": "workspace:*",
-    "@types/react": "^18.3.1"
+    "@types/react": "^18"
   }
 }

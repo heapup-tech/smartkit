@@ -13,7 +13,8 @@
     "prepare": "husky install",
     "dev:smartkit": "pnpm --filter smartkit dev",
     "dev:smartkit-hooks": "pnpm --filter smartkit-hooks dev",
-    "preview:vite": "pnpm --filter vite dev"
+    "preview:vite": "pnpm --filter vite dev",
+    "dev:site": "pnpm --filter site dev"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
