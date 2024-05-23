@@ -9,6 +9,7 @@ const animateButton = style({
   padding: 0,
   borderStyle: 'solid',
   display: 'flex',
+  columnGap: '10px',
   alignItems: 'center',
   justifyContent: 'center',
   flexWrap: 'nowrap',

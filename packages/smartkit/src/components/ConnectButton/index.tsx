@@ -2,9 +2,8 @@ import styles from './styles.css'
 import ThemeContainer from '../ThemeContainer'
 import AnimateButton from '../Button/AnimateButton'
 import { useSmartKitContext } from '../SmartKitProvider'
-import { useAccount, useBalance } from '@heapup/smartkit-hooks'
-import { usePageContext } from '../../pages/PageProvider'
-import { formatSui, parseSui } from '../../utils'
+import { useAccount } from '@heapup/smartkit-hooks'
+import BalanceButton from './BalanceButton'
 
 export interface ConnectButtonProps {
   label?: string
@@ -23,26 +22,12 @@ export function ConnectButton({
     smartKitContext.setOpen(true)
   }
 
-  const { data: balance } = useBalance({
-    address: account?.address
-  })
-
-  const formatedBalance = formatSui(BigInt(balance?.totalBalance || 0))
-  // console.log(formatedBalance)
-  // console.log(parseSui(formatedBalance))
-
   return (
     <>
       <ThemeContainer>
         {isConnected ? (
           showBalance ? (
-            <AnimateButton
-              className={styles.connectButton}
-              onClick={handleConnectButtonClick}
-            >
-              {account?.label || account?.address}
-              {formatedBalance} sui
-            </AnimateButton>
+            <BalanceButton onClick={handleConnectButtonClick} />
           ) : (
             <AnimateButton
               className={styles.connectButton}

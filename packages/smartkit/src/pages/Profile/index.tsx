@@ -15,11 +15,11 @@ export default function Profile() {
   })
   const formatedBalance = formatSui(BigInt(balance?.totalBalance || 0))
   const handleDisconnect = () => {
-    console.log('disconnect')
     disconnect()
 
     setOpen(false)
   }
+
   return (
     <div>
       <PageHeader label="Connected" />
