@@ -4,8 +4,8 @@ export default function SuiIcon(props: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="28"
-      height="28"
+      width="25"
+      height="25"
       fill="none"
       viewBox="0 0 21 26"
       style={{
@@ -13,7 +13,7 @@ export default function SuiIcon(props: IconProps) {
         alignItems: 'center',
         justifyContent: 'center',
         color: 'white',
-        padding: '0.375rem',
+        padding: '0.275rem',
         boxSizing: 'border-box',
         borderRadius: '50%',
         backgroundColor: 'rgba(76, 163, 255, 1)'
