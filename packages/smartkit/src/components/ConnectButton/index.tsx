@@ -4,6 +4,7 @@ import AnimateButton from '../Button/AnimateButton'
 import { useSmartKitContext } from '../SmartKitProvider'
 import { useAccount, useBalance } from '@heapup/smartkit-hooks'
 import { usePageContext } from '../../pages/PageProvider'
+import { formatSui, parseSui } from '../../utils'
 
 export interface ConnectButtonProps {
   label?: string
@@ -26,7 +27,9 @@ export function ConnectButton({
     address: account?.address
   })
 
-  console.log(balance?.totalBalance)
+  const formatedBalance = formatSui(BigInt(balance?.totalBalance || 0))
+  // console.log(formatedBalance)
+  // console.log(parseSui(formatedBalance))
 
   return (
     <>
@@ -38,7 +41,7 @@ export function ConnectButton({
               onClick={handleConnectButtonClick}
             >
               {account?.label || account?.address}
-              {100} sui
+              {formatedBalance} sui
             </AnimateButton>
           ) : (
             <AnimateButton

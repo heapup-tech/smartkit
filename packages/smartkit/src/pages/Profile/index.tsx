@@ -3,6 +3,7 @@ import PageHeader from '../../components/PageContailer/PageHeader'
 import styles from './styles.css'
 import AnimateButton from '../../components/Button/AnimateButton'
 import { useSmartKitContext } from '../../components/SmartKitProvider'
+import { formatSui, truncateAddress } from '../../utils'
 
 export default function Profile() {
   const { account } = useAccount()
@@ -12,8 +13,7 @@ export default function Profile() {
   const { data: balance } = useBalance({
     address: account?.address
   })
-
-  console.log(balance?.totalBalance)
+  const formatedBalance = formatSui(BigInt(balance?.totalBalance || 0))
   const handleDisconnect = () => {
     console.log('disconnect')
     disconnect()
@@ -25,9 +25,9 @@ export default function Profile() {
       <PageHeader label="Connected" />
       <div className={styles.profileContent}>
         <div className={styles.address}>
-          {account?.label || account?.address}
-          {balance?.totalBalance} Sui
+          {truncateAddress(account?.address)}
         </div>
+        <div> {formatedBalance} Sui</div>
 
         <AnimateButton onClick={handleDisconnect}>Disconnect</AnimateButton>
       </div>
