@@ -9,7 +9,7 @@ import {
 import { getFullnodeUrl, SuiClient } from '@mysten/sui.js/client'
 
 const client = new SuiClient({
-  url: getFullnodeUrl('mainnet')
+  url: getFullnodeUrl('testnet')
 })
 
 const config = createConfig({

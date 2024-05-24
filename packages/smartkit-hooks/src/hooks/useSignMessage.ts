@@ -27,7 +27,7 @@ export function useSignMessage(parameters: UseSignMessageParameters = {}) {
     mutationKey: ['signMessage'],
     mutationFn: async ({ message }) => {
       if (!currentAccount || !currentWallet) {
-        throw new Error('No account is connected.')
+        throw new Error('No account connected.')
       }
 
       const signPersonalMessageFeature =
@@ -50,7 +50,7 @@ export function useSignMessage(parameters: UseSignMessageParameters = {}) {
       }
 
       throw new Error(
-        `${currentWallet.name} does not support signing messages.`
+        `${currentWallet.name} does not support the sui:signPersonalMessage or sui:signMessage feature.`
       )
     }
   })

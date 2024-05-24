@@ -3,12 +3,12 @@ import { formatSui, truncateAddress } from '../../utils'
 import AnimateButton from '../Button/AnimateButton'
 import styles from './styles.css'
 import SuiIcon from '../../icons/SuiIcon'
-import ArrowDown from '../../icons/arrowDown'
+import ArrowDown from '../../icons/ArrowDown'
 
 export default function BalanceButton({ onClick }: { onClick: () => void }) {
   const { account } = useAccount()
-  const { data: balance } = useBalance({
-    address: account?.address
+  const { balance } = useBalance({
+    owner: account?.address
   })
 
   const formatedBalance = formatSui(BigInt(balance?.totalBalance || 0))
