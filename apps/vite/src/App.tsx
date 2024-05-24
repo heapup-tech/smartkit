@@ -5,7 +5,6 @@ import { useEffect } from 'react'
 
 function App() {
   const { accounts, account } = useAccount()
-  console.log(accounts?.map((account) => account.address))
 
   return (
     <div

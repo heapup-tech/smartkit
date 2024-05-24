@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Icons } from './icons'
 import { cn } from '@/lib/utils'
 import { buttonVariants } from './ui/button'
-import { ModeToggle } from './ModeToggle'
+import { ModeToggle } from './mode-toggle'
 
 export default function AppHeader() {
   return (

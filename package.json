@@ -11,6 +11,7 @@
   },
   "scripts": {
     "prepare": "husky install",
+    "dev": "pnpm --paraller dev:smartkit dev:smartkit-hooks",
     "dev:smartkit": "pnpm --filter @heapup/smartkit dev",
     "dev:smartkit-hooks": "pnpm --filter smartkit-hooks dev",
     "preview:vite": "pnpm --filter vite dev",
