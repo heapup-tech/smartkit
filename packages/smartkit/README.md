@@ -6,6 +6,7 @@
 - [ ] i18n
 - [ ] custom avatar
 - [ ] support more wallets
+- [ ] startkit
 - [ ] more built-in themes
 - [ ] social login
 - [ ] mobile adaptation

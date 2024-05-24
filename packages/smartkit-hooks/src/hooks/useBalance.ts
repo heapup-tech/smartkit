@@ -18,11 +18,8 @@ export function useBalance({
     ...query,
     queryKey: ['useBalance'],
     queryFn: async () => {
-      if (!owner) throw new Error('address is required')
-      console.log(coinType)
-
       return suiClient.getBalance({
-        owner: owner,
+        owner: owner!,
         coinType
       })
     },

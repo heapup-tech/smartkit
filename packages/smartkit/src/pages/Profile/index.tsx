@@ -14,8 +14,8 @@ export default function Profile() {
   const { disconnect } = useDisconnect()
   const { setOpen } = useSmartKitContext()
 
-  const { data: balance } = useBalance({
-    address: account?.address
+  const { balance } = useBalance({
+    owner: account?.address
   })
   const formatedBalance = formatSui(BigInt(balance?.totalBalance || 0))
   const handleDisconnect = () => {
