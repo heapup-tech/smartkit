@@ -7,7 +7,8 @@ const dialogOverlay = style({
   background: themeVars.background.overlay,
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center'
+  justifyContent: 'center',
+  zIndex: 9999999
 })
 
 const dialogContent = style({
