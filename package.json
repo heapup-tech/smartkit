@@ -15,7 +15,9 @@
     "dev:smartkit": "pnpm --filter @heapup/smartkit dev",
     "dev:smartkit-hooks": "pnpm --filter smartkit-hooks dev",
     "preview:vite": "pnpm --filter vite dev",
-    "dev:site": "pnpm --filter site dev"
+    "dev:site": "pnpm --filter site dev",
+    "build:site": "pnpm --filter site build",
+    "start:site": "pnpm --filter site start"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
