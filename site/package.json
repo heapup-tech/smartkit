@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/is-prop-valid": "^1.2.2",
     "@heapup/smartkit": "workspace:*",
     "@heapup/smartkit-hooks": "workspace:*",
     "@mysten/sui.js": "^0.54.1",
@@ -30,6 +31,11 @@
     "react": "^18",
     "react-dom": "^18",
     "react-wrap-balancer": "^1.1.0",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-pretty-code": "^0.13.2",
+    "rehype-slug": "^6.0.0",
+    "remark-gfm": "^3.0.1",
+    "shiki": "^1.6.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7"
   },

@@ -1,6 +1,6 @@
 // @ts-nocheck
 'use client'
-
+import { useEffect, useRef, useState } from 'react'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import { Accordion, AccordionContent, AccordionItem } from './ui/accordion'
 import { Alert, AlertDescription, AlertTitle } from './ui/alert'
@@ -9,6 +9,7 @@ import { Callout } from './callout'
 import { CodeBlockWrapper } from './code-block-wrapper'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs'
 import Link from 'next/link'
+import { CopyButton } from './copy-button'
 
 export const styles = [
   {
@@ -85,14 +86,31 @@ const components = {
     />
   ),
   pre: ({ className, ...props }: React.HTMLAttributes<HTMLPreElement>) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const preRef = useRef<HTMLElement | null>(null)
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [code, setCode] = useState<string | undefined>(undefined)
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useEffect(() => {
+      if (preRef.current) {
+        const codeElement = preRef.current.querySelector('code')
+        const code = codeElement!.innerText.replace(/\n{2,}/g, '\n')
+        setCode(code)
+      }
+    }, [preRef])
     return (
-      <div>
+      <div className={cn('relative')} ref={preRef}>
         <pre
           className={cn(
             'mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-lg border bg-zinc-950 py-4 dark:bg-zinc-900',
             className
           )}
           {...props}
+        />
+        {/* <button className="absolute right-4 top-4 text-white">复制</button> */}
+        <CopyButton
+          className="absolute right-4 top-4 text-white"
+          value={code}
         />
       </div>
     )
@@ -167,13 +185,12 @@ const components = {
   code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <code
       className={cn(
-        'relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm',
+        'relative rounded px-[1rem] py-[0.125rem] font-mono text-sm',
         className
       )}
       {...props}
     />
   ),
-  Image,
   Callout,
   CodeBlockWrapper: ({ ...props }) => (
     <CodeBlockWrapper className="rounded-md border" {...props} />

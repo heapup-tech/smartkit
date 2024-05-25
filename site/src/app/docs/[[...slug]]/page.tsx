@@ -5,6 +5,7 @@ import { absoluteUrl, cn } from '@/lib/utils'
 import { siteConfig } from '@/config/site'
 import Balancer from 'react-wrap-balancer'
 import Mdx from '@/components/mdx-components'
+import { CaretRightIcon, ChevronRightIcon } from '@radix-ui/react-icons'
 
 interface DocPageProps {
   params: {
@@ -79,7 +80,7 @@ export default async function DocPage({ params }: DocPageProps) {
           <div className="overflow-hidden text-ellipsis whitespace-nowrap">
             Docs
           </div>
-          {/* <ChevronRightIcon className="h-4 w-4" /> */}
+          <ChevronRightIcon className="h-4 w-4" />
           <div className="font-medium text-foreground">{doc.title}</div>
         </div>
         <div className="space-y-2">
