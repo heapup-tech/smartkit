@@ -107,7 +107,6 @@ const components = {
           )}
           {...props}
         />
-        {/* <button className="absolute right-4 top-4 text-white">复制</button> */}
         <CopyButton
           className="absolute right-4 top-4 text-white"
           value={code}
@@ -185,7 +184,7 @@ const components = {
   code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <code
       className={cn(
-        'relative rounded px-[1rem] py-[0.125rem] font-mono text-sm',
+        'relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm ',
         className
       )}
       {...props}

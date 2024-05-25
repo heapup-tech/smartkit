@@ -1,0 +1,60 @@
+---
+title: Providers
+---
+
+smartkit uses react context to share global variables.
+
+## SmartKitClientProvider
+
+Create config to be SmartKitClientProvider value
+
+```tsx
+const config = createConfig({
+  suiClient: client,
+  wallets: [suietWallet]
+})
+
+<SmartKitClientProvider config={config} />
+```
+
+### createConfig parameters
+
+#### suiClient
+
+Sui RPC endpoint
+
+#### wallets
+
+Configure the wallet you want to use, automatically including the installed wallets. Support for individual wallets and wallet groups.
+
+```tsx
+const config = createConfig({
+  suiClient: client,
+  wallets: [
+    suiWallet,
+    okxWallet,
+    {
+      groupName: 'Popular',
+      wallets: [suietWallet]
+    }
+  ]
+})
+```
+
+Currently supported wallets:
+
+- `suiWallet`
+- `okxWallet`
+- `suietWallet`
+
+## SmartKitProvider
+
+Set theme and mode for connect Modal
+
+```tsx
+<SmartKitProvider theme="default" mode="auto"></SmartKitProvider>
+```
+
+The theme parameter is used to set the desired theme, although only the default theme is currently supported.
+
+The mode parameter is used to set dark theme or light theme, and the auto parameter is used to automatically switch the theme according to the system settings.

@@ -4,8 +4,9 @@ import { Metadata } from 'next'
 import { absoluteUrl, cn } from '@/lib/utils'
 import { siteConfig } from '@/config/site'
 import Balancer from 'react-wrap-balancer'
+import '@/styles/mdx.css'
 import Mdx from '@/components/mdx-components'
-import { CaretRightIcon, ChevronRightIcon } from '@radix-ui/react-icons'
+import { ChevronRightIcon } from '@radix-ui/react-icons'
 
 interface DocPageProps {
   params: {
@@ -93,7 +94,9 @@ export default async function DocPage({ params }: DocPageProps) {
             </p>
           )}
         </div>
-        <Mdx code={doc.body.code} />
+        <div className="pb-12 pt-8">
+          <Mdx code={doc.body.code} />
+        </div>
       </div>
     </main>
   )

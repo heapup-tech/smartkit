@@ -1,0 +1,17 @@
+---
+title: useBalance
+description: Hook for getting the balance of the sui token.
+---
+
+## Usage
+
+```tsx
+import { useBalance } from '@heapup/smartkit-hooks'
+
+function Component() {
+  const { account } = useAccount()
+  const { balance } = useBalance({
+    owner: account?.address
+  })
+}
+```

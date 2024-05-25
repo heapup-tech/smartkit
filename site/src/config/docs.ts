@@ -12,15 +12,40 @@ export const docsConfig = {
           title: 'Installation',
           href: '/docs/installation',
           items: []
+        },
+        {
+          title: 'Providers',
+          href: '/docs/providers',
+          items: []
         }
       ]
     },
     {
-      title: 'Components',
+      title: 'Hooks',
       items: [
         {
-          title: 'Accordion',
-          href: '/docs/components/accordion',
+          title: 'useAccount',
+          href: '/docs/hooks/useAccount',
+          items: []
+        },
+        {
+          title: 'useAutoConnect',
+          href: '/docs/hooks/useAutoConnect',
+          items: []
+        },
+        {
+          title: 'useBalance',
+          href: '/docs/hooks/useBalance',
+          items: []
+        }
+      ]
+    },
+    {
+      title: 'Other',
+      items: [
+        {
+          title: 'Todos',
+          href: '/docs/other/todos',
           items: []
         }
       ]

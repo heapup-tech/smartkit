@@ -1,4 +1,28 @@
 ---
 title: Introduction
-description: Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.
 ---
+
+smartkit is a react library that allows you to connect to the sui network in a simple way.
+
+It includes two core packages:
+
+- `@heapup/smartkit`
+- `@heapup/smartkit-hooks`
+
+## @heapup/smartkit-hooks
+
+Built on `@mystan/sui.js` and `@mysten/wallet-standard`, these React hooks provide functions such as connecting to a wallet, querying on-chain data, and sending transactions.
+
+## @heapup/smartkit
+
+It's a connection modal based on `@heapup/smartkit-hooks`. Can be easily integrated into your dapp.
+
+## analogy
+
+If we analogize smartkit to the Ethereum network
+
+- `@heapup/smartkit` just like [rainbowkit](https://www.rainbowkit.com) or [web3modal](https://web3modal.com)
+- `@heapup/smartkit-hooks` just like [wagmi](https://wagmi.sh)
+- `@mysten/sui.js` just like [viem](https://viem.sh)
+
+So, you can use `@heapup/smartkit-hooks` to build your own connection modal.

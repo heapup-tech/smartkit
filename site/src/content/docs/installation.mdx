@@ -2,6 +2,57 @@
 title: Installation
 ---
 
+## Setup
+
+Install npm packages to your project.
+
 ```bash
 pnpm i @heapup/smartkit @heapup/smartkit-hooks @mysten/sui.js
+```
+
+## Import
+
+> if you are using Next.js. you will need to include the `"use client"` directive at the beginning of this file.
+
+```tsx
+import '@heapup/smartkit/styles.css'
+import { SmartKitProvider } from '@heapup/smartkit'
+import { SmartKitClientProvider, createConfig } from '@heapup/smartkit-hooks'
+import { getFullnodeUrl, SuiClient } from '@mysten/sui.js/client'
+
+const client = new SuiClient({
+  url: getFullnodeUrl('mainnet')
+})
+
+const config = createConfig({
+  suiClient: client
+})
+
+export default function Providers({ children }: React.PropsWithChildren<{}>) {
+  return (
+    <SmartKitClientProvider config={config}>
+      <SmartKitProvider theme="default">{children}</SmartKitProvider>
+    </SmartKitClientProvider>
+  )
+}
+```
+
+`SmartKitClientProvider` has built-in with `TanStack Query`, but if you want to use your own `TanStack Query`, you can do it like this:
+
+```bash
+pnpm i @tanstack/react-query
+```
+
+then, wrap `QueryClientProvider` outside `SmartKitClientProvider`
+
+```tsx
+export default function Providers({ children }: React.PropsWithChildren<{}>) {
+  return (
+    <QueryClientProvider client={new QueryClient()}>
+      <SmartKitClientProvider config={config}>
+        <SmartKitProvider theme="default">{children}</SmartKitProvider>
+      </SmartKitClientProvider>
+    </QueryClientProvider>
+  )
+}
 ```

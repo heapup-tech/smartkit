@@ -1,0 +1,15 @@
+---
+title: useAccount
+description: Hook for getting current account and connect status.
+---
+
+## Usage
+
+```tsx
+import { useAccount } from '@heapup/smartkit-hooks'
+
+function Component() {
+  const { account, accounts, isConnected, isConnecting, isDisconnected } =
+    useAccount()
+}
+```
