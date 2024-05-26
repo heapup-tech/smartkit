@@ -18,6 +18,7 @@
     "dev:site": "pnpm --filter site dev"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.27.3",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@types/node": "^20.12.8",
@@ -27,7 +28,7 @@
     "typescript": "^5.4.5",
     "vitest": "^1.5.3"
   },
-  "packageManager": "pnpm@9.1.1",
+  "packageManager": "pnpm@9.1.2",
   "engines": {
     "node": ">=18"
   }
