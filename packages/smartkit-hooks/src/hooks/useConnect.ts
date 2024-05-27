@@ -39,7 +39,7 @@ export function useConnect(parameters: UseConnectParameters = {}) {
         (account) => account.address === accountAddress
       )
 
-      if (!connectedAccount && connectedAccounts.length) {
+      if (!connectedAccount && connectedAccounts.length > 0) {
         connectedAccount = connectedAccounts[0]
       }
 

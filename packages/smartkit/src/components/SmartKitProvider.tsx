@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from 'react'
 import { Mode, Theme } from '../theme/types'
 import { ConnectModal } from './ConnectModal'
-import { useAutoConnect } from '@heapup/smartkit-hooks'
+import { useAutoConnect, useWatchWallet } from '@heapup/smartkit-hooks'
 import { PageProvider } from '../pages/PageProvider'
 
 interface SmartKitProviderProps {
@@ -27,8 +27,10 @@ export function SmartKitProvider({
   theme = 'default',
   mode = 'auto'
 }: SmartKitProviderProps) {
-  const [open, setOpen] = useState(false)
   useAutoConnect()
+  useWatchWallet()
+  const [open, setOpen] = useState(false)
+
   return (
     <SmartKitContext.Provider
       value={{

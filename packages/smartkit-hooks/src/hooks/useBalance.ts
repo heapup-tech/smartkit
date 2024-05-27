@@ -16,7 +16,7 @@ export function useBalance({
 
   const { data: balance, ...result } = useQuery({
     ...query,
-    queryKey: ['useBalance'],
+    queryKey: ['useBalance', owner, coinType],
     queryFn: async () => {
       return suiClient.getBalance({
         owner: owner!,

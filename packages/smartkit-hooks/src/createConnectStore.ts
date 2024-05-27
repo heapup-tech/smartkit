@@ -53,6 +53,21 @@ export const createConnectStore = () => {
                 recentConnectAddress: account.address as Address
               }
             })
+          },
+          onChangedAccounts: (
+            accounts: WalletAccount[],
+            account: WalletAccount | null
+          ) => {
+            set(() => {
+              return {
+                accounts,
+                currentAccount: account,
+                recentConnectAddress: account
+                  ? (account.address as Address)
+                  : null,
+                status: accounts.length === 0 ? 'disconnected' : 'connected'
+              }
+            })
           }
         }
       },

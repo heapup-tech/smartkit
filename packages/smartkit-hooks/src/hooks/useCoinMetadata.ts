@@ -15,7 +15,7 @@ export function useCoinMetadata({
 
   const { data: metadata, ...result } = useQuery({
     ...query,
-    queryKey: ['useCoinMetadata'],
+    queryKey: ['useCoinMetadata', coinType],
     queryFn: async () => {
       return await suiClient.getCoinMetadata({
         coinType: coinType!

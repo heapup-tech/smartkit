@@ -12,11 +12,12 @@ export default function BalanceButton({ onClick }: { onClick: () => void }) {
   })
 
   const formatedBalance = formatSui(BigInt(balance?.totalBalance || 0))
-  // class="flex items-center w-full h-full justify-center text-white p-1.5 text-body rounded-full"
+
   return (
     <AnimateButton className={styles.connectButton} onClick={onClick}>
       <div className={styles.balance}>
         <SuiIcon className="" />
+        {/* TODO: balance loading status */}
         <span>{formatedBalance}</span>
       </div>
       <div>{account?.label || truncateAddress(account?.address)}</div>
