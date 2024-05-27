@@ -14,11 +14,12 @@ const dialogOverlay = style({
 const dialogContent = style({
   boxSizing: 'border-box',
   width: themeVars.width.connectModal,
-  height: themeVars.height.connectModal,
+  maxHeight: themeVars.height.connectModal,
   borderRadius: themeVars.radii.connectModal,
   background: themeVars.background.connectModal,
   paddingBlock: themeVars.padding.connectModal.paddingBlock,
-  paddingInline: themeVars.padding.connectModal.paddingInline
+  paddingInline: themeVars.padding.connectModal.paddingInline,
+  transition: 'all 0.15s linear'
 })
 
 export default {

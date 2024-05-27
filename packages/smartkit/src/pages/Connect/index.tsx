@@ -84,8 +84,6 @@ export default function Connect() {
 
   return (
     <div className={styles.connectContainer}>
-      <PageHeader label={selectedWallet?.name || 'Connect Wallet'} backable />
-
       <div className={styles.connectContent}>
         {isInstalled ? connectStatus : notInstalled}
       </div>

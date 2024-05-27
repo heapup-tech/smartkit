@@ -39,33 +39,28 @@ export default function Profile() {
   }
 
   return (
-    <div>
-      <PageHeader label="Connected" />
-      <div className={styles.profileContent}>
-        <Avatar address={account?.address} />
-        <div className={styles.address}>
-          {truncateAddress(account?.address)}
-        </div>
-        <div className={styles.balance}> {formatedBalance} Sui</div>
+    <div className={styles.profileContent}>
+      <Avatar address={account?.address} />
+      <div className={styles.address}>{truncateAddress(account?.address)}</div>
+      <div className={styles.balance}> {formatedBalance} Sui</div>
 
-        <div className={styles.buttonRow}>
-          <div className={styles.disConnectButton} onClick={handleCopy}>
-            {clipboard ? (
-              <>
-                <CheckedIcon />
-                <span>Copyed</span>
-              </>
-            ) : (
-              <>
-                <CopyIcon />
-                <span>Copy Address</span>
-              </>
-            )}
-          </div>
-          <div className={styles.disConnectButton} onClick={handleDisconnect}>
-            <DisconnectIcon />
-            <span>Disconnect</span>
-          </div>
+      <div className={styles.buttonRow}>
+        <div className={styles.disConnectButton} onClick={handleCopy}>
+          {clipboard ? (
+            <>
+              <CheckedIcon />
+              <span>Copyed</span>
+            </>
+          ) : (
+            <>
+              <CopyIcon />
+              <span>Copy Address</span>
+            </>
+          )}
+        </div>
+        <div className={styles.disConnectButton} onClick={handleDisconnect}>
+          <DisconnectIcon />
+          <span>Disconnect</span>
         </div>
       </div>
     </div>

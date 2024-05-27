@@ -2,12 +2,12 @@ import { style } from '@vanilla-extract/css'
 import { themeVars } from '../../theme/themeVars'
 
 const pageContainer = style({
-  height: '100%',
-  position: 'relative'
+  // height: '100%',
+  // position: 'relative'
 })
 
 const page = style({
-  position: 'absolute',
+  // position: 'absolute',
   top: 0,
   width: '100%',
   height: '100%'

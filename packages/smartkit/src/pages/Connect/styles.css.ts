@@ -4,8 +4,7 @@ import { themeVars } from '../../theme/themeVars'
 
 const connectContainer = style({
   display: 'flex',
-  flexDirection: 'column',
-  height: '100%'
+  flexDirection: 'column'
 })
 
 const connectContent = style({

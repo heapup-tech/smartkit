@@ -18,17 +18,17 @@ export default function ConnectOptions() {
 
   return (
     <div>
-      <PageHeader
+      {/* <PageHeader
         label="Connect Wallet"
-        // attach={
-        //   <IconButton
-        //     icon={<InfoIcon />}
-        //     onClick={() => {
-        //       pageContext.pushPage('about')
-        //     }}
-        //   />
-        // }
-      />
+        attach={
+          <IconButton
+            icon={<InfoIcon />}
+            onClick={() => {
+              pageContext.pushPage('about')
+            }}
+          />
+        }
+      /> */}
       <div>
         {walletGroups.map((walletGroup) => {
           return (
