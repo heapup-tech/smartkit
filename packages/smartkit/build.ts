@@ -16,12 +16,7 @@ const executeBuild = async (buildOptions: BuildOptions) => {
     .then(() => {
       console.log('Build complete')
     })
-    .catch((error) => {
-      console.log('Build failed')
-
-      console.error(error)
-      process.exit(1)
-    })
+    .catch(() => process.exit(1))
 }
 
 const buildOptions: BuildOptions = {
@@ -37,7 +32,7 @@ const buildOptions: BuildOptions = {
   packages: 'external',
   plugins: [
     vanillaExtractPlugin({
-      identifiers: 'debug',
+      identifiers: 'short',
       processCss: async (css) => {
         const result = await postcss([autoprefixer]).process(css, {
           from: undefined

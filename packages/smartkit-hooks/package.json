@@ -16,12 +16,13 @@
   "files": [
     "dist"
   ],
+  "types": "./dist/index.d.ts",
   "author": "HeapUp",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/heapup-tech/smartkit.git",
-    "directory": "packages/sui-hooks"
+    "directory": "packages/smartkit-hooks"
   },
   "scripts": {
     "build:watch": "tsx build.ts --watch",

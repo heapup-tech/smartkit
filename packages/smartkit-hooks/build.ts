@@ -13,12 +13,7 @@ const executeBuild = async (buildOptions: BuildOptions) => {
     .then(() => {
       console.log('Build complete')
     })
-    .catch((error) => {
-      console.log('Build failed')
-
-      console.error(error)
-      process.exit(1)
-    })
+    .catch(() => process.exit(1))
 }
 
 const buildOptions: BuildOptions = {

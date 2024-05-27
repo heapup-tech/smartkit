@@ -1,3 +1,4 @@
+import { WalletWithRequiredFeatures } from '@mysten/wallet-standard'
 import { getInstalledWallets } from '../utils/wallet'
 import { useConnect } from './useConnect'
 import { useConnectStore } from './useConnectStore'
@@ -15,7 +16,8 @@ export function useAutoConnect() {
   return useQuery({
     queryKey: ['auto-connect'],
     queryFn: async () => {
-      const installedWallet = getInstalledWallets()
+      const installedWallet =
+        getInstalledWallets() as WalletWithRequiredFeatures[]
 
       const wallet = installedWallet.find(
         (wallet) => wallet.name === recentConnectorId
