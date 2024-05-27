@@ -82,35 +82,38 @@ export function createConfig(config: createConfigParams): Config {
     }
   ]
 
-  let groupNameSet = new Set(
-    walletGroups.map((walletGroup) => walletGroup.groupName)
-  )
-
   wishWallets.forEach((walletOrGroup) => {
     if ('groupName' in walletOrGroup) {
-      walletGroups.forEach((walletGroup) => {
-        if (groupNameSet.has(walletOrGroup.groupName)) {
-          walletGroup.wallets = walletGroup.wallets.concat(
-            excludeInOtherWalletGroup(walletGroups, walletOrGroup.wallets)
+      const walletGroup = walletGroups.find(
+        (walletGroup) => walletGroup.groupName === walletOrGroup.groupName
+      )
+      if (walletGroup) {
+        walletGroup.wallets = walletGroup.wallets.concat(
+          excludeInOtherWalletGroup(walletGroups, walletOrGroup.wallets)
+        )
+      } else {
+        walletGroups.push({
+          groupName: walletOrGroup.groupName,
+          wallets: excludeInOtherWalletGroup(
+            walletGroups,
+            walletOrGroup.wallets
           )
-        } else {
-          walletGroups.push({
-            groupName: walletOrGroup.groupName,
-            wallets: excludeInOtherWalletGroup(
-              walletGroups,
-              walletOrGroup.wallets
-            )
-          })
-          groupNameSet = new Set(
-            walletGroups.map((walletGroup) => walletGroup.groupName)
-          )
-        }
-      })
+        })
+      }
     } else {
-      walletGroups.push({
-        groupName: 'Popular',
-        wallets: excludeInOtherWalletGroup(walletGroups, [walletOrGroup])
-      })
+      const polularGroup = walletGroups.find(
+        (walletGroup) => walletGroup.groupName === 'Popular'
+      )
+      if (polularGroup) {
+        polularGroup.wallets = polularGroup.wallets.concat(
+          excludeInOtherWalletGroup(walletGroups, [walletOrGroup])
+        )
+      } else {
+        walletGroups.push({
+          groupName: 'Popular',
+          wallets: excludeInOtherWalletGroup(walletGroups, [walletOrGroup])
+        })
+      }
     }
   })
 
