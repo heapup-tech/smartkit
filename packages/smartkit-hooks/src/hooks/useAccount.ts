@@ -16,6 +16,7 @@ export function useAccount() {
   const currentAccount = useConnectStore((state) => state.currentAccount)
 
   const status = useConnectStore((state) => state.status)
+
   switch (status) {
     case 'connected':
       return {

@@ -3,12 +3,13 @@ import { PageContainer } from '../PageContailer/PageContainer'
 import { useSmartKitContext } from '../SmartKitProvider'
 
 export function ConnectModal() {
-  const smartKitContext = useSmartKitContext()
+  const { open, setOpen } = useSmartKitContext()
+
   return (
     <Dialog
-      open={smartKitContext.open}
+      open={open}
       onClose={() => {
-        smartKitContext.setOpen(false)
+        setOpen(false)
       }}
     >
       <PageContainer />

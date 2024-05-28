@@ -9,8 +9,6 @@ export const useWatchWallet = () => {
   return currentWallet?.features['standard:events'].on(
     'change',
     ({ accounts }) => {
-      console.log(accounts)
-
       if (accounts) {
         if (
           accounts.find(

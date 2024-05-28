@@ -2,7 +2,6 @@ import { UninstalledWallet, useConnect } from '@heapup/smartkit-hooks'
 import { useEffect, useState } from 'react'
 import { usePageContext } from '../PageProvider'
 import { useSmartKitContext } from '../../components/SmartKitProvider'
-import PageHeader from '../../components/PageContailer/PageHeader'
 import styles from './styles.css'
 import AnimateButton from '../../components/Button/AnimateButton'
 

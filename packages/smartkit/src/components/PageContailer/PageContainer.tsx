@@ -6,15 +6,15 @@ import PageHeader from './PageHeader'
 
 const pageAnims: Variants = {
   enter: {
-    scale: 0.97,
+    // scale: 0.97,
     opacity: 0
   },
   center: {
-    scale: 1,
+    // scale: 1,
     opacity: 1
   },
   exit: {
-    scale: 1.03,
+    // scale: 1.03,
     opacity: 0
   }
 }
@@ -41,28 +41,29 @@ export function PageContainer() {
         label={pageHeaderLabel}
         backable={!!prevPage && currentPage !== 'profile'}
       />
-      <AnimatePresence>
-        {Object.keys(pages).map((key) => {
-          const page = pages[key]
+      <div className={styles.pageContent}>
+        <AnimatePresence>
+          {Object.keys(pages).map((key) => {
+            const page = pages[key]
 
-          return (
-            <>
-              {currentPage === key ? (
-                <motion.div
-                  key={key}
-                  variants={pageAnims}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  transition={{ duration: 0.1, ease: 'linear' }}
-                >
-                  <Page>{page}</Page>
-                </motion.div>
-              ) : null}
-            </>
-          )
-        })}
-      </AnimatePresence>
+            return (
+              <div key={key}>
+                {currentPage === key ? (
+                  <motion.div
+                    variants={pageAnims}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Page>{page}</Page>
+                  </motion.div>
+                ) : null}
+              </div>
+            )
+          })}
+        </AnimatePresence>
+      </div>
     </div>
   )
 }

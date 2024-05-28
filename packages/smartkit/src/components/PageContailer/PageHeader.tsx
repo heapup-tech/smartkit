@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from 'framer-motion'
 import BackIcon from '../../icons/BackIcon'
 import CloseIcon from '../../icons/CloseIcon'
 import { usePageContext } from '../../pages/PageProvider'
@@ -29,7 +30,26 @@ export default function PageHeader({
           <div>{attach}</div>
         )}
       </div>
-      <span className={styles.pageHeaderTitle}>{label}</span>
+      <div className={styles.pageHeaderTitle}>
+        <AnimatePresence>
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.15 }}
+            key={label}
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              width: '100%'
+            }}
+          >
+            {label}
+          </motion.span>
+        </AnimatePresence>
+      </div>
 
       <div className={styles.pageHeaderIcon}>
         {closeable && (

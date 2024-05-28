@@ -4,6 +4,7 @@ import ConnectOptions from './ConnectOptions'
 import Connect from './Connect'
 import { useAccount, Wallet } from '@heapup/smartkit-hooks'
 import Profile from './Profile'
+import { useSmartKitContext } from '../components/SmartKitProvider'
 
 type PageName = keyof typeof pages
 type PageProviderContext = {
@@ -33,6 +34,7 @@ export function PageProvider({ children }: React.PropsWithChildren<{}>) {
     undefined
   )
   const [prevPage, setPrevPage] = useState<PageName | null>(null)
+  const { setOpen } = useSmartKitContext()
 
   const pushPage = (page: PageName) => {
     if (currentPage === 'connectOptions') {
@@ -43,15 +45,21 @@ export function PageProvider({ children }: React.PropsWithChildren<{}>) {
 
   const popPage = () => {
     if (currentPage === 'connectOptions') return
-    else if (currentPage === 'connect' || currentPage === 'about') {
+    else if (
+      currentPage === 'connect' ||
+      currentPage === 'about' ||
+      currentPage === 'profile'
+    ) {
       setCurrentPage('connectOptions')
       setPrevPage(null)
     }
   }
 
   useEffect(() => {
-    if (isConnected) setCurrentPage('profile')
-    else setCurrentPage('connectOptions')
+    if (isConnected) {
+      setCurrentPage('profile')
+      setOpen(false)
+    } else setCurrentPage('connectOptions')
   }, [isConnected])
 
   return (

@@ -1,5 +1,4 @@
 import { useAccount, useBalance, useDisconnect } from '@heapup/smartkit-hooks'
-import PageHeader from '../../components/PageContailer/PageHeader'
 import styles from './styles.css'
 import { useSmartKitContext } from '../../components/SmartKitProvider'
 import { formatSui, truncateAddress } from '../../utils'
@@ -8,21 +7,26 @@ import CopyIcon from '../../icons/CopyIcon'
 import { useState } from 'react'
 import CheckedIcon from '../../icons/CheckedIcon'
 import Avatar from '../../components/Avatar'
+import { usePageContext } from '../PageProvider'
 
 export default function Profile() {
   const { account } = useAccount()
-  const { disconnect } = useDisconnect()
+  const { popPage } = usePageContext()
   const { setOpen } = useSmartKitContext()
 
   const { balance } = useBalance({
     owner: account?.address
   })
   const formatedBalance = formatSui(BigInt(balance?.totalBalance || 0))
-  const handleDisconnect = () => {
-    disconnect()
-
-    setOpen(false)
-  }
+  const { disconnect } = useDisconnect({
+    mutation: {
+      onSuccess: () => {
+        popPage()
+        setOpen(false)
+      }
+    }
+  })
+  const handleDisconnect = () => disconnect()
 
   const [clipboard, setClipboard] = useState(false)
 

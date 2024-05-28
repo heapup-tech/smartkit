@@ -4,14 +4,19 @@ import { themeVars } from '../../theme/themeVars'
 
 const connectContainer = style({
   display: 'flex',
-  flexDirection: 'column'
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  width: '100%',
+  height: '100%'
 })
 
 const connectContent = style({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  flex: 1
+  flex: 1,
+  minHeight: '220px'
 })
 const walletIcon = style({
   width: '64px',

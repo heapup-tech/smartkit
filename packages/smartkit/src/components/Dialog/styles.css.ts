@@ -18,8 +18,7 @@ const dialogContent = style({
   borderRadius: themeVars.radii.connectModal,
   background: themeVars.background.connectModal,
   paddingBlock: themeVars.padding.connectModal.paddingBlock,
-  paddingInline: themeVars.padding.connectModal.paddingInline,
-  transition: 'all 0.15s linear'
+  paddingInline: themeVars.padding.connectModal.paddingInline
 })
 
 export default {

@@ -10,6 +10,7 @@ export default function DialogOverlay({
   onClose: () => void
 }) {
   const handleCloseModal = useCallback(() => onClose(), [onClose])
+
   return (
     <motion.div
       className={styles.dialogOverlay}
