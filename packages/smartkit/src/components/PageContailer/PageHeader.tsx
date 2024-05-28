@@ -20,11 +20,11 @@ export default function PageHeader({
   backable = false
 }: PageHeaderProps) {
   const { setOpen } = useSmartKitContext()
-  const { popPage } = usePageContext()
+  const { popPage, prevPage } = usePageContext()
   return (
     <div className={styles.pageHeader}>
       <div className={styles.pageHeaderIcon}>
-        {backable ? (
+        {prevPage ? (
           <IconButton icon={<BackIcon />} onClick={popPage} />
         ) : (
           <div>{attach}</div>

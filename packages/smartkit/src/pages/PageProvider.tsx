@@ -58,8 +58,12 @@ export function PageProvider({ children }: React.PropsWithChildren<{}>) {
   useEffect(() => {
     if (isConnected) {
       setCurrentPage('profile')
+      setPrevPage(null)
       setOpen(false)
-    } else setCurrentPage('connectOptions')
+    } else {
+      setCurrentPage('connectOptions')
+      setPrevPage(null)
+    }
   }, [isConnected])
 
   return (
