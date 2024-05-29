@@ -2,7 +2,7 @@ const truncateRegex = /^(0x[a-zA-Z0-9]{4})[a-zA-Z0-9]+([a-zA-Z0-9]{4})$/
 
 export const truncateAddress = (
   address?: string,
-  separator: string = '••••'
+  separator: string = '···'
 ) => {
   if (!address) return ''
   const match = address.match(truncateRegex)

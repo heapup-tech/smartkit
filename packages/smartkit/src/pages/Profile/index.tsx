@@ -1,23 +1,20 @@
-import { useAccount, useBalance, useDisconnect } from '@heapup/smartkit-hooks'
+import { useAccount, useDisconnect } from '@heapup/smartkit-hooks'
 import styles from './styles.css'
 import { useSmartKitContext } from '../../components/SmartKitProvider'
-import { formatSui, truncateAddress } from '../../utils'
+import { truncateAddress } from '../../utils'
 import { DisconnectIcon } from '../../icons/DisconnectIcon'
 import CopyIcon from '../../icons/CopyIcon'
 import { useState } from 'react'
 import CheckedIcon from '../../icons/CheckedIcon'
 import Avatar from '../../components/Avatar'
 import { usePageContext } from '../PageProvider'
+import Balance from '../../components/Balance'
 
 export default function Profile() {
   const { account } = useAccount()
   const { popPage } = usePageContext()
   const { setOpen } = useSmartKitContext()
 
-  const { balance } = useBalance({
-    owner: account?.address
-  })
-  const formatedBalance = formatSui(BigInt(balance?.totalBalance || 0))
   const { disconnect } = useDisconnect({
     mutation: {
       onSuccess: () => {
@@ -46,7 +43,9 @@ export default function Profile() {
     <div className={styles.profileContent}>
       <Avatar address={account?.address} />
       <div className={styles.address}>{truncateAddress(account?.address)}</div>
-      <div className={styles.balance}> {formatedBalance} Sui</div>
+      <div className={styles.balance}>
+        <Balance address={account?.address} />
+      </div>
 
       <div className={styles.buttonRow}>
         <div className={styles.disConnectButton} onClick={handleCopy}>

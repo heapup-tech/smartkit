@@ -1,25 +1,27 @@
-import { useAccount, useBalance } from '@heapup/smartkit-hooks'
-import { formatSui, truncateAddress } from '../../utils'
+import { useAccount } from '@heapup/smartkit-hooks'
+import { truncateAddress } from '../../utils'
 import AnimateButton from '../Button/AnimateButton'
 import styles from './styles.css'
-import SuiIcon from '../../icons/SuiIcon'
 import ArrowDown from '../../icons/ArrowDown'
+import Avatar from '../Avatar'
+import Balance from '../Balance'
 
-export default function BalanceButton({ onClick }: { onClick: () => void }) {
+export default function BalanceButton({
+  onClick,
+  showAvatar = true
+}: {
+  onClick: () => void
+  showAvatar?: boolean
+}) {
   const { account } = useAccount()
-  const { balance } = useBalance({
-    owner: account?.address
-  })
-
-  const formatedBalance = formatSui(BigInt(balance?.totalBalance || 0))
 
   return (
     <AnimateButton className={styles.connectButton} onClick={onClick}>
       <div className={styles.balance}>
-        <SuiIcon className="" />
         {/* TODO: balance loading status */}
-        <span>{formatedBalance}</span>
+        <Balance address={account?.address} />
       </div>
+      {showAvatar && <Avatar size={25} address={account?.address} />}
       <div>{account?.label || truncateAddress(account?.address)}</div>
       <ArrowDown />
     </AnimateButton>
