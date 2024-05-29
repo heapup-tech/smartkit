@@ -14,7 +14,7 @@ export function useAutoConnect() {
   )
 
   return useQuery({
-    queryKey: ['auto-connect'],
+    queryKey: ['useAutoConnect'],
     queryFn: async () => {
       const installedWallet =
         getInstalledWallets() as WalletWithRequiredFeatures[]
