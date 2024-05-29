@@ -23,30 +23,38 @@ export function useConnect(parameters: UseConnectParameters = {}) {
   const { mutation } = parameters
 
   const onConnected = useConnectStore((state) => state.onConnected)
+  const onChangedStatus = useConnectStore((state) => state.onChangedStatus)
 
   const { mutate, mutateAsync, ...result } = useMutation({
     ...mutation,
     mutationKey: ['connect'],
     mutationFn: async ({ wallet, accountAddress, ...connectInput }) => {
-      const connectResult = await wallet.features['standard:connect'].connect(
-        connectInput
-      )
-      const connectedAccounts = connectResult.accounts.filter((account) =>
-        account.chains.some((chain) => chain.split(':')[0] === 'sui')
-      )
+      try {
+        onChangedStatus('connecting')
+        const connectResult = await wallet.features['standard:connect'].connect(
+          connectInput
+        )
+        const connectedAccounts = connectResult.accounts.filter((account) =>
+          account.chains.some((chain) => chain.split(':')[0] === 'sui')
+        )
 
-      let connectedAccount = connectedAccounts.find(
-        (account) => account.address === accountAddress
-      )
+        let connectedAccount = connectedAccounts.find(
+          (account) => account.address === accountAddress
+        )
 
-      if (!connectedAccount && connectedAccounts.length > 0) {
-        connectedAccount = connectedAccounts[0]
-      }
+        if (!connectedAccount && connectedAccounts.length > 0) {
+          connectedAccount = connectedAccounts[0]
+        }
 
-      onConnected(wallet, connectedAccounts, connectedAccount ?? null)
+        onConnected(wallet, connectedAccounts, connectedAccount ?? null)
 
-      return {
-        accounts: connectedAccounts
+        return {
+          accounts: connectedAccounts
+        }
+      } catch (error) {
+        onChangedStatus('disconnected')
+
+        throw error
       }
     }
   })

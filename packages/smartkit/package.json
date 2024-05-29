@@ -11,7 +11,11 @@
     "hooks"
   ],
   "exports": {
-    ".": "./dist/index.js",
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
     "./styles.css": "./dist/index.css"
   },
   "files": [
@@ -19,7 +23,6 @@
     "styles.css"
   ],
   "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "author": "HeapUp",
   "license": "MIT",
   "repository": {

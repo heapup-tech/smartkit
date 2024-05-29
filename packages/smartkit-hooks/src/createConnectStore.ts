@@ -68,6 +68,13 @@ export const createConnectStore = () => {
                 status: accounts.length === 0 ? 'disconnected' : 'connected'
               }
             })
+          },
+          onChangedStatus: (status) => {
+            set(() => {
+              return {
+                status
+              }
+            })
           }
         }
       },

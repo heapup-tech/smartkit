@@ -1,10 +1,9 @@
 import { ConnectButton } from '@heapup/smartkit'
-import { useAccount, useBalance } from '@heapup/smartkit-hooks'
+import { useAccount } from '@heapup/smartkit-hooks'
 import '@heapup/smartkit/styles.css'
-import { useEffect } from 'react'
 
 function App() {
-  const { accounts, account } = useAccount()
+  const { isConnected, isConnecting } = useAccount()
 
   return (
     <div
@@ -12,19 +11,26 @@ function App() {
         height: '2000px'
       }}
     >
+      <div>
+        {isConnecting
+          ? 'Connecting'
+          : isConnected
+          ? 'Connected'
+          : 'Disconnected'}
+      </div>
       <div
         style={{
           position: 'fixed',
           inset: 0,
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          flexDirection: 'column',
+          rowGap: '30px'
         }}
       >
         <ConnectButton />
       </div>
-
-      {/* <ConnectModal /> */}
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import { WalletAccount } from '@mysten/wallet-standard'
 import { useConnectStore } from './useConnectStore'
+import { ConnectStatus } from '../createConfig'
 
 export type UseAccountReturn = {
   account: WalletAccount
@@ -7,15 +8,14 @@ export type UseAccountReturn = {
   isConnected: boolean
   isConnecting: boolean
   isDisconnected: boolean
-  isReconnecting: boolean
-  status: 'connected' | 'connecting' | 'disconnected' | 'reconnecting'
+  status: ConnectStatus
 }
 
 export function useAccount() {
   const accounts = useConnectStore((state) => state.accounts)
   const currentAccount = useConnectStore((state) => state.currentAccount)
 
-  const status = useConnectStore((state) => state.status)
+  const status = useConnectStore((state) => state.status) || 'disconnected'
 
   switch (status) {
     case 'connected':
@@ -25,7 +25,6 @@ export function useAccount() {
         isConnected: true,
         isConnecting: false,
         isDisconnected: false,
-        isReconnecting: false,
         status
       }
     case 'connecting':
@@ -33,7 +32,6 @@ export function useAccount() {
         account: currentAccount,
         accounts: accounts,
         isConnecting: true,
-        isReconnecting: false,
         isConnected: false,
         isDisconnected: false,
         status
@@ -46,18 +44,6 @@ export function useAccount() {
         isConnected: false,
         isConnecting: false,
         isDisconnected: true,
-        isReconnecting: false,
-        status
-      }
-
-    case 'reconnecting':
-      return {
-        account: currentAccount,
-        accounts: accounts,
-        isConnected: !!currentAccount,
-        isConnecting: false,
-        isDisconnected: false,
-        isReconnecting: true,
         status
       }
   }
