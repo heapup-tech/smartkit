@@ -16,8 +16,7 @@ interface PageHeaderProps {
 export default function PageHeader({
   label,
   attach,
-  closeable = true,
-  backable = false
+  closeable = true
 }: PageHeaderProps) {
   const { setOpen } = useSmartKitContext()
   const { popPage, prevPage } = usePageContext()

@@ -39,7 +39,11 @@ export default function DialogContent({
       }}
       transition={{
         duration: 0.1,
-        ease: 'linear'
+        height: {
+          duration: 0.5,
+          type: 'spring',
+          bounce: 0.5
+        }
       }}
       exit={{
         scale: 0.97
