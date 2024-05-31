@@ -81,6 +81,9 @@ importers:
       '@vanilla-extract/css':
         specifier: ^1.15.1
         version: 1.15.1
+      '@vanilla-extract/dynamic':
+        specifier: ^2.1.1
+        version: 2.1.1
       '@vanilla-extract/sprinkles':
         specifier: ^1.6.1
         version: 1.6.1(@vanilla-extract/css@1.15.1)
@@ -1916,6 +1919,9 @@ packages:
   '@vanilla-extract/css@1.15.1':
     resolution: {integrity: sha512-puAfTKAUtsMr2+D+grQNjU5umsdw9zdVgQflUlbzS/tGORaAHdgaYz7jfKPmz1c4ZcpJ6uFNOiI50NDOAzzhyg==}
 
+  '@vanilla-extract/dynamic@2.1.1':
+    resolution: {integrity: sha512-iqf736036ujEIKsIq28UsBEMaLC2vR2DhwKyrG3NDb/fRy9qL9FKl1TqTtBV4daU30Uh3saeik4vRzN8bzQMbw==}
+
   '@vanilla-extract/esbuild-plugin@2.3.5':
     resolution: {integrity: sha512-RF7uKVc8M35SQY2C729EvdJGAGwo/nM/M8qfmPPANVKLFnFnHsRd4DO+pYgX1YubnzN1vcLKw0WIoA7JxI3a1w==}
     peerDependencies:
@@ -1929,6 +1935,9 @@ packages:
 
   '@vanilla-extract/private@1.0.4':
     resolution: {integrity: sha512-8FGD6AejeC/nXcblgNCM5rnZb9KXa4WNkR03HCWtdJBpANjTgjHEglNLFnhuvdQ78tC6afaxBPI+g7F2NX3tgg==}
+
+  '@vanilla-extract/private@1.0.5':
+    resolution: {integrity: sha512-6YXeOEKYTA3UV+RC8DeAjFk+/okoNz/h88R+McnzA2zpaVqTR/Ep+vszkWYlGBcMNO7vEkqbq5nT/JMMvhi+tw==}
 
   '@vanilla-extract/sprinkles@1.6.1':
     resolution: {integrity: sha512-N/RGKwGAAidBupZ436RpuweRQHEFGU+mvAqBo8PRMAjJEmHoPDttV8RObaMLrJHWLqvX+XUMinHUnD0hFRQISw==}
@@ -6816,6 +6825,10 @@ snapshots:
     transitivePeerDependencies:
       - babel-plugin-macros
 
+  '@vanilla-extract/dynamic@2.1.1':
+    dependencies:
+      '@vanilla-extract/private': 1.0.5
+
   '@vanilla-extract/esbuild-plugin@2.3.5(@types/node@20.12.8)(esbuild@0.21.0)':
     dependencies:
       '@vanilla-extract/integration': 7.1.4(@types/node@20.12.8)
@@ -6858,6 +6871,8 @@ snapshots:
       - terser
 
   '@vanilla-extract/private@1.0.4': {}
+
+  '@vanilla-extract/private@1.0.5': {}
 
   '@vanilla-extract/sprinkles@1.6.1(@vanilla-extract/css@1.15.1)':
     dependencies:

@@ -1,2 +1,2 @@
-export type Theme = 'default' | 'retro'
+export type Theme = 'default'
 export type Mode = 'light' | 'dark' | 'auto'

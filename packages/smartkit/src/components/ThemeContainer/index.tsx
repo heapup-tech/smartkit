@@ -1,5 +1,4 @@
 import { useSmartKitContext } from '../SmartKitProvider'
-
 export default function ThemeContainer({
   children
 }: {

@@ -1,13 +1,7 @@
-import { createGlobalTheme } from '@vanilla-extract/css'
-import { themeVars } from './themeVars'
-import { Theme } from './types'
-
-const theme: Theme = 'default'
-
-export const defaultThemeProperties = {
+export const dark = {
   color: {
     accent: '#EAECF1',
-    accentForeground: '#999999',
+    accentForeground: 'red',
     destructiveForeground: '#EF4544'
   },
   radii: {
@@ -43,13 +37,3 @@ export const defaultThemeProperties = {
     title: '16px'
   }
 }
-export const DefaultTheme = createGlobalTheme(
-  `[data-theme-${theme}]`,
-  themeVars,
-  defaultThemeProperties
-)
-export const DefaultDarkTheme = createGlobalTheme(
-  `[data-theme-${theme}] @media (prefers-color-scheme: dark)`,
-  themeVars,
-  defaultThemeProperties
-)

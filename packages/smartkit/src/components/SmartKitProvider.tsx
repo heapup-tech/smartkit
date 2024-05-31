@@ -3,10 +3,13 @@ import { Mode, Theme } from '../theme/types'
 import { ConnectModal } from './ConnectModal'
 import { useAutoConnect, useWatchWallet } from '@heapup/smartkit-hooks'
 import { PageProvider } from '../pages/PageProvider'
+import { themeToCssString } from '../theme/themeToCssString'
+import { DefaultTheme } from '../theme/default'
+import { ThemeVars } from '../theme/themeVars'
 
 interface SmartKitProviderProps {
   children: React.ReactNode
-  theme?: Theme
+  theme?: Theme | ThemeVars
   mode?: Mode
 }
 
@@ -31,6 +34,23 @@ export function SmartKitProvider({
   useWatchWallet()
   const [open, setOpen] = useState(false)
 
+  const themeTag = `data-theme-${theme}`
+  const lightThemeCssString = `[${themeTag}]{${themeToCssString(
+    DefaultTheme.light
+  )}}`
+  const darkThemeCssString = `[${themeTag}]{${themeToCssString(
+    DefaultTheme.dark
+  )}}`
+
+  let themeCssString: string[] = []
+  if (mode === 'auto')
+    themeCssString = [
+      lightThemeCssString,
+      `@media(prefers-color-scheme:dark){ ${darkThemeCssString} }`
+    ]
+  else if (mode === 'light') themeCssString = [lightThemeCssString]
+  else if (mode === 'dark') themeCssString = [darkThemeCssString]
+
   return (
     <SmartKitContext.Provider
       value={{
@@ -41,8 +61,12 @@ export function SmartKitProvider({
       }}
     >
       <PageProvider>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: themeCssString.join('')
+          }}
+        />
         {children}
-
         <ConnectModal />
       </PageProvider>
     </SmartKitContext.Provider>

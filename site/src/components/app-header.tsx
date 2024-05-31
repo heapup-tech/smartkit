@@ -3,6 +3,7 @@ import { Icons } from './icons'
 import { cn } from '@/lib/utils'
 import { buttonVariants } from './ui/button'
 import { ModeToggle } from './mode-toggle'
+import { siteConfig } from '@/config/site'
 
 export default function AppHeader() {
   return (
@@ -22,7 +23,7 @@ export default function AppHeader() {
           </nav>
         </div>
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
-          <Link href="https://github.com/heapup-tech/smartkit" target="_blank">
+          <Link href={siteConfig.links.github} target="_blank">
             <div
               className={cn(
                 buttonVariants({
@@ -35,7 +36,6 @@ export default function AppHeader() {
               <span className="sr-only">GitHub</span>
             </div>
           </Link>
-          <ModeToggle />
         </div>
       </div>
     </header>
