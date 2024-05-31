@@ -1,0 +1,22 @@
+---
+title: useSendTransaction
+description: sign and send transaction
+---
+
+```tsx
+import { useSendTransaction } from '@heapup/smartkit-hooks'
+
+const {
+  sendTransaction,
+  isPending: sending,
+  isSuccess
+} = useSendTransaction({
+  mutation: {
+    onSuccess: () => {}
+  }
+})
+
+sendTransaction({
+  transactionBlock: new Transaction()
+})
+```

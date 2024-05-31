@@ -13,7 +13,7 @@ export function useCoinMetadata({
 }: UseCoinMetadataParameters) {
   const suiClient = useSuiClient()
 
-  const { data: metadata, ...result } = useQuery({
+  const { data: coinMetadata, ...result } = useQuery({
     ...query,
     queryKey: ['useCoinMetadata', coinType],
     queryFn: async () => {
@@ -26,6 +26,6 @@ export function useCoinMetadata({
 
   return {
     ...result,
-    metadata
+    coinMetadata
   }
 }

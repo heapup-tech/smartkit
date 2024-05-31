@@ -1,0 +1,13 @@
+---
+title: useClientQuery
+---
+
+General query method
+
+```tsx
+const { data } = useClientQuery('getBalance', {
+  owner: account?.address
+})
+```
+
+The first parameter is the method name. Get from [JSON RPC](https://docs.sui.io/sui-api-ref)
