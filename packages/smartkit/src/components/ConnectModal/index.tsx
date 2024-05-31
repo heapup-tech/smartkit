@@ -1,17 +1,12 @@
 import Dialog from '../Dialog'
+import { useModalContext } from '../ModalProvider'
 import { PageContainer } from '../PageContailer/PageContainer'
-import { useSmartKitContext } from '../SmartKitProvider'
 
 export function ConnectModal() {
-  const { open, setOpen } = useSmartKitContext()
+  const { closeModal, open } = useModalContext()
 
   return (
-    <Dialog
-      open={open}
-      onClose={() => {
-        setOpen(false)
-      }}
-    >
+    <Dialog open={open} onClose={closeModal}>
       <PageContainer />
     </Dialog>
   )

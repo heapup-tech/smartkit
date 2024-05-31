@@ -1,10 +1,10 @@
 import styles from './styles.css'
 import ThemeContainer from '../ThemeContainer'
 import AnimateButton from '../Button/AnimateButton'
-import { useSmartKitContext } from '../SmartKitProvider'
 import { useAccount } from '@heapup/smartkit-hooks'
 import BalanceButton from './BalanceButton'
 import Avatar from '../Avatar'
+import { useModalContext } from '../ModalProvider'
 
 export interface ConnectButtonProps {
   label?: string
@@ -17,37 +17,24 @@ export function ConnectButton({
   showAvatar = true,
   showBalance = true
 }: ConnectButtonProps) {
-  const smartKitContext = useSmartKitContext()
+  const { openModal } = useModalContext()
 
   const { isConnected, account } = useAccount()
-
-  const handleConnectButtonClick = () => {
-    smartKitContext.setOpen(true)
-  }
 
   return (
     <>
       <ThemeContainer>
         {isConnected ? (
           showBalance ? (
-            <BalanceButton
-              onClick={handleConnectButtonClick}
-              showAvatar={showAvatar}
-            />
+            <BalanceButton onClick={openModal} showAvatar={showAvatar} />
           ) : (
-            <AnimateButton
-              className={styles.connectButton}
-              onClick={handleConnectButtonClick}
-            >
+            <AnimateButton className={styles.connectButton} onClick={openModal}>
               <Avatar address={account?.address} size={25}></Avatar>
               {account?.label || account?.address}
             </AnimateButton>
           )
         ) : (
-          <AnimateButton
-            onClick={handleConnectButtonClick}
-            className={styles.connectButton}
-          >
+          <AnimateButton onClick={openModal} className={styles.connectButton}>
             {label}
           </AnimateButton>
         )}

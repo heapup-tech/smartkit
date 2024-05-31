@@ -4,7 +4,7 @@ import ConnectOptions from './ConnectOptions'
 import Connect from './Connect'
 import { useAccount, Wallet } from '@heapup/smartkit-hooks'
 import Profile from './Profile'
-import { useSmartKitContext } from '../components/SmartKitProvider'
+import { useModalContext } from '../components/ModalProvider'
 
 type PageName = keyof typeof pages
 type PageProviderContext = {
@@ -34,7 +34,7 @@ export function PageProvider({ children }: React.PropsWithChildren<{}>) {
     undefined
   )
   const [prevPage, setPrevPage] = useState<PageName | null>(null)
-  const { setOpen } = useSmartKitContext()
+  const { closeModal } = useModalContext()
 
   const pushPage = (page: PageName) => {
     if (currentPage === 'connectOptions') {
@@ -59,7 +59,7 @@ export function PageProvider({ children }: React.PropsWithChildren<{}>) {
     if (isConnected) {
       setCurrentPage('profile')
       setPrevPage(null)
-      setOpen(false)
+      closeModal()
     } else {
       setCurrentPage('connectOptions')
       setPrevPage(null)

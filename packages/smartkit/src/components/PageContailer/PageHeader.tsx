@@ -3,8 +3,8 @@ import BackIcon from '../../icons/BackIcon'
 import CloseIcon from '../../icons/CloseIcon'
 import { usePageContext } from '../../pages/PageProvider'
 import IconButton from '../Button/IconButton'
-import { useSmartKitContext } from '../SmartKitProvider'
 import styles from './styles.css'
+import { useModalContext } from '../ModalProvider'
 
 interface PageHeaderProps {
   label: string
@@ -18,7 +18,7 @@ export default function PageHeader({
   attach,
   closeable = true
 }: PageHeaderProps) {
-  const { setOpen } = useSmartKitContext()
+  const { closeModal } = useModalContext()
   const { popPage, prevPage } = usePageContext()
   return (
     <div className={styles.pageHeader}>
@@ -51,14 +51,7 @@ export default function PageHeader({
       </div>
 
       <div className={styles.pageHeaderIcon}>
-        {closeable && (
-          <IconButton
-            icon={<CloseIcon />}
-            onClick={() => {
-              setOpen(false)
-            }}
-          />
-        )}
+        {closeable && <IconButton icon={<CloseIcon />} onClick={closeModal} />}
       </div>
     </div>
   )

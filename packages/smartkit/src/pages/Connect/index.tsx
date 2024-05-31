@@ -1,9 +1,9 @@
 import { UninstalledWallet, useConnect } from '@heapup/smartkit-hooks'
 import { useEffect, useState } from 'react'
 import { usePageContext } from '../PageProvider'
-import { useSmartKitContext } from '../../components/SmartKitProvider'
 import styles from './styles.css'
 import AnimateButton from '../../components/Button/AnimateButton'
+import { useModalContext } from '../../components/ModalProvider'
 
 export default function Connect() {
   const {
@@ -14,7 +14,7 @@ export default function Connect() {
   } = useConnect()
 
   const { selectedWallet } = usePageContext()
-  const smartKitContext = useSmartKitContext()
+  const { closeModal } = useModalContext()
 
   const [isInstalled, setIsInstalled] = useState(false)
 
@@ -35,7 +35,7 @@ export default function Connect() {
   }
 
   useEffect(() => {
-    connectSuccess && smartKitContext.setOpen(false)
+    connectSuccess && closeModal()
   }, [connectSuccess])
 
   const notInstalled = (
