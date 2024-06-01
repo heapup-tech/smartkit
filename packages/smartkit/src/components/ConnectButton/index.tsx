@@ -21,6 +21,8 @@ export function ConnectButton({
 
   const { isConnected, account } = useAccount()
 
+  console.log(`showAvatar: ${showAvatar}`)
+
   return (
     <>
       <ThemeContainer>
@@ -29,7 +31,9 @@ export function ConnectButton({
             <BalanceButton onClick={openModal} showAvatar={showAvatar} />
           ) : (
             <AnimateButton className={styles.connectButton} onClick={openModal}>
-              <Avatar address={account?.address} size={25}></Avatar>
+              {showAvatar && (
+                <Avatar address={account?.address} size={25}></Avatar>
+              )}
               {account?.label || account?.address}
             </AnimateButton>
           )

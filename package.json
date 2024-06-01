@@ -11,9 +11,9 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "dev": "pnpm --recursive --paraller dev:smartkit dev:smartkit-hooks",
-    "dev:smartkit": "pnpm --filter @heapup/smartkit dev",
-    "dev:smartkit-hooks": "pnpm --filter smartkit-hooks dev",
+    "dev": "pnpm --recursive --paraller -w dev:smartkit dev:smartkit-hooks",
+    "dev:smartkit": "pnpm --filter=@heapup/smartkit dev",
+    "dev:smartkit-hooks": "pnpm --filter=@heapup/smartkit-hooks dev",
     "preview:vite": "pnpm --filter apps-vite dev",
     "dev:site": "pnpm --filter site dev",
     "build": "pnpm --recursive --parallel --filter=@heapup/smartkit --filter=@heapup/smartkit-hooks build",

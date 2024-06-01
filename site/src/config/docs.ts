@@ -17,6 +17,11 @@ export const docsConfig = {
           title: 'Providers',
           href: '/docs/providers',
           items: []
+        },
+        {
+          title: 'ConnectButton',
+          href: '/docs/connect-button',
+          items: []
         }
       ]
     },

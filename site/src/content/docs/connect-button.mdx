@@ -1,0 +1,22 @@
+---
+title: ConnectButton
+description: The ConnectButton component is a button that allows users to connect their wallet to your dapp.
+---
+
+ConnectButton is a client-side component used to display the connection status between dapps and wallets.
+
+```tsx
+import { ConnectButton } from '@heapup/smartkit'
+
+function App() {
+  return <ConnectButton />
+}
+```
+
+Also, you can customize the text and style of ConnectButton by props.
+
+| Prop          | Type    | Default        |
+| ------------- | ------- | -------------- |
+| `label`       | string  | Connect Wallet |
+| `showAvatar`  | boolean | true           |
+| `showBalance` | boolean | false          |
