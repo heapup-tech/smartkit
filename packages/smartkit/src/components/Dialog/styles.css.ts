@@ -15,7 +15,6 @@ const dialogContent = style({
   boxSizing: 'border-box',
   color: themeVars.colors.foreground,
   width: themeVars.width.connectModal,
-  maxHeight: themeVars.height.connectModal,
   borderRadius: themeVars.radii.connectModal,
   background: themeVars.backgrounds.connectModal,
   paddingBlock: themeVars.padding.connectModal.paddingBlock,

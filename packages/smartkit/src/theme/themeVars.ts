@@ -24,7 +24,7 @@ const themTokens = {
   width: {
     connectModal: ''
   },
-  height: {
+  maxHeight: {
     connectModal: ''
   },
   radii: {

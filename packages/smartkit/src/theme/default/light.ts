@@ -24,7 +24,7 @@ export const light: ThemeVars = {
   width: {
     connectModal: '360px'
   },
-  height: {
+  maxHeight: {
     connectModal: '446px'
   },
   radii: {

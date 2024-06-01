@@ -1,15 +1,15 @@
 import { style } from '@vanilla-extract/css'
+import { themeVars } from '../../theme/themeVars'
+import { calc } from '@vanilla-extract/css-utils'
 
 const pageContainer = style({
   display: 'flex',
-  flexDirection: 'column',
-  height: '100%'
+  flexDirection: 'column'
 })
 
 const page = style({})
 
 const pageHeader = style({
-  width: '100%',
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
@@ -34,10 +34,11 @@ const pageHeaderIcon = style({
 })
 
 const pageContent = style({
-  flex: 1,
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center'
+  overflow: 'auto',
+  maxHeight: calc.subtract(themeVars.maxHeight.connectModal, '100px'),
+  '::-webkit-scrollbar': {
+    display: 'none'
+  }
 })
 
 export default {
