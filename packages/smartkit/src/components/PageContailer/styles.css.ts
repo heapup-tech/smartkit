@@ -1,5 +1,4 @@
 import { style } from '@vanilla-extract/css'
-import { themeVars } from '../../theme/themeVars'
 
 const pageContainer = style({
   display: 'flex',
@@ -18,7 +17,7 @@ const pageHeader = style({
 })
 
 const pageHeaderTitle = style({
-  fontSize: themeVars.fontSizes.title,
+  fontSize: '18px',
   fontWeight: 500,
   flex: 1,
   textAlign: 'center',

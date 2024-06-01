@@ -47,13 +47,11 @@ const connectStatus = style({
 })
 
 const connectingText = style({
-  color: themeVars.color.accentForeground,
-  fontSize: themeVars.fontSizes.title
+  fontSize: '14px'
 })
 
 const connectFailedText = style({
-  color: themeVars.color.destructiveForeground,
-  fontSize: themeVars.fontSizes.title,
+  color: themeVars.colors.destructive,
   fontWeight: 500
 })
 

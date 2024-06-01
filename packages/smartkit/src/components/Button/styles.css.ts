@@ -20,12 +20,13 @@ const animateButton = style({
   fontWeight: 500,
   fontSize: '14px',
   paddingInline: '5px',
-  background: themeVars.background.clickable.normal,
+  color: themeVars.colors.foreground,
+  background: themeVars.clickable.background.normal,
   ':hover': {
-    background: themeVars.background.clickable.hover
+    background: themeVars.clickable.background.hover
   },
   ':active': {
-    background: themeVars.background.clickable.active
+    background: themeVars.clickable.background.active
   },
   transition: 'background 0.2s ease-in-out'
 })

@@ -14,7 +14,7 @@ const address = style({
 })
 
 const balance = style({
-  color: themeVars.color.accentForeground
+  color: themeVars.colors.muted
 })
 
 const buttonRow = style({
@@ -37,9 +37,9 @@ const buttonStyle = style({
   borderRadius: '16px',
   width: '100%',
   justifyContent: 'center',
-  background: themeVars.background.clickable.normal,
+  background: themeVars.clickable.background.normal,
   ':hover': {
-    background: themeVars.background.clickable.hover
+    background: themeVars.clickable.background.hover
   }
 })
 

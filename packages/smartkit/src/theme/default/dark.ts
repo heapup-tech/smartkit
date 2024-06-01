@@ -1,8 +1,31 @@
-export const dark = {
-  color: {
-    accent: '#EAECF1',
-    accentForeground: 'red',
-    destructiveForeground: '#EF4544'
+import { ThemeVars } from '../themeVars'
+
+export const dark: ThemeVars = {
+  colors: {
+    accent: '#4CA3FF',
+    foreground: '#ffffff',
+    muted: '#FFFFFF66',
+    connectButton: '#373737',
+    iconButton: '#373737',
+    balance: '#ffffff',
+    destructive: '#EF4544'
+  },
+  backgrounds: {
+    overlay: 'rgba(0,0,0,0.4)',
+    connectModal: '#2B2B2B'
+  },
+  clickable: {
+    background: {
+      normal: '#383838',
+      hover: '#404040',
+      active: '#4D4D4D'
+    }
+  },
+  width: {
+    connectModal: '360px'
+  },
+  height: {
+    connectModal: '446px'
   },
   radii: {
     connectButton: '10px',
@@ -17,23 +40,5 @@ export const dark = {
       paddingInline: '24px',
       paddingBlock: '24px'
     }
-  },
-  width: {
-    connectModal: '360px'
-  },
-  height: {
-    connectModal: '446px'
-  },
-  background: {
-    clickable: {
-      normal: '#F6F7F9',
-      hover: '#EAECF1',
-      active: '#EAECF1'
-    },
-    overlay: 'rgba(71, 88, 107, 0.24)',
-    connectModal: '#fff'
-  },
-  fontSizes: {
-    title: '16px'
   }
 }

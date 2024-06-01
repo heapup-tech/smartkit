@@ -17,7 +17,7 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col items-center">
-          <ConnectButton label="try it out" />
+          <ConnectButton label="Try it out" />
 
           <Link href="/docs">
             <motion.div

@@ -1,8 +1,31 @@
-export const light = {
-  color: {
-    accent: '#EAECF1',
-    accentForeground: '#999999',
-    destructiveForeground: '#EF4544'
+import { ThemeVars } from '../themeVars'
+
+export const light: ThemeVars = {
+  colors: {
+    accent: '#4CA3FF',
+    foreground: '#373737',
+    muted: '#999999',
+    connectButton: '#373737',
+    iconButton: '#373737',
+    balance: '#373737',
+    destructive: '#EF4544'
+  },
+  backgrounds: {
+    overlay: 'rgba(71, 88, 107, 0.24)',
+    connectModal: '#ffffff'
+  },
+  clickable: {
+    background: {
+      normal: '#F6F7F9',
+      hover: '#F0F2F5',
+      active: '#EAECF1'
+    }
+  },
+  width: {
+    connectModal: '360px'
+  },
+  height: {
+    connectModal: '446px'
   },
   radii: {
     connectButton: '10px',
@@ -17,23 +40,5 @@ export const light = {
       paddingInline: '24px',
       paddingBlock: '24px'
     }
-  },
-  width: {
-    connectModal: '360px'
-  },
-  height: {
-    connectModal: '446px'
-  },
-  background: {
-    clickable: {
-      normal: '#F6F7F9',
-      hover: '#EAECF1',
-      active: '#EAECF1'
-    },
-    overlay: 'rgba(71, 88, 107, 0.24)',
-    connectModal: '#fff'
-  },
-  fontSizes: {
-    title: '16px'
   }
 }

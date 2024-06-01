@@ -1,10 +1,31 @@
 import { createGlobalThemeContract } from '@vanilla-extract/css'
 
 const themTokens = {
-  color: {
+  colors: {
     accent: '',
-    accentForeground: '',
-    destructiveForeground: ''
+    foreground: '',
+    muted: '',
+    connectButton: '',
+    iconButton: '',
+    balance: '',
+    destructive: ''
+  },
+  backgrounds: {
+    overlay: '',
+    connectModal: ''
+  },
+  clickable: {
+    background: {
+      normal: '',
+      hover: '',
+      active: ''
+    }
+  },
+  width: {
+    connectModal: ''
+  },
+  height: {
+    connectModal: ''
   },
   radii: {
     connectButton: '',
@@ -19,24 +40,6 @@ const themTokens = {
       paddingInline: '',
       paddingBlock: ''
     }
-  },
-  width: {
-    connectModal: ''
-  },
-  height: {
-    connectModal: ''
-  },
-  background: {
-    clickable: {
-      normal: '',
-      hover: '',
-      active: ''
-    },
-    overlay: '',
-    connectModal: ''
-  },
-  fontSizes: {
-    title: ''
   }
 }
 

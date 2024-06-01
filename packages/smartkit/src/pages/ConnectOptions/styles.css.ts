@@ -11,8 +11,7 @@ const connectGroup = style({
 const connectGroupTitle = style({
   fontSize: '14px',
   fontWeight: '700',
-  marginBottom: '8px',
-  color: themeVars.color.accentForeground
+  marginBottom: '8px'
 })
 
 const walletItem = style({
@@ -24,9 +23,9 @@ const walletItem = style({
   transition: 'background 0.2s',
   borderRadius: '16px',
   fontWeight: '500',
-  background: themeVars.background.clickable.normal,
+  background: themeVars.clickable.background.normal,
   ':hover': {
-    background: themeVars.background.clickable.hover
+    background: themeVars.clickable.background.hover
   }
 })
 

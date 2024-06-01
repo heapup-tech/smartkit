@@ -30,7 +30,7 @@ export default function Providers({ children }: React.PropsWithChildren<{}>) {
   return (
     <SmartKitClientProvider config={config}>
       <SmartKitProvider theme="default">
-        <ThemeProvider attribute="class" defaultTheme="light">
+        <ThemeProvider attribute="class" enableSystem defaultTheme="system">
           {children}
         </ThemeProvider>
       </SmartKitProvider>
