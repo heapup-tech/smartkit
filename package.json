@@ -11,11 +11,13 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "dev": "pnpm --paraller dev:smartkit dev:smartkit-hooks",
+    "dev": "pnpm --recursive --paraller dev:smartkit dev:smartkit-hooks",
     "dev:smartkit": "pnpm --filter @heapup/smartkit dev",
     "dev:smartkit-hooks": "pnpm --filter smartkit-hooks dev",
     "preview:vite": "pnpm --filter apps-vite dev",
-    "dev:site": "pnpm --filter site dev"
+    "dev:site": "pnpm --filter site dev",
+    "build": "pnpm --recursive --parallel --filter=@heapup/smartkit --filter=@heapup/smartkit-hooks build",
+    "changeset": "changeset"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.3",

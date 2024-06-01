@@ -1,6 +1,6 @@
 {
   "name": "@heapup/smartkit",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "description": "Connect to the Sui network in a simple way",
   "keywords": [
@@ -31,6 +31,7 @@
     "directory": "packages/smartkit"
   },
   "scripts": {
+    "build": "tsx build.ts",
     "build:watch": "tsx build.ts --watch",
     "typegen:watch": "tsc --emitDeclarationOnly --watch",
     "dev": "pnpm build:watch & pnpm typegen:watch"
