@@ -1,14 +1,9 @@
 import { ConnectButton } from '@heapup/smartkit'
-import { useAccount, useClientQuery } from '@heapup/smartkit-hooks'
+import { useAccount } from '@heapup/smartkit-hooks'
 import '@heapup/smartkit/styles.css'
 
 function App() {
-  const { isConnected, isConnecting, account } = useAccount()
-
-  const { data } = useClientQuery('getBalance', {
-    owner: account?.address
-  })
-  console.log(data)
+  const { isConnected, isConnecting } = useAccount()
 
   return (
     <div

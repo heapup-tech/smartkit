@@ -19,7 +19,7 @@ export default function Dialog({ children, open, onClose }: DialogProps) {
   return (
     <>
       <AnimatePresence>
-        {open && (
+        {open ? (
           <RemoveScroll>
             <Portal>
               <ThemeContainer>
@@ -29,6 +29,8 @@ export default function Dialog({ children, open, onClose }: DialogProps) {
               </ThemeContainer>
             </Portal>
           </RemoveScroll>
+        ) : (
+          <></>
         )}
       </AnimatePresence>
     </>

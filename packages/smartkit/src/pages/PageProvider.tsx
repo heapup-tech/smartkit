@@ -57,9 +57,9 @@ export function PageProvider({ children }: React.PropsWithChildren<{}>) {
 
   useEffect(() => {
     if (isConnected) {
+      prevPage !== null && closeModal()
       setCurrentPage('profile')
       setPrevPage(null)
-      closeModal()
     } else {
       setCurrentPage('connectOptions')
       setPrevPage(null)
