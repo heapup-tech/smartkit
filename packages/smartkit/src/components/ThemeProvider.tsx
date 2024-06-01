@@ -1,14 +1,13 @@
 import { createContext, PropsWithChildren, useContext } from 'react'
-import { Mode, Theme } from '../theme/types'
-import { ThemeVars } from '../theme/themeVars'
+import { Mode, ThemeProps } from '../theme/types'
 
 interface ThemeProviderProps {
-  theme?: Theme | ThemeVars
+  theme?: ThemeProps
   mode?: Mode
 }
 
 interface ThemeContextValue {
-  theme: Theme | ThemeVars
+  theme: ThemeProps
   mode: Mode
 }
 

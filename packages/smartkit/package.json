@@ -42,6 +42,7 @@
     "@vanilla-extract/dynamic": "^2.1.1",
     "@vanilla-extract/sprinkles": "^1.6.1",
     "framer-motion": "^11.1.8",
+    "radash": "^12.1.0",
     "react": "^18",
     "react-dom": "^18",
     "react-remove-scroll": "^2.5.9"

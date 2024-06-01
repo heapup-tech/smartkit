@@ -1,4 +1,5 @@
 import { createGlobalThemeContract } from '@vanilla-extract/css'
+import { DeepPartial } from '../utils/types'
 
 const themTokens = {
   colors: {
@@ -49,3 +50,4 @@ export const themeVars = createGlobalThemeContract(
 )
 
 export type ThemeVars = typeof themTokens
+export type PartialThemeVars = DeepPartial<ThemeVars>
