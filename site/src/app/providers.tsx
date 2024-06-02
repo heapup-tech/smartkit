@@ -17,8 +17,6 @@ const client = new SuiClient({
 const config = createConfig({
   suiClient: client,
   wallets: [
-    suiWallet,
-    okxWallet,
     {
       groupName: 'Popular',
       wallets: [suietWallet]

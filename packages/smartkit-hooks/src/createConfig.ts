@@ -3,7 +3,7 @@ import { Evaluate } from './types/utils'
 import { suiWallet } from './wallets/suiWallet'
 import { Wallet } from './types/wallet'
 import { getInstalledWallets } from './utils/wallet'
-import { createStore, StoreApi } from 'zustand'
+import { StoreApi } from 'zustand'
 import {
   WalletAccount,
   WalletWithRequiredFeatures
@@ -123,8 +123,6 @@ export function createConfig(config: createConfigParams): Config {
   walletGroups = walletGroups.filter(
     (walletGroup) => walletGroup.wallets.length > 0
   )
-
-  createStore
 
   return {
     suiClient,
