@@ -1,35 +1,23 @@
 import { createSprinkles, defineProperties } from '@vanilla-extract/sprinkles'
+import { responsiveProperties, unresponsiveProperties } from './properties'
+import { breakpointNames, breakpoints } from './breakpoints'
 
-export const desktopMinWidth = 768
-
-const responsiveProperties = defineProperties({
+const responsiveSprinkleProperties = defineProperties({
   conditions: {
     mobile: {},
-    desktop: { '@media': `(min-width: ${desktopMinWidth}px)` }
+    desktop: { '@media': `screen and (min-width: ${breakpoints.desktop}px)` }
   },
   defaultCondition: 'mobile',
-  properties: {
-    display: ['none', 'flex', 'block', 'grid'],
-    flexDirection: ['row', 'column'],
-    alignItems: ['flex-start', 'center', 'flex-end'],
-    justifyContent: ['flex-start', 'center', 'flex-end'],
-    padding: ['none', 'small', 'medium', 'large'],
-    margin: ['none', 'small', 'medium', 'large'],
-    borderRadius: ['none', 'small', 'medium', 'large'],
-    boxShadow: ['none', 'small', 'medium', 'large'],
-    fontSize: ['small', 'medium', 'large'],
-    fontWeight: ['normal', 'bold'],
-    lineHeight: ['none', 'small', 'medium', 'large'],
-    textAlign: ['left', 'center', 'right'],
-    color: ['primary', 'secondary', 'accent', 'neutral'],
-    backgroundColor: ['primary', 'secondary', 'accent', 'neutral'],
-    border: ['none', 'small', 'medium', 'large'],
-    borderColor: ['primary', 'secondary', 'accent', 'neutral'],
-    width: ['100%', 'auto'],
-    height: ['full', 'auto'],
-    bottom: [0]
-  }
+  responsiveArray: breakpointNames,
+  properties: responsiveProperties
 })
 
-export const sprinkles = createSprinkles(responsiveProperties)
+const unresponsiveSprinkleProperties = defineProperties({
+  properties: unresponsiveProperties
+})
+
+export const sprinkles = createSprinkles(
+  responsiveSprinkleProperties,
+  unresponsiveSprinkleProperties
+)
 export type Sprinkles = Parameters<typeof sprinkles>[0]
