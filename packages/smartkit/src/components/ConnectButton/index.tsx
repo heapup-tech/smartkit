@@ -21,8 +21,6 @@ export function ConnectButton({
 
   const { isConnected, account } = useAccount()
 
-  console.log(`showAvatar: ${showAvatar}`)
-
   return (
     <>
       <ThemeContainer>

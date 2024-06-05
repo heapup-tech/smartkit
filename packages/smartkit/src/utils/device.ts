@@ -1,5 +1,7 @@
 import { detect } from 'detect-browser'
 
+// @deprecated: responsive by screen width, not useragent
+
 const detectOS = () => {
   const browser = detect()
   return browser?.os ?? ''

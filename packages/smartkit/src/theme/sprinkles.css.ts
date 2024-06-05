@@ -4,10 +4,10 @@ import { breakpointNames, breakpoints } from './breakpoints'
 
 const responsiveSprinkleProperties = defineProperties({
   conditions: {
-    mobile: {},
-    desktop: { '@media': `screen and (min-width: ${breakpoints.desktop}px)` }
+    small: {},
+    large: { '@media': `screen and (min-width: ${breakpoints.large}px)` }
   },
-  defaultCondition: 'mobile',
+  defaultCondition: 'small',
   responsiveArray: breakpointNames,
   properties: responsiveProperties
 })
