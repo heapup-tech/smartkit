@@ -1,6 +1,25 @@
-import { motion } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 import styles from './styles.css'
 import { useEffect, useRef, useState } from 'react'
+import { useWindowSize } from '../../hooks/useWindowSize'
+
+const scaleVariants: Variants = {
+  init: {
+    scale: 0.97
+  },
+  exit: {
+    scale: 0.97
+  }
+}
+
+const slideUpVariants: Variants = {
+  init: {
+    bottom: '-100%'
+  },
+  exit: {
+    bottom: '-100%'
+  }
+}
 
 export default function DialogContent({
   children
@@ -23,31 +42,34 @@ export default function DialogContent({
     return () => {}
   }, [])
 
-  // useEffect(() => {
-  //   if (currentPage === 'connect') setWidth(250)
-  //   if (currentPage === 'connectOptions') setWidth(280)
-  // }, [currentPage])
+  const { width: screenWidth } = useWindowSize()
 
   return (
     <motion.div
-      initial={{
-        scale: 0.97
-      }}
+      variants={
+        (screenWidth || window.innerWidth) >= 768
+          ? scaleVariants
+          : slideUpVariants
+      }
+      initial="init"
       animate={{
         scale: 1,
+        bottom: 0,
         height
       }}
       transition={{
         duration: 0.1,
+        bottom: {
+          duration: 0.2,
+          ease: [0.15, 1.15, 0.6, 1]
+        },
         height: {
           duration: 0.5,
           type: 'spring',
           bounce: 0.5
         }
       }}
-      exit={{
-        scale: 0.97
-      }}
+      exit="exit"
       style={{ height }}
       onClick={(e) => e.stopPropagation()}
       className={styles.dialogContent}
