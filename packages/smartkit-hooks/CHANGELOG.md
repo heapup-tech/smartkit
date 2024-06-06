@@ -1,5 +1,12 @@
 # @heapup/smartkit-hooks
 
+## 0.2.1
+
+### Patch Changes
+
+- custom theme
+  mobile adaptation
+
 ## 0.2.0
 
 ### Minor Changes

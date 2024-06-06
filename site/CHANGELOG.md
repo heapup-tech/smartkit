@@ -1,5 +1,13 @@
 # site
 
+## 0.0.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @heapup/smartkit@0.2.1
+  - @heapup/smartkit-hooks@0.2.1
+
 ## 0.0.2
 
 ### Patch Changes
