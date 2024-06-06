@@ -1,12 +1,17 @@
 import { style } from '@vanilla-extract/css'
 import { themeVars } from '../../theme/themeVars'
 import buttonStyle from '../Button/styles.css'
+import { sprinkles } from '../../theme/sprinkles.css'
 
 const connectButton = style([
+  sprinkles({
+    height: ['8', '10'],
+    lineHeight: ['8', '10']
+  }),
   buttonStyle.animateButton,
   {
-    borderRadius: themeVars.radii.connectButton,
-    paddingInline: themeVars.padding.connectButton.paddingInline
+    borderRadius: themeVars.radii.connectButton
+    // paddingInline: themeVars.padding.connectButton.paddingInline
   }
 ])
 

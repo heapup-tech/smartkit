@@ -31,14 +31,12 @@ export const dark: ThemeVars = {
     connectButton: '10px',
     connectModal: '20px'
   },
-  padding: {
-    connectButton: {
-      paddingInline: '12px',
-      paddingBlock: '0'
-    },
-    connectModal: {
-      paddingInline: '24px',
-      paddingBlock: '24px'
-    }
+  paddingInline: {
+    connectButton: '12px',
+    connectModal: '24px'
+  },
+  paddingBlock: {
+    connectButton: '0',
+    connectModal: '24px'
   }
 }

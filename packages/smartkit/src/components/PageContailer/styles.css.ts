@@ -1,6 +1,7 @@
 import { style } from '@vanilla-extract/css'
 import { themeVars } from '../../theme/themeVars'
 import { calc } from '@vanilla-extract/css-utils'
+import { sprinkles } from '../../theme/sprinkles.css'
 
 const pageContainer = style({
   display: 'flex',
@@ -16,22 +17,30 @@ const pageHeader = style({
   marginBottom: '20px'
 })
 
-const pageHeaderTitle = style({
-  fontSize: '18px',
-  fontWeight: 500,
-  flex: 1,
-  textAlign: 'center',
-  position: 'relative'
-})
+const pageHeaderTitle = style([
+  sprinkles({
+    fontSize: ['3', '4'],
+    fontWeight: ['medium', 'semibold']
+  }),
+  {
+    flex: 1,
+    textAlign: 'center',
+    position: 'relative'
+  }
+])
 
-const pageHeaderIcon = style({
-  borderRadius: '50%',
-  width: '32px',
-  height: '32px',
-  padding: 0,
-  background: 'transparent',
-  color: '#999999'
-})
+const pageHeaderIcon = style([
+  sprinkles({
+    borderRadius: 'full',
+    width: '8',
+    height: '8'
+  }),
+  {
+    padding: 0,
+    background: 'transparent',
+    color: '#999999'
+  }
+])
 
 const pageContent = style({
   overflow: 'auto',

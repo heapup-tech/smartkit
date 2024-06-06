@@ -1,6 +1,7 @@
 import { style } from '@vanilla-extract/css'
 import buttonStyle from '../../components/Button/styles.css'
 import { themeVars } from '../../theme/themeVars'
+import { sprinkles } from '../../theme/sprinkles.css'
 
 const connectContainer = style({
   display: 'flex',
@@ -18,25 +19,32 @@ const connectContent = style({
   flex: 1,
   minHeight: '220px'
 })
-const walletIcon = style({
-  width: '64px',
-  height: '64px'
+
+const walletIcon = sprinkles({
+  width: '16',
+  height: '16'
 })
 
-const notInstalled = style({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  gap: '20px'
-})
+const notInstalled = style([
+  sprinkles({
+    rowGap: ['2', '3']
+  }),
+  {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+])
 
 const downloadButton = style([
-  buttonStyle.animateButton,
-  {
-    borderRadius: themeVars.radii.connectButton,
-    paddingInline: themeVars.padding.connectButton.paddingInline,
-    cursor: 'pointer'
-  }
+  sprinkles({
+    height: ['6', '8'],
+    lineHeight: ['6', '8'],
+    borderRadius: ['small', 'standard'],
+    paddingInline: ['1.5', '3']
+  }),
+  buttonStyle.animateButton
 ])
 
 const connectStatus = style({
@@ -46,8 +54,8 @@ const connectStatus = style({
   gap: '10px'
 })
 
-const connectingText = style({
-  fontSize: '14px'
+const connectingText = sprinkles({
+  fontSize: '3'
 })
 
 const connectFailedText = style({
@@ -56,11 +64,15 @@ const connectFailedText = style({
 })
 
 const retryButton = style([
+  sprinkles({
+    height: ['6', '8'],
+    lineHeight: ['6', '8'],
+    borderRadius: ['small', 'standard'],
+    paddingInline: ['1.5', '3']
+  }),
   buttonStyle.animateButton,
   {
-    borderRadius: themeVars.radii.connectButton,
-    paddingInline: themeVars.padding.connectButton.paddingInline,
-    cursor: 'pointer'
+    minWidth: '100%'
   }
 ])
 

@@ -1,4 +1,4 @@
-export const size = {
+export const sizes = {
   '0': '0px',
   px: '1px',
   '0.5': '2px',
@@ -34,4 +34,21 @@ export const size = {
   '72': '288px',
   '80': '320px',
   '96': '384px'
+}
+export const fontSizes = {
+  '1': '12px',
+  '2': '14px',
+  '3': '16px',
+  '4': '18px',
+  '5': '20px',
+  '6': '24px',
+  '7': '30px'
+}
+
+export const fontWeights = {
+  light: 300,
+  normal: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700
 }

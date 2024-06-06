@@ -32,15 +32,13 @@ const themTokens = {
     connectButton: '',
     connectModal: ''
   },
-  padding: {
-    connectButton: {
-      paddingInline: '',
-      paddingBlock: ''
-    },
-    connectModal: {
-      paddingInline: '',
-      paddingBlock: ''
-    }
+  paddingInline: {
+    connectButton: '',
+    connectModal: ''
+  },
+  paddingBlock: {
+    connectButton: '',
+    connectModal: ''
   }
 }
 

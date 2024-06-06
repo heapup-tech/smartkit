@@ -4,29 +4,35 @@ import { sprinkles } from '../../theme/sprinkles.css'
 
 const dialogOverlay = style([
   sprinkles({
-    alignItems: ['flexEnd', 'center']
+    alignItems: ['flexEnd', 'center'],
+    zIndex: 'modal'
   }),
   {
     position: 'fixed',
     inset: 0,
     background: themeVars.backgrounds.overlay,
     display: 'flex',
-    justifyContent: 'center',
-    zIndex: 9999999
+    justifyContent: 'center'
   }
 ])
 
 const dialogContent = style([
   sprinkles({
     width: ['full', 'connectModal'],
-    borderRadius: 'connectModal'
+    borderTopLeftRadius: ['connectModal', 'connectModal'],
+    borderTopRightRadius: ['connectModal', 'connectModal'],
+    borderBottomLeftRadius: ['none', 'connectModal'],
+    borderBottomRightRadius: ['none', 'connectModal'],
+    position: ['absolute', 'relative'],
+    paddingInline: 'connectModal',
+    paddingBlock: 'connectModal',
+    fontSize: ['2', '3']
   }),
   {
+    bottom: '0',
     boxSizing: 'border-box',
     color: themeVars.colors.foreground,
-    background: themeVars.backgrounds.connectModal,
-    paddingBlock: themeVars.padding.connectModal.paddingBlock,
-    paddingInline: themeVars.padding.connectModal.paddingInline
+    background: themeVars.backgrounds.connectModal
   }
 ])
 

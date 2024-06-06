@@ -1,7 +1,7 @@
-import { style } from '@vanilla-extract/css'
+import { sprinkles } from '../../theme/sprinkles.css'
 
-const avatar = style({
-  borderRadius: '50%'
+const avatar = sprinkles({
+  borderRadius: 'full'
 })
 
 export default {

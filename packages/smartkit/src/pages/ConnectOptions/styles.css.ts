@@ -1,5 +1,6 @@
 import { style } from '@vanilla-extract/css'
 import { themeVars } from '../../theme/themeVars'
+import { sprinkles } from '../../theme/sprinkles.css'
 
 const connectGroup = style({
   marginTop: '20px',
@@ -8,31 +9,41 @@ const connectGroup = style({
   }
 })
 
-const connectGroupTitle = style({
-  fontSize: '14px',
-  fontWeight: '700',
-  marginBottom: '8px'
-})
-
-const walletItem = style({
-  display: 'flex',
-  alignItems: 'center',
-  cursor: 'pointer',
-  padding: '10px',
-  marginTop: '10px',
-  transition: 'background 0.2s',
-  borderRadius: '16px',
-  fontWeight: '500',
-  background: themeVars.clickable.background.normal,
-  ':hover': {
-    background: themeVars.clickable.background.hover
+const connectGroupTitle = style([
+  sprinkles({
+    fontSize: '2',
+    fontWeight: 'semibold',
+    marginBottom: '2'
+  }),
+  {
+    letterSpacing: '1px'
   }
-})
+])
 
-const walletIcon = style({
-  width: '32px',
-  height: '32px',
-  marginRight: '10px'
+const walletItem = style([
+  sprinkles({
+    display: 'flex',
+    alignItems: 'center',
+    cursor: 'pointer',
+    fontWeight: 'normal',
+    borderRadius: ['large'],
+    paddingInline: '3',
+    paddingBlock: '3'
+  }),
+  {
+    marginTop: '10px',
+    transition: 'background 0.2s',
+    background: themeVars.clickable.background.normal,
+    ':hover': {
+      background: themeVars.clickable.background.hover
+    }
+  }
+])
+
+const walletIcon = sprinkles({
+  width: ['6', '8'],
+  height: ['6', '8'],
+  marginRight: '2.5'
 })
 
 export default {

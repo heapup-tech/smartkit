@@ -1,16 +1,17 @@
 import { style } from '@vanilla-extract/css'
 import { themeVars } from '../../theme/themeVars'
+import { sprinkles } from '../../theme/sprinkles.css'
 
-const profileContent = style({
+const profileContent = sprinkles({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  gap: '10px'
+  rowGap: '3'
 })
 
-const address = style({
-  fontWeight: 600,
-  fontSize: '18px'
+const address = sprinkles({
+  fontWeight: ['medium', 'semibold'],
+  fontSize: ['3', '4']
 })
 
 const balance = style({
