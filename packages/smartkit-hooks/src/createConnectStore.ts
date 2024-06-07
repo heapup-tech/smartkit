@@ -5,13 +5,14 @@ import {
   WalletAccount,
   WalletWithRequiredFeatures
 } from '@mysten/wallet-standard'
-import { State } from './createConfig'
+import { State, WalletGroup } from './createConfig'
 
-export const createConnectStore = () => {
+export const createConnectStore = (walletGroups: WalletGroup[]) => {
   return createStore<State>()(
     persist(
-      (set) => {
+      (set, get) => {
         return {
+          walletGroups: walletGroups,
           accounts: [],
           currentAccount: null,
           currentWallet: null,
@@ -70,11 +71,28 @@ export const createConnectStore = () => {
             })
           },
           onChangedStatus: (status) => {
-            set(() => {
-              return {
-                status
-              }
-            })
+            set(() => ({ status }))
+          },
+          onWalletRegistered: (walletGroups) => {
+            set(() => ({ walletGroups }))
+          },
+          onWalletUnregistered: (walletGroups, unregisteredWallet) => {
+            const currentWallet = get().currentWallet
+            if (currentWallet && currentWallet === unregisteredWallet) {
+              set(() => {
+                return {
+                  walletGroups,
+                  currentWallet: null,
+                  currentAccount: null,
+                  accounts: [],
+                  recentConnectAddress: null,
+                  recentConnectorId: null,
+                  status: 'disconnected'
+                }
+              })
+            } else {
+              set(() => ({ walletGroups }))
+            }
           }
         }
       },

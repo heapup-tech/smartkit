@@ -1,6 +1,5 @@
-import { useConfig } from './useConfig'
+import { useConnectStore } from './useConnectStore'
 
 export function useWalletGroups() {
-  const { walletGroups } = useConfig()
-  return walletGroups || []
+  return useConnectStore((state) => state.walletGroups)
 }

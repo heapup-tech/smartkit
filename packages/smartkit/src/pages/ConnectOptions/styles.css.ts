@@ -25,7 +25,7 @@ const walletItem = style([
     display: 'flex',
     alignItems: 'center',
     cursor: 'pointer',
-    fontWeight: 'normal',
+    fontWeight: ['medium'],
     borderRadius: ['large'],
     paddingInline: '3',
     paddingBlock: '3'

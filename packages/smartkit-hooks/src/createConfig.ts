@@ -1,15 +1,15 @@
 import { SuiClient } from '@mysten/sui.js/client'
 import { Evaluate } from './types/utils'
-import { suiWallet } from './wallets/suiWallet'
 import { Wallet } from './types/wallet'
-import { getInstalledWallets } from './utils/wallet'
 import { StoreApi } from 'zustand'
 import {
+  Wallet as StandardWallet,
   WalletAccount,
   WalletWithRequiredFeatures
 } from '@mysten/wallet-standard'
 import { Address } from './types/account'
 import { createConnectStore } from './createConnectStore'
+import { getWalletGroups } from './utils/wallet'
 
 export type ConnectStatus = 'connected' | 'connecting' | 'disconnected'
 
@@ -26,9 +26,15 @@ export type ConnectActions = {
     account: WalletAccount | null
   ) => void
   onChangedStatus: (status: ConnectStatus) => void
+  onWalletRegistered: (walletGroups: WalletGroup[]) => void
+  onWalletUnregistered: (
+    walletGroups: WalletGroup[],
+    unregisteredWallet: StandardWallet
+  ) => void
 }
 
 export type State = {
+  walletGroups: WalletGroup[]
   accounts: WalletAccount[]
   currentAccount: WalletAccount | null
   currentWallet: WalletWithRequiredFeatures | null
@@ -42,95 +48,23 @@ export type WalletGroup = {
   wallets: Wallet[]
 }
 
-const DEAFULT_WALLETS: Wallet[] = [suiWallet]
-
 export type Config = Evaluate<{
   suiClient: SuiClient
   storage?: Storage
-  wallets?: Array<WalletGroup | Wallet>
-  walletGroups?: WalletGroup[]
+  wallets: Array<WalletGroup | Wallet>
   store: StoreApi<State>
 }>
 
-export function excludeInOtherWalletGroup(
-  walletGroups: WalletGroup[],
-  wallets: Wallet[]
-) {
-  const includeInWalletSet = new Set<string>()
-  walletGroups.forEach((walletGroup) => {
-    walletGroup.wallets.forEach((wallet) => {
-      includeInWalletSet.add(wallet.name)
-    })
-  })
+type CreateConfigParams = Omit<Config, 'walletGroups' | 'store'>
 
-  return wallets.filter((wallet) => !includeInWalletSet.has(wallet.name))
-}
-
-type createConfigParams = Omit<Config, 'walletGroups' | 'store'>
-
-export function createConfig(config: createConfigParams): Config {
+export function createConfig(config: CreateConfigParams): Config {
   const { suiClient, wallets = [] } = config
 
-  let wishWallets: Array<WalletGroup | Wallet> = wallets
-  if (wallets.length === 0) {
-    wishWallets = DEAFULT_WALLETS
-  }
-
-  const installedWallet = getInstalledWallets()
-
-  let walletGroups: WalletGroup[] = [
-    {
-      groupName: 'Installed',
-      wallets: installedWallet
-    }
-  ]
-
-  wishWallets.forEach((walletOrGroup) => {
-    if ('groupName' in walletOrGroup) {
-      const walletGroup = walletGroups.find(
-        (walletGroup) => walletGroup.groupName === walletOrGroup.groupName
-      )
-      if (walletGroup) {
-        walletGroup.wallets = walletGroup.wallets.concat(
-          excludeInOtherWalletGroup(walletGroups, walletOrGroup.wallets)
-        )
-      } else {
-        walletGroups.push({
-          groupName: walletOrGroup.groupName,
-          wallets: excludeInOtherWalletGroup(
-            walletGroups,
-            walletOrGroup.wallets
-          )
-        })
-      }
-    } else {
-      const polularGroup = walletGroups.find(
-        (walletGroup) => walletGroup.groupName === 'Popular'
-      )
-      if (polularGroup) {
-        polularGroup.wallets = polularGroup.wallets.concat(
-          excludeInOtherWalletGroup(walletGroups, [walletOrGroup])
-        )
-      } else {
-        walletGroups.push({
-          groupName: 'Popular',
-          wallets: excludeInOtherWalletGroup(walletGroups, [walletOrGroup])
-        })
-      }
-    }
-  })
-
-  walletGroups = walletGroups.filter(
-    (walletGroup) => walletGroup.wallets.length > 0
-  )
+  const walletGroups = getWalletGroups(wallets)
 
   return {
     suiClient,
-    walletGroups: walletGroups,
-    wallets: walletGroups.reduce<Wallet[]>((acc, walletGroup) => {
-      acc.push(...walletGroup.wallets)
-      return acc
-    }, []),
-    store: createConnectStore()
+    wallets,
+    store: createConnectStore(walletGroups)
   }
 }
