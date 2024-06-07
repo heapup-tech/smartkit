@@ -1,5 +1,13 @@
 # @heapup/smartkit-hooks
 
+## 0.2.2
+
+### Patch Changes
+
+- - fix: monitor wallet registration
+  - remove useWallets
+  - update useWalletGroups from zustand
+
 ## 0.2.1
 
 ### Patch Changes
