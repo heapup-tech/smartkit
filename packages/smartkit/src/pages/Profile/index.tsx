@@ -3,12 +3,13 @@ import styles from './styles.css'
 import { truncateAddress } from '../../utils'
 import { DisconnectIcon } from '../../icons/DisconnectIcon'
 import CopyIcon from '../../icons/CopyIcon'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import CheckedIcon from '../../icons/CheckedIcon'
 import Avatar from '../../components/Avatar'
 import { usePageContext } from '../PageProvider'
 import Balance from '../../components/Balance'
 import { useModalContext } from '../../components/ModalProvider'
+import AccountList from '../../components/AccountList'
 
 export default function Profile() {
   const { account } = useAccount()
@@ -39,9 +40,27 @@ export default function Profile() {
     }, 1000)
   }
 
+  useEffect(() => {
+    return () => {
+      timeout && clearTimeout(timeout)
+    }
+  }, [])
+
   return (
     <div className={styles.profileContent}>
-      <Avatar address={account?.address} />
+      <div style={{ position: 'relative' }}>
+        <Avatar address={account?.address} />
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '0',
+            right: '0',
+            transform: 'translate(20%, 0)'
+          }}
+        >
+          <AccountList />
+        </div>
+      </div>
       <div className={styles.address}>{truncateAddress(account?.address)}</div>
       <div className={styles.balance}>
         <Balance address={account?.address} />

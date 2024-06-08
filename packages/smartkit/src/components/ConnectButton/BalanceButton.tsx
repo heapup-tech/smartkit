@@ -2,9 +2,9 @@ import { useAccount } from '@heapup/smartkit-hooks'
 import { truncateAddress } from '../../utils'
 import AnimateButton from '../Button/AnimateButton'
 import styles from './styles.css'
-import ArrowDown from '../../icons/ArrowDown'
 import Avatar from '../Avatar'
 import Balance from '../Balance'
+import ArrowDownIcon from '../../icons/ArrowDownIcon'
 
 export default function BalanceButton({
   onClick,
@@ -23,7 +23,7 @@ export default function BalanceButton({
       </div>
       {showAvatar && <Avatar size={25} address={account?.address} />}
       <div>{account?.label || truncateAddress(account?.address)}</div>
-      <ArrowDown />
+      <ArrowDownIcon />
     </AnimateButton>
   )
 }

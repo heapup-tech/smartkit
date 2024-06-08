@@ -43,6 +43,8 @@ const borderRadius = {
   small: '4px',
   standard: '6px',
   large: '8px',
+  xlarge: '12px',
+  xxlarge: '16px',
   full: '50%',
   ...themeVars.radii
 }

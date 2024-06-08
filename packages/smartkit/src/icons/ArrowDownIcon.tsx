@@ -1,6 +1,6 @@
 import { IconProps } from './types'
 
-export default function ArrowDown(props: IconProps) {
+export default function ArrowDownIcon(props: IconProps) {
   return (
     <svg
       width="11"
