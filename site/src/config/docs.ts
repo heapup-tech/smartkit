@@ -94,8 +94,8 @@ export const docsConfig = {
           items: []
         },
         {
-          title: 'useWallets',
-          href: '/docs/hooks/useWallets',
+          title: 'useSwitchAccount',
+          href: '/docs/hooks/useSwitchAccount',
           items: []
         }
       ]

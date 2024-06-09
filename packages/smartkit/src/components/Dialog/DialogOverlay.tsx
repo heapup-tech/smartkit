@@ -11,6 +11,7 @@ export default function DialogOverlay({
 }) {
   const handleCloseModal = useCallback(() => onClose(), [onClose])
   return (
+    // TODO: fix animation disappear when add AnimatePresence component
     <AnimatePresence>
       <motion.div
         className={styles.dialogOverlay}

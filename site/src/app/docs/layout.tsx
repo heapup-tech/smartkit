@@ -7,6 +7,19 @@ interface DocsLayoutProps {
 }
 
 export default function DocsLayout({ children }: DocsLayoutProps) {
+  const hooksRoute = docsConfig.sidebarNav.find(
+    (item) => item.title === 'Hooks'
+  )
+  if (hooksRoute) {
+    hooksRoute.items = hooksRoute.items.sort((a, b) =>
+      a.title.localeCompare(b.title)
+    )
+  }
+  const hooksRouteIndex = docsConfig.sidebarNav.findIndex(
+    (item) => item.title === 'Hooks'
+  )
+  docsConfig.sidebarNav[hooksRouteIndex] = hooksRoute as any
+
   return (
     <div className="border-b">
       <div className="container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10">
