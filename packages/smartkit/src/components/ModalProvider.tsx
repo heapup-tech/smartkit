@@ -9,7 +9,7 @@ interface ModalContextValue {
 const ModalContext = createContext<ModalContextValue | null>(null)
 
 export function ModalProvider({ children }: PropsWithChildren) {
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
 
   const openModal = () => setOpen(true)
   const closeModal = () => setOpen(false)
