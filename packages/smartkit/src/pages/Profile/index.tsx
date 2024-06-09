@@ -9,10 +9,10 @@ import Avatar from '../../components/Avatar'
 import { usePageContext } from '../PageProvider'
 import Balance from '../../components/Balance'
 import { useModalContext } from '../../components/ModalProvider'
-import AccountList from '../../components/AccountList'
+import SwitchAccount from '../../components/SwicthAccount'
 
 export default function Profile() {
-  const { account } = useAccount()
+  const { account, accounts } = useAccount()
   const { popPage } = usePageContext()
   const { closeModal } = useModalContext()
 
@@ -50,16 +50,18 @@ export default function Profile() {
     <div className={styles.profileContent}>
       <div style={{ position: 'relative' }}>
         <Avatar address={account?.address} />
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '0',
-            right: '0',
-            transform: 'translate(20%, 0)'
-          }}
-        >
-          <AccountList />
-        </div>
+        {accounts.length > 1 && (
+          <div
+            style={{
+              position: 'absolute',
+              bottom: '0',
+              right: '0',
+              transform: 'translate(20%, 0)'
+            }}
+          >
+            <SwitchAccount />
+          </div>
+        )}
       </div>
       <div className={styles.address}>{truncateAddress(account?.address)}</div>
       <div className={styles.balance}>

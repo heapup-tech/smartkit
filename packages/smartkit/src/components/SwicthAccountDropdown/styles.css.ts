@@ -20,7 +20,7 @@ const accountItem = style({
   display: 'flex',
   alignItems: 'center',
   columnGap: '12px',
-  fontWeight: '500',
+  fontWeight: '450',
   ':hover': {
     background: themeVars.clickable.background.hover
   }
@@ -35,7 +35,7 @@ const selectAccountItem = style({
   display: 'flex',
   alignItems: 'center',
   columnGap: '12px',
-  fontWeight: '500'
+  fontWeight: '450'
 })
 
 export default {

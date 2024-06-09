@@ -4,18 +4,16 @@ import { themeVars } from '../../theme/themeVars'
 const accountListWrapper = style({
   background: themeVars.backgrounds.connectModal,
   color: themeVars.colors.foreground,
-  width: '100%',
-  maxWidth: 'fit-content',
-  borderRadius: '8px',
-  padding: '16px',
-  boxShadow: 'rgba(0, 0, 0, .1) 0px 2px 10px 0px'
+  width: '100%'
 })
 
 const accountItem = style({
   background: themeVars.backgrounds.connectModal,
   color: themeVars.colors.foreground,
   borderRadius: '12px',
-  padding: '8px',
+  height: '40px',
+  lineHeight: '40px',
+  padding: '0 12px',
   cursor: 'pointer',
   display: 'flex',
   alignItems: 'center',
@@ -30,8 +28,9 @@ const selectAccountItem = style({
   background: themeVars.clickable.background.active,
   color: themeVars.colors.foreground,
   borderRadius: '12px',
-  padding: '8px',
-  cursor: 'pointer',
+  height: '40px',
+  lineHeight: '40px',
+  padding: '0 12px',
   display: 'flex',
   alignItems: 'center',
   columnGap: '12px',

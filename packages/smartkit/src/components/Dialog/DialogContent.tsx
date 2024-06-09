@@ -2,6 +2,7 @@ import { motion, Variants } from 'framer-motion'
 import styles from './styles.css'
 import { useEffect, useRef, useState } from 'react'
 import { useWindowSize } from '../../hooks/useWindowSize'
+import { breakpoints } from '../../theme/breakpoints'
 
 const scaleVariants: Variants = {
   init: {
@@ -29,17 +30,15 @@ export default function DialogContent({
   const containerRef = useRef<HTMLDivElement | null>(null)
   const [height, setHeight] = useState<number | 'auto'>('auto')
   useEffect(() => {
-    if (containerRef.current) {
-      const resizeObserver = new ResizeObserver((entries) => {
-        const observedHeight = entries[0].contentRect.height
-        setHeight(observedHeight + 48)
-      })
-      resizeObserver.observe(containerRef.current)
-      return () => {
-        resizeObserver.disconnect()
-      }
+    if (!containerRef.current) return
+    const resizeObserver = new ResizeObserver((entries) => {
+      const observedHeight = entries[0].contentRect.height
+      setHeight(observedHeight + 48)
+    })
+    resizeObserver.observe(containerRef.current)
+    return () => {
+      resizeObserver.disconnect()
     }
-    return () => {}
   }, [])
 
   const { width: screenWidth } = useWindowSize()
@@ -47,7 +46,7 @@ export default function DialogContent({
   return (
     <motion.div
       variants={
-        (screenWidth || window.innerWidth) >= 768
+        (screenWidth || window.innerWidth) >= breakpoints.large
           ? scaleVariants
           : slideUpVariants
       }

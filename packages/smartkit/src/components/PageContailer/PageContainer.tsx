@@ -29,10 +29,12 @@ export function PageContainer() {
     useState<string>('Connect Wallet')
 
   useEffect(() => {
+    // TODO: Refactor page header label
     if (currentPage === 'connectOptions') setPageHeaderLabel('Connect Wallet')
     else if (currentPage === 'connect')
       setPageHeaderLabel(selectedWallet?.name || 'Connect')
-    else if (currentPage === 'profile') setPageHeaderLabel('Connected')
+    else if (currentPage === 'switchAccountList')
+      setPageHeaderLabel('Switch Account')
   }, [currentPage, selectedWallet])
 
   return (

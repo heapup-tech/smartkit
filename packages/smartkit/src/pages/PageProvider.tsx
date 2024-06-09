@@ -5,6 +5,7 @@ import Connect from './Connect'
 import { useAccount, Wallet } from '@heapup/smartkit-hooks'
 import Profile from './Profile'
 import { useModalContext } from '../components/ModalProvider'
+import SwitchAccountList from './SwitchAccountList'
 
 type PageName = keyof typeof pages
 type PageProviderContext = {
@@ -23,11 +24,13 @@ const pages = {
   connectOptions: <ConnectOptions />,
   about: <About />,
   connect: <Connect />,
-  profile: <Profile />
+  profile: <Profile />,
+  switchAccountList: <SwitchAccountList />
 } as const
 
 export function PageProvider({ children }: React.PropsWithChildren<{}>) {
   const { isConnected } = useAccount()
+  const { open } = useModalContext()
 
   const [currentPage, setCurrentPage] = useState<PageName>('connectOptions')
   const [selectedWallet, setSelectedWallet] = useState<Wallet | undefined>(
@@ -37,7 +40,7 @@ export function PageProvider({ children }: React.PropsWithChildren<{}>) {
   const { closeModal } = useModalContext()
 
   const pushPage = (page: PageName) => {
-    if (currentPage === 'connectOptions') {
+    if (currentPage === 'connectOptions' || currentPage === 'profile') {
       setPrevPage(currentPage)
       setCurrentPage(page)
     }
@@ -52,6 +55,9 @@ export function PageProvider({ children }: React.PropsWithChildren<{}>) {
     ) {
       setCurrentPage('connectOptions')
       setPrevPage(null)
+    } else if (currentPage === 'switchAccountList') {
+      setCurrentPage('profile')
+      setPrevPage(null)
     }
   }
 
@@ -65,6 +71,18 @@ export function PageProvider({ children }: React.PropsWithChildren<{}>) {
       setPrevPage(null)
     }
   }, [isConnected])
+
+  useEffect(() => {
+    if (open) return
+    if (currentPage === 'switchAccountList') {
+      setCurrentPage('profile')
+      setPrevPage(null)
+    }
+    if (currentPage === 'connect') {
+      setCurrentPage('connectOptions')
+      setPrevPage(null)
+    }
+  }, [open])
 
   return (
     <PageContext.Provider
