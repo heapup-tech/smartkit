@@ -4,6 +4,7 @@ import Portal from '../Portal'
 import ThemeContainer from '../ThemeContainer'
 import { RemoveScroll } from 'react-remove-scroll'
 import AccountList from '../AccountList'
+import { useWindowSize } from '../../hooks/useWindowSize'
 
 interface DropdownProps {
   open: boolean
@@ -52,14 +53,6 @@ export default function Dropdown({
   }
 
   useEffect(() => {
-    if (!triggerRef.current) return
-
-    const rect = triggerRef.current.getBoundingClientRect()
-
-    setOffset({ x: rect.left - 5, y: rect.top + rect.height + 8 })
-  }, [triggerRef.current])
-
-  useEffect(() => {
     window.addEventListener('scroll', onClose)
     window.addEventListener('resize', onClose)
     return () => {
@@ -68,6 +61,15 @@ export default function Dropdown({
     }
   }, [])
 
+  const { width: screenWidth } = useWindowSize()
+
+  useEffect(() => {}, [screenWidth])
+
+  useEffect(() => {
+    if (!triggerRef.current) return
+    const rect = triggerRef.current.getBoundingClientRect()
+    setOffset({ x: rect.left - 5, y: rect.top + rect.height + 8 })
+  }, [triggerRef.current, screenWidth])
   return (
     <>
       <div ref={triggerRef}>{children}</div>
