@@ -1,6 +1,6 @@
 {
   "name": "@heapup/smartkit-hooks",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "type": "module",
   "homepage": "https://smartkit.vercel.app",
   "description": "Connect to the Sui network in a simple way",

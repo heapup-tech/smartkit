@@ -1,5 +1,11 @@
 # @heapup/smartkit-hooks
 
+## 0.2.3
+
+### Patch Changes
+
+- add switch account
+
 ## 0.2.2
 
 ### Patch Changes
