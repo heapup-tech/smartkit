@@ -4,16 +4,20 @@ import { ConnectButton } from '@heapup/smartkit'
 import { useAccount } from '@heapup/smartkit-hooks'
 
 export default function Home() {
-  const { account } = useAccount()
-  return (
-    <main className="flex flex-col min-h-screen">
-      <header className="flex justify-end">
-        <ConnectButton />
-      </header>
+  const { isConnected, isConnecting } = useAccount()
 
-      <div className="flex-1 flex items-center justify-center">
-        {account?.address}
+  return (
+    <div>
+      <div>
+        {isConnecting
+          ? 'Connecting'
+          : isConnected
+          ? 'Connected'
+          : 'Disconnected'}
       </div>
-    </main>
+      <div className="fixed inset-0 flex items-center justify-center flex-col gap-8">
+        <ConnectButton />
+      </div>
+    </div>
   )
 }

@@ -1,16 +1,11 @@
 import { ConnectButton } from '@heapup/smartkit'
 import { useAccount } from '@heapup/smartkit-hooks'
-import '@heapup/smartkit/styles.css'
 
 function App() {
   const { isConnected, isConnecting } = useAccount()
 
   return (
-    <div
-      style={{
-        height: '2000px'
-      }}
-    >
+    <div>
       <div>
         {isConnecting
           ? 'Connecting'

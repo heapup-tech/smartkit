@@ -15,7 +15,8 @@ const address = sprinkles({
 })
 
 const balance = style({
-  color: themeVars.colors.muted
+  color: themeVars.colors.muted,
+  height: '25px'
 })
 
 const buttonRow = style({

@@ -51,7 +51,7 @@ export type WalletGroup = {
 export type Config = Evaluate<{
   suiClient: SuiClient
   storage?: Storage
-  wallets: Array<WalletGroup | Wallet>
+  wallets?: Array<WalletGroup | Wallet>
   store: StoreApi<State>
 }>
 

@@ -63,7 +63,9 @@ export default function Profile() {
           </div>
         )}
       </div>
-      <div className={styles.address}>{truncateAddress(account?.address)}</div>
+      <div className={styles.address}>
+        {account?.label || truncateAddress(account?.address)}
+      </div>
       <div className={styles.balance}>
         <Balance address={account?.address} />
       </div>

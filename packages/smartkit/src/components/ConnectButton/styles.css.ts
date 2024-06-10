@@ -21,7 +21,8 @@ const balance = style({
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'space-between',
-  gap: '10px'
+  gap: '10px',
+  height: '65%'
 })
 
 export default {
