@@ -10,7 +10,7 @@ export default function AccountList({ onSelect }: { onSelect?: () => void }) {
   const { switchAccountAsync } = useSwitchAccount()
 
   return (
-    <div className={styles.accountListWrapper}>
+    <div>
       {accounts.map((account) => {
         return (
           <div

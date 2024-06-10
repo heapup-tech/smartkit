@@ -5,6 +5,7 @@ import ThemeContainer from '../ThemeContainer'
 import { RemoveScroll } from 'react-remove-scroll'
 import AccountList from '../AccountList'
 import { useWindowSize } from '../../hooks/useWindowSize'
+import styles from './styles.css'
 
 interface DropdownProps {
   open: boolean
@@ -100,7 +101,12 @@ export default function Dropdown({
                       top: offset.y
                     }}
                   >
-                    <AccountList onSelect={handleSelect} />
+                    <div className={styles.accountListWrapper}>
+                      <div className={styles.accountListHeader}>
+                        Switch Account
+                      </div>
+                      <AccountList onSelect={handleSelect} />
+                    </div>
                   </motion.div>
                 </motion.div>
               </ThemeContainer>
