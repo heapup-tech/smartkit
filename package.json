@@ -15,6 +15,7 @@
     "dev:smartkit": "pnpm --filter=@heapup/smartkit dev",
     "dev:smartkit-hooks": "pnpm --filter=@heapup/smartkit-hooks dev",
     "preview:vite": "pnpm --filter apps-vite dev",
+    "preview:next": "pnpm --filter apps-next dev",
     "dev:site": "pnpm --filter site dev",
     "build": "pnpm --recursive --parallel --filter=@heapup/smartkit --filter=@heapup/smartkit-hooks build",
     "changeset": "changeset"
