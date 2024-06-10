@@ -8,13 +8,11 @@ import { useModalContext } from '../../components/ModalProvider'
 export default function Connect() {
   const {
     connect,
-    isSuccess: connectSuccess,
     isPending: connecting,
     isError: connectFailed
   } = useConnect()
 
   const { selectedWallet } = usePageContext()
-  const { closeModal } = useModalContext()
 
   const [isInstalled, setIsInstalled] = useState(false)
 
@@ -22,7 +20,7 @@ export default function Connect() {
     handleConnect()
   }, [selectedWallet])
 
-  const handleConnect = () => {
+  const handleConnect = async () => {
     if (!selectedWallet) return
     if ('features' in selectedWallet) {
       setIsInstalled(true)
@@ -33,11 +31,6 @@ export default function Connect() {
       setIsInstalled(false)
     }
   }
-
-  useEffect(() => {
-    connectSuccess && closeModal()
-  }, [connectSuccess])
-
   const notInstalled = (
     <div className={styles.notInstalled}>
       <img

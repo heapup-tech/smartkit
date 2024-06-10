@@ -14,7 +14,8 @@ const accountListWrapper = style({
 const accountListHeader = style({
   color: themeVars.colors.muted,
   paddingLeft: '12px',
-  fontSize: '14px'
+  fontSize: '14px',
+  marginBottom: '8px'
 })
 
 export default {
