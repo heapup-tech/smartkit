@@ -1,5 +1,15 @@
 # @heapup/smartkit
 
+## 0.2.4
+
+### Patch Changes
+
+- add loding balance status
+  show switch accout title
+  add nextjs demo
+- Updated dependencies
+  - @heapup/smartkit-hooks@0.2.4
+
 ## 0.2.3
 
 ### Patch Changes
