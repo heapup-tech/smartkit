@@ -18,7 +18,10 @@
     "preview:next": "pnpm --filter apps-next dev",
     "dev:site": "pnpm --filter site dev",
     "build": "pnpm --recursive --parallel --filter=@heapup/smartkit --filter=@heapup/smartkit-hooks build",
-    "changeset": "changeset"
+    "changeset": "changeset",
+    "publish": "pnpm build && changeset publish",
+    "test": "vitest",
+    "test:ui": "vitest --ui"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.3",
@@ -29,10 +32,16 @@
     "husky": "^9.0.11",
     "tsx": "^4.9.4",
     "typescript": "^5.4.5",
-    "vitest": "^1.5.3"
+    "vitest": "^1.6.0"
   },
   "packageManager": "pnpm@9.1.4",
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
+    "@vanilla-extract/vite-plugin": "^4.0.11",
+    "@vitest/coverage-v8": "^1.6.0",
+    "@vitest/ui": "^1.6.0",
+    "jsdom": "^24.1.0"
   }
 }
