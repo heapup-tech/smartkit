@@ -9,6 +9,6 @@ export default defineConfig({
     // reporters: ['html']
     // exclude: [...configDefaults.exclude, 'apps/**']
     environment: 'jsdom',
-    globals: true
+    setupFiles: ['./vitest.setup.ts']
   }
 })

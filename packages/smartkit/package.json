@@ -38,6 +38,7 @@
     "dev": "pnpm build:watch & pnpm typegen:watch"
   },
   "dependencies": {
+    "@mysten/sui.js": "^0.54.1",
     "@heapup/smartkit-hooks": "workspace:*",
     "@vanilla-extract/css": "^1.15.1",
     "@vanilla-extract/css-utils": "^0.1.4",

@@ -31,13 +31,18 @@ export default function DialogContent({
   const [height, setHeight] = useState<number | 'auto'>('auto')
   useEffect(() => {
     if (!containerRef.current) return
-    const resizeObserver = new ResizeObserver((entries) => {
-      const observedHeight = entries[0].contentRect.height
-      setHeight(observedHeight + 48)
-    })
-    resizeObserver.observe(containerRef.current)
+
+    let resizeObserver: ResizeObserver
+    if (window.ResizeObserver) {
+      resizeObserver = new ResizeObserver((entries) => {
+        const observedHeight = entries[0].contentRect.height
+        setHeight(observedHeight + 48)
+      })
+      resizeObserver.observe(containerRef.current)
+    }
+
     return () => {
-      resizeObserver.disconnect()
+      resizeObserver && resizeObserver.disconnect()
     }
   }, [])
 
