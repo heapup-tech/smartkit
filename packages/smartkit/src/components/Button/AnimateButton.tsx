@@ -7,13 +7,13 @@ export default function AnimateButton(props: ButtonProps) {
     <motion.button
       className={styles.animateButton}
       whileHover={{
-        scale: 1.03
+        scale: 1.01
       }}
       whileTap={{
-        scale: 0.97
+        scale: 0.99
       }}
       transition={{
-        duration: 0.1
+        duration: 0.2
       }}
       {...props}
     >

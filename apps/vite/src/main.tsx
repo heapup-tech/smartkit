@@ -18,7 +18,7 @@ const config = createConfig({
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <QueryClientProvider client={queryClient}>
     <SmartKitClientProvider config={config}>
-      <SmartKitProvider mode="auto">
+      <SmartKitProvider mode="dark">
         <App />
       </SmartKitProvider>
     </SmartKitClientProvider>
