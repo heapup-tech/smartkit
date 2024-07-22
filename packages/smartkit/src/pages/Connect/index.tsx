@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import { usePageContext } from '../PageProvider'
 import styles from './styles.css'
 import AnimateButton from '../../components/Button/AnimateButton'
-import { useModalContext } from '../../components/ModalProvider'
 
 export default function Connect() {
   const {

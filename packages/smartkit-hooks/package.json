@@ -34,9 +34,9 @@
   "dependencies": {
     "@mysten/sui.js": "^0.54.1",
     "@mysten/wallet-standard": "^0.11.6",
-    "@tanstack/react-query": "^5.36.2",
+    "@tanstack/react-query": "^5.51.11",
     "react": "^18",
-    "zustand": "^4.5.2"
+    "zustand": "^4.5.4"
   },
   "devDependencies": {
     "@heapup/typescript-config": "workspace:*",
