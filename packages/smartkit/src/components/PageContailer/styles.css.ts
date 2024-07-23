@@ -43,7 +43,8 @@ const pageHeaderIcon = style([
 ])
 
 const pageContent = style({
-  overflow: 'auto',
+  overflow: 'hidden',
+  flex: 1,
   maxHeight: calc.subtract(themeVars.maxHeight.connectModal, '100px'),
   '::-webkit-scrollbar': {
     display: 'none'

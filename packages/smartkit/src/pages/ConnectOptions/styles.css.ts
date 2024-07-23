@@ -1,9 +1,33 @@
 import { style } from '@vanilla-extract/css'
 import { themeVars } from '../../theme/themeVars'
 import { sprinkles } from '../../theme/sprinkles.css'
+import { calc } from '@vanilla-extract/css-utils'
+
+const connectOptionsContainer = style({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between'
+})
+
+const connectGroupContainer = style([
+  {
+    overflow: 'auto',
+    flex: 1,
+    maxHeight: calc.subtract(themeVars.maxHeight.connectModal, '142px'),
+
+    '::-webkit-scrollbar': {
+      display: 'none'
+    },
+    '@media': {
+      'screen and (min-width: 640px)': {
+        minHeight: calc.subtract(themeVars.maxHeight.connectModal, '200px')
+      }
+    }
+  }
+])
 
 const connectGroup = style({
-  marginTop: '20px',
+  margin: '20px 0',
   ':first-child': {
     marginTop: 0
   }
@@ -47,6 +71,8 @@ const walletIcon = sprinkles({
 })
 
 export default {
+  connectOptionsContainer,
+  connectGroupContainer,
   connectGroup,
   connectGroupTitle,
   walletItem,

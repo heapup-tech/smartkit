@@ -24,15 +24,15 @@ const dialogContent = style([
     borderBottomLeftRadius: ['none', 'connectModal'],
     borderBottomRightRadius: ['none', 'connectModal'],
     position: ['absolute', 'relative'],
-    paddingInline: 'connectModal',
-    paddingBlock: 'connectModal',
     fontSize: ['2', '3']
   }),
   {
     bottom: '0',
     boxSizing: 'border-box',
     color: themeVars.colors.foreground,
-    background: themeVars.backgrounds.connectModal
+    background: themeVars.backgrounds.connectModal,
+    paddingInline: themeVars.paddingInline.connectModal,
+    paddingBlock: themeVars.paddingInline.connectModal
   }
 ])
 
