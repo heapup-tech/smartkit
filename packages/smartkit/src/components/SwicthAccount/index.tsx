@@ -20,25 +20,23 @@ export default function SwitchAccount() {
   }, [modalContext.open, screenWidth])
 
   return (
-    <div>
-      <SwicthAccountDropdown
-        open={isOpen}
-        onClose={() => setIsOpen(false)}
-        selectOnClose
+    <SwicthAccountDropdown
+      open={isOpen}
+      onClose={() => setIsOpen(false)}
+      selectOnClose
+    >
+      <div
+        className={styles.indicator}
+        onClick={() => {
+          if ((screenWidth || window.innerWidth) >= breakpoints.large) {
+            setIsOpen(!isOpen)
+          } else {
+            pushPage('switchAccountList')
+          }
+        }}
       >
-        <div
-          className={styles.indicator}
-          onClick={() => {
-            if ((screenWidth || window.innerWidth) >= breakpoints.large) {
-              setIsOpen(!isOpen)
-            } else {
-              pushPage('switchAccountList')
-            }
-          }}
-        >
-          <SwitchIcon />
-        </div>
-      </SwicthAccountDropdown>
-    </div>
+        <SwitchIcon />
+      </div>
+    </SwicthAccountDropdown>
   )
 }

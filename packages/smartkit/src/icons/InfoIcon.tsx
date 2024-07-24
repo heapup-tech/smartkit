@@ -1,6 +1,6 @@
 import { IconProps } from './types'
 
-export default function (props: IconProps) {
+export default function InfoIcon(props: IconProps) {
   return (
     <svg
       aria-hidden="true"

@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 import { usePageContext } from '../PageProvider'
 import styles from './styles.css'
 import AnimateButton from '../../components/Button/AnimateButton'
+import { motion, useAnimation } from 'framer-motion'
+import RetryIcon from '../../icons/RetryIcon'
 
 export default function Connect() {
   const {
@@ -30,6 +32,21 @@ export default function Connect() {
       setIsInstalled(false)
     }
   }
+
+  const controls = useAnimation()
+  const startConnectErrorAnim = () => {
+    controls.start({
+      x: [0, -5, 5, -5, 5, 0],
+      transition: {
+        duration: 0.25
+      }
+    })
+  }
+
+  useEffect(() => {
+    if (connectFailed) startConnectErrorAnim()
+  }, [connectFailed])
+
   const notInstalled = (
     <div className={styles.notInstalled}>
       <img
@@ -55,21 +72,68 @@ export default function Connect() {
 
   const connectStatus = (
     <div className={styles.connectStatus}>
-      <img
-        src={selectedWallet?.icon}
-        alt={selectedWallet?.name}
-        className={styles.walletIcon}
-      />
+      <motion.div className={styles.walletBrand} animate={controls}>
+        <img
+          src={selectedWallet?.icon}
+          alt={selectedWallet?.name}
+          className={styles.walletIcon}
+        />
+
+        {connecting && (
+          <svg
+            viewBox="0 0 110 110"
+            className={styles.connectSpinner}
+            width="76"
+            height="76"
+          >
+            <motion.path
+              d="M28 2 H82 A26 26 0 0 1 108 28 V82 A26 26 0 0 1 82 108 H28 A26 26 0 0 1 2 82 V28 A26 26 0 0 1 28 2"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="5px"
+              strokeLinecap="round"
+              pathLength="110"
+              strokeDasharray="30 80"
+              strokeDashoffset="110"
+              animate={{
+                strokeDashoffset: [110, 0]
+              }}
+              transition={{
+                duration: 1,
+                ease: 'linear',
+                repeat: Infinity
+              }}
+            />
+          </svg>
+        )}
+
+        {connectFailed && (
+          <div className={styles.connectRetry} onClick={handleConnect}>
+            <RetryIcon
+              style={{
+                width: '20px',
+                height: '20px'
+              }}
+            />
+          </div>
+        )}
+      </motion.div>
+
       {connecting ? (
-        <div className={styles.connectingText}>Connecting...</div>
+        <div className={styles.connectTitle}>
+          <div>Requesting Connection</div>
+          <div className={styles.connectDesc}>
+            {`Confirm connection in the ${selectedWallet?.name} browser extension.`}
+          </div>
+        </div>
       ) : connectFailed ? (
-        <div className={styles.connectFailedText}>Connect failed</div>
+        <div className={styles.connectTitle}>
+          <div className={styles.connectFailed}>Connection Failed</div>
+          <div className={styles.connectDesc}>
+            Wallet connection was cancelled. Click above to try again.
+          </div>
+        </div>
       ) : null}
-      {connectFailed && (
-        <AnimateButton className={styles.retryButton} onClick={handleConnect}>
-          Retry
-        </AnimateButton>
-      )}
     </div>
   )
 
