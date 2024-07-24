@@ -1,5 +1,13 @@
 # @heapup/smartkit-hooks
 
+## 0.2.5
+
+### Patch Changes
+
+- add connecting animation
+
+  update not install wallet page style
+
 ## 0.2.4
 
 ### Patch Changes
