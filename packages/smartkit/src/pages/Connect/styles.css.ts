@@ -1,30 +1,22 @@
 import { style } from '@vanilla-extract/css'
-import buttonStyle from '../../components/Button/styles.css'
 import { themeVars } from '../../theme/themeVars'
 import { sprinkles } from '../../theme/sprinkles.css'
+import buttonStyle from '../../components/Button/styles.css'
 
-const connectContainer = style({
+const connectContent = style({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
   width: '100%',
-  height: '100%'
-})
-
-const connectContent = style({
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  flex: 1,
-  minHeight: '220px'
+  minHeight: '220px',
+  gap: '16px'
 })
 
 const connectStatus = style({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  gap: '16px'
+  // display: 'flex',
+  // flexDirection: 'column',
+  // alignItems: 'center'
 })
 
 const walletBrand = style([
@@ -79,18 +71,6 @@ const connectRetry = style([
   }
 ])
 
-const notInstalled = style([
-  sprinkles({
-    rowGap: ['2', '3']
-  }),
-  {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-])
-
 const downloadButton = style([
   sprinkles({
     height: ['6', '8'],
@@ -98,6 +78,9 @@ const downloadButton = style([
     borderRadius: ['small', 'standard'],
     paddingInline: ['1.5', '3']
   }),
+  {
+    color: themeVars.colors.accent
+  },
   buttonStyle.animateButton
 ])
 
@@ -108,7 +91,7 @@ const connectTitle = style([
   }),
   {
     textAlign: 'center',
-    width: '80%'
+    padding: '0 10%'
   }
 ])
 
@@ -128,16 +111,14 @@ const connectFailed = style({
 })
 
 export default {
-  connectContainer,
   connectContent,
   walletBrand,
   walletIcon,
   connectStatus,
-  notInstalled,
-  downloadButton,
   connectTitle,
   connectDesc,
   connectSpinner,
   connectRetry,
-  connectFailed
+  connectFailed,
+  downloadButton
 }

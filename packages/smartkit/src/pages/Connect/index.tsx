@@ -2,9 +2,9 @@ import { UninstalledWallet, useConnect } from '@heapup/smartkit-hooks'
 import { useEffect, useState } from 'react'
 import { usePageContext } from '../PageProvider'
 import styles from './styles.css'
-import AnimateButton from '../../components/Button/AnimateButton'
 import { motion, useAnimation } from 'framer-motion'
 import RetryIcon from '../../icons/RetryIcon'
+import AnimateButton from '../../components/Button/AnimateButton'
 
 export default function Connect() {
   const {
@@ -33,9 +33,9 @@ export default function Connect() {
     }
   }
 
-  const controls = useAnimation()
-  const startConnectErrorAnim = () => {
-    controls.start({
+  const shakeAnim = useAnimation()
+  const startshakeAnim = () => {
+    shakeAnim.start({
       x: [0, -5, 5, -5, 5, 0],
       transition: {
         duration: 0.25
@@ -44,35 +44,48 @@ export default function Connect() {
   }
 
   useEffect(() => {
-    if (connectFailed) startConnectErrorAnim()
+    if (connectFailed) startshakeAnim()
   }, [connectFailed])
 
   const notInstalled = (
-    <div className={styles.notInstalled}>
-      <img
-        src={selectedWallet?.icon}
-        alt={selectedWallet?.name}
-        className={styles.walletIcon}
-      />
-      <div>{selectedWallet?.name} has not been installed</div>
-      <a
-        href={(selectedWallet as UninstalledWallet).downloadUrl}
-        target="__blank"
-        style={{
-          textDecoration: 'none',
-          color: 'inherit'
-        }}
-      >
-        <AnimateButton className={styles.downloadButton}>
-          Install Wallet
-        </AnimateButton>
-      </a>
-    </div>
+    <>
+      <motion.div className={styles.walletBrand} animate={shakeAnim}>
+        <img
+          src={selectedWallet?.icon}
+          alt={selectedWallet?.name}
+          className={styles.walletIcon}
+        />
+      </motion.div>
+      <div className={styles.connectTitle}>
+        <div
+          className={styles.connectDesc}
+          style={{
+            marginTop: 0
+          }}
+        >
+          {selectedWallet?.name || 'Wallet'} has not been installed
+        </div>
+      </div>
+      {(selectedWallet as UninstalledWallet).downloadUrl && (
+        <a
+          href={(selectedWallet as UninstalledWallet).downloadUrl}
+          target="__blank"
+          style={{
+            textDecoration: 'none',
+            color: 'inherit'
+          }}
+        >
+          <AnimateButton className={styles.downloadButton}>
+            Download
+          </AnimateButton>
+        </a>
+      )}
+    </>
   )
 
   const connectStatus = (
-    <div className={styles.connectStatus}>
-      <motion.div className={styles.walletBrand} animate={controls}>
+    <>
+      <motion.div className={styles.walletBrand} animate={shakeAnim}>
         <img
           src={selectedWallet?.icon}
           alt={selectedWallet?.name}
@@ -134,14 +147,12 @@ export default function Connect() {
           </div>
         </div>
       ) : null}
-    </div>
+    </>
   )
 
   return (
-    <div className={styles.connectContainer}>
-      <div className={styles.connectContent}>
-        {isInstalled ? connectStatus : notInstalled}
-      </div>
+    <div className={styles.connectContent}>
+      {isInstalled ? connectStatus : notInstalled}
     </div>
   )
 }
