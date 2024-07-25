@@ -74,18 +74,33 @@ export default function Profile() {
         <div className={styles.disConnectButton} onClick={handleCopy}>
           {clipboard ? (
             <>
-              <CheckedIcon />
+              <CheckedIcon
+                style={{
+                  width: '18px',
+                  height: '18px'
+                }}
+              />
               <span>Copyed</span>
             </>
           ) : (
             <>
-              <CopyIcon />
+              <CopyIcon
+                style={{
+                  width: '18px',
+                  height: '18px'
+                }}
+              />
               <span>Copy Address</span>
             </>
           )}
         </div>
         <div className={styles.disConnectButton} onClick={handleDisconnect}>
-          <DisconnectIcon />
+          <DisconnectIcon
+            style={{
+              width: '18px',
+              height: '18px'
+            }}
+          />
           <span>Disconnect</span>
         </div>
       </div>
