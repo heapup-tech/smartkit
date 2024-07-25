@@ -18,7 +18,6 @@ export default function BalanceButton({
   return (
     <AnimateButton className={styles.connectButton} onClick={onClick}>
       <div className={styles.balance}>
-        {/* TODO: balance loading status */}
         <Balance address={account?.address} />
       </div>
       {showAvatar && <Avatar size={25} address={account?.address} />}

@@ -46,15 +46,16 @@ const connectGroupTitle = style([
 
 const walletItem = style([
   sprinkles({
-    display: 'flex',
-    alignItems: 'center',
-    cursor: 'pointer',
     fontWeight: ['medium'],
     borderRadius: ['large'],
     paddingInline: '3',
     paddingBlock: '3'
   }),
   {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    cursor: 'pointer',
     marginTop: '10px',
     transition: 'background 0.2s',
     background: themeVars.clickable.background.normal,
@@ -63,6 +64,36 @@ const walletItem = style([
     }
   }
 ])
+
+const walletItemLeft = style({
+  display: 'flex',
+  alignItems: 'center'
+})
+
+const walletItemArrowRight = style({
+  transitionDuration: '200ms',
+  transitionTimingFunction: 'linear',
+  transitionProperty: 'all',
+  color: themeVars.colors.muted,
+  selectors: {
+    [`${walletItem}:hover &`]: {
+      color: themeVars.colors.foreground,
+      transform: 'translateX(1px)'
+    }
+  }
+})
+
+const walletItemArrowInnerRect = style({
+  transformOrigin: '90% 50%',
+  transform: 'scale(.1)',
+  transitionDuration: '200ms',
+  selectors: {
+    [`${walletItem}:hover &`]: {
+      color: themeVars.colors.foreground,
+      transform: 'none'
+    }
+  }
+})
 
 const walletIcon = sprinkles({
   width: ['6', '8'],
@@ -76,5 +107,8 @@ export default {
   connectGroup,
   connectGroupTitle,
   walletItem,
+  walletItemLeft,
+  walletItemArrowRight,
+  walletItemArrowInnerRect,
   walletIcon
 }
