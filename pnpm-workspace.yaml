@@ -1,5 +1,6 @@
 prefer-workspace-packages: true
 packages:
   - 'packages/*'
+  - 'packages/create-smartkit/**/*-app'
   - 'apps/*'
   - 'site'

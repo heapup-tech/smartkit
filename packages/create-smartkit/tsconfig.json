@@ -1,0 +1,8 @@
+{
+  "extends": "@heapup/typescript-config/tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist"
+  },
+  "include": ["src", "templates"],
+  "exclude": ["node_modules"]
+}

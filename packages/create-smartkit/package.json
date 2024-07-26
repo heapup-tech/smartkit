@@ -1,0 +1,40 @@
+{
+  "name": "@heapup/create-smartkit",
+  "version": "0.0.0",
+  "description": "Create sui dapps with one command",
+  "files": [
+    "dist",
+    "templates"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heapup-tech/smartkit.git",
+    "directory": "packages/create-smartkit"
+  },
+  "type": "module",
+  "bin": {
+    "create-smartkit": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsx build.ts",
+    "dev": "tsx build.ts --watch"
+  },
+  "keywords": [],
+  "author": "syen",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "cpy": "^11.0.1",
+    "execa": "^9.3.0",
+    "fs-extra": "^11.2.0",
+    "prompts": "^2.4.2",
+    "validate-npm-package-name": "^5.0.1"
+  },
+  "devDependencies": {
+    "@heapup/typescript-config": "workspace:*",
+    "@types/fs-extra": "^11.0.4",
+    "@types/prompts": "^2.4.9",
+    "@types/validate-npm-package-name": "^4.0.2"
+  }
+}
