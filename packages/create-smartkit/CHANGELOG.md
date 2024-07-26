@@ -1,5 +1,11 @@
 # @heapup/create-smartkit
 
+## 0.1.2
+
+### Patch Changes
+
+- update readme info
+
 ## 0.1.1
 
 ### Patch Changes
