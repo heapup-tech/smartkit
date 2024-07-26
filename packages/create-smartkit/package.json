@@ -1,6 +1,6 @@
 {
   "name": "@heapup/create-smartkit",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Create sui dapps with one command",
   "files": [
     "dist",

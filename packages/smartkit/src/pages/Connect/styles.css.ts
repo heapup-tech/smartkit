@@ -21,14 +21,15 @@ const connectStatus = style({
 
 const walletBrand = style([
   sprinkles({
-    width: '16',
-    height: '16',
+    width: '20',
+    height: '20',
     borderRadius: 'xlarge',
     paddingBlock: '1.5',
     paddingInline: '1.5'
   }),
   {
-    position: 'relative'
+    position: 'relative',
+    boxSizing: 'border-box'
   }
 ])
 
@@ -37,7 +38,12 @@ const walletIcon = style([
     width: '16',
     height: '16',
     position: 'absolute'
-  })
+  }),
+  {
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)'
+  }
 ])
 
 const connectSpinner = style({
@@ -91,7 +97,7 @@ const connectTitle = style([
   }),
   {
     textAlign: 'center',
-    padding: '0 10%'
+    padding: '0 5%'
   }
 ])
 

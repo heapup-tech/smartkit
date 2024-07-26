@@ -96,8 +96,8 @@ export default function Connect() {
           <svg
             viewBox="0 0 110 110"
             className={styles.connectSpinner}
-            width="76"
-            height="76"
+            width="80"
+            height="80"
           >
             <motion.path
               d="M28 2 H82 A26 26 0 0 1 108 28 V82 A26 26 0 0 1 82 108 H28 A26 26 0 0 1 2 82 V28 A26 26 0 0 1 28 2"

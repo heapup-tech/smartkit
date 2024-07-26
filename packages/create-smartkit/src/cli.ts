@@ -13,7 +13,7 @@ import { execa } from 'execa'
 const log = console.log
 
 log()
-log(chalk.greenBright('  Welcome to use smartkit! 🚀'))
+log(chalk.greenBright('  Welcome to using smartkit! 🚀'))
 log()
 
 const reservedPackageNames = ['react', 'next', 'smartkit']
@@ -57,8 +57,6 @@ async function init() {
 
   const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
-  console.log(__dirname)
-
   const sourcePath = path.join(__dirname, `../templates/${template}`)
   const targetPath = path.join(process.cwd(), projectName)
 
@@ -88,24 +86,15 @@ async function init() {
 
   log(
     chalk.greenBright(
-      `  Installing dependencies with ${chalk.bold(packageManager)}`
+      `\n  Installing dependencies with ${chalk.bold(packageManager)} \n`
     )
   )
   await execa(packageManager, ['install'], {
     cwd: targetPath,
     stdio: 'inherit'
   })
-
-  // await execa(
-  //   packageManager,
-  //   [packageManager === 'yarn' ? 'add' : 'install', '@heapup/smartkit'],
-  //   {
-  //     cwd: targetPath,
-  //     stdio: 'inherit'
-  //   }
-  // )
-
-  console.log('breakpoint: ', packageManager)
+  log(chalk.green(`\n  cd ${projectName}`))
+  log(chalk.green(`  ${packageManager} run dev\n`))
 }
 
 init().catch((e) => {

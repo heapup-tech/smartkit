@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css'
+import { globalStyle, style } from '@vanilla-extract/css'
 import { themeVars } from '../../theme/themeVars'
 import { sprinkles } from '../../theme/sprinkles.css'
 
@@ -35,6 +35,10 @@ const dialogContent = style([
     paddingBlock: themeVars.paddingInline.connectModal
   }
 ])
+
+globalStyle(`${dialogContent} > *`, {
+  boxSizing: 'border-box'
+})
 
 export default {
   dialogOverlay,
