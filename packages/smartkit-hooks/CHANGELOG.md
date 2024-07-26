@@ -1,5 +1,11 @@
 # @heapup/smartkit-hooks
 
+## 0.2.6
+
+### Patch Changes
+
+- fix some bugs
+
 ## 0.2.5
 
 ### Patch Changes
