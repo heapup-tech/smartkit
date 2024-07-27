@@ -1,5 +1,13 @@
 # apps-vite
 
+## 0.0.11
+
+### Patch Changes
+
+- Updated dependencies
+  - @heapup/smartkit@0.2.9
+  - @heapup/smartkit-hooks@0.2.9
+
 ## 0.0.10
 
 ### Patch Changes

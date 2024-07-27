@@ -1,5 +1,13 @@
 # @heapup/smartkit
 
+## 0.2.9
+
+### Patch Changes
+
+- fix: connect page has not been replaced
+- Updated dependencies
+  - @heapup/smartkit-hooks@0.2.9
+
 ## 0.2.8
 
 ### Patch Changes
