@@ -10,6 +10,6 @@ npm init @heapup/smartkit
 pnpm create @heapup/smartkit
 # or
 yarn create @heapup/smartkit
-#
+# or
 bun create @heapup/smartkit
 ```

@@ -2,15 +2,29 @@
 title: Installation
 ---
 
-## Setup
+## Quick Start
 
-Install npm packages to your project.
+Create a sui dapp using smartkit with `create` command.
+
+```bash
+npm init @heapup/smartkit
+# or
+pnpm create @heapup/smartkit
+# or
+yarn create @heapup/smartkit
+# or
+bun create @heapup/smartkit
+```
+
+## Manual Installation
+
+To manually add smartkit to your project, install the required packages.
 
 ```bash
 pnpm i @heapup/smartkit @heapup/smartkit-hooks @mysten/sui.js
 ```
 
-## Import
+### Configure Providers
 
 > if you are using Next.js. you will need to include the `"use client"` directive at the beginning of this file.
 

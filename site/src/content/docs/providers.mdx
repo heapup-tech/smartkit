@@ -2,7 +2,7 @@
 title: Providers
 ---
 
-smartkit uses react context to share global variables.
+Smartkit uses react context to share global variables.
 
 ## SmartKitClientProvider
 
@@ -47,9 +47,26 @@ Currently supported wallets:
 - `okxWallet`
 - `suietWallet`
 
+But you can also create a custom wallet.
+
+```tsx
+import { createWallet } from '@heapup/smartkit-hooks'
+
+const anyWallet = createWallet({
+  name: 'Any Wallet',
+  icon: 'wallet icon',
+  downloadUrl: 'download url'
+})
+
+const config = createConfig({
+  suiClient: client,
+  wallets: [anyWallet]
+})
+```
+
 ## SmartKitProvider
 
-Set theme and mode for connect Modal
+Set the theme and mode for the connection modal
 
 ```tsx
 <SmartKitProvider theme="default" mode="auto"></SmartKitProvider>

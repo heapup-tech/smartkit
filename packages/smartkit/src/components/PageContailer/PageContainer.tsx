@@ -30,6 +30,7 @@ export function PageContainer() {
 
   useEffect(() => {
     if (currentPage === 'connectOptions') setPageHeaderLabel('Connect Wallet')
+    else if (currentPage === 'profile') setPageHeaderLabel('Connected')
     else if (currentPage === 'connect')
       setPageHeaderLabel(selectedWallet?.name || 'Connect')
     else if (currentPage === 'switchAccountList')
