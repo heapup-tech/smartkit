@@ -1,5 +1,11 @@
 # @heapup/smartkit-hooks
 
+## 0.2.7
+
+### Patch Changes
+
+- fix page error
+
 ## 0.2.6
 
 ### Patch Changes

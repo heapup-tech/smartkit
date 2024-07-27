@@ -19,7 +19,7 @@
     "dev:site": "pnpm --filter site dev",
     "build": "pnpm --recursive --parallel --filter=@heapup/smartkit --filter=@heapup/smartkit-hooks --filter=@heapup/create-smartkit build",
     "changeset": "changeset",
-    "publish": "pnpm build && changeset publish",
+    "release": "pnpm build && changeset publish",
     "test": "vitest",
     "test:ui": "vitest --ui"
   },
