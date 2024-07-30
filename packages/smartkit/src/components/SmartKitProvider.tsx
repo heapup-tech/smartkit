@@ -10,14 +10,18 @@ import { ModalProvider } from './ModalProvider'
 import { ThemeProvider } from './ThemeProvider'
 
 import { assign } from 'radash'
+import { Languages } from '../localizations'
 
 interface SmartKitProviderProps {
   children: React.ReactNode
   theme?: Theme | PartialThemeVars
   mode?: Mode
+  language?: Languages
 }
 
-interface SmartKitProviderContext {}
+interface SmartKitProviderContext {
+  language?: Languages
+}
 
 export const SmartKitContext = createContext<SmartKitProviderContext | null>(
   null
@@ -26,7 +30,8 @@ export const SmartKitContext = createContext<SmartKitProviderContext | null>(
 export function SmartKitProvider({
   children,
   theme = 'default',
-  mode = 'auto'
+  mode = 'auto',
+  language = 'en-US'
 }: SmartKitProviderProps) {
   useAutoConnect()
   useWatchWallet()
@@ -68,7 +73,11 @@ export function SmartKitProvider({
   }
 
   return (
-    <SmartKitContext.Provider value={{}}>
+    <SmartKitContext.Provider
+      value={{
+        language
+      }}
+    >
       <ThemeProvider theme={themeName} mode={mode}>
         <ModalProvider>
           <PageProvider>
