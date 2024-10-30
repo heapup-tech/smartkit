@@ -1,5 +1,12 @@
 # apps-next
 
+## 0.1.7
+
+### Patch Changes
+
+- Updated dependencies
+  - @heapup/smartkit@0.3.0
+
 ## 0.1.6
 
 ### Patch Changes

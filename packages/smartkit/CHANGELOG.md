@@ -1,5 +1,11 @@
 # @heapup/smartkit
 
+## 0.3.0
+
+### Minor Changes
+
+- fix: wallet icon not rounded
+
 ## 0.2.9
 
 ### Patch Changes
