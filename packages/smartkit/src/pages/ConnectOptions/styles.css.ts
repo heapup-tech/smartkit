@@ -98,7 +98,8 @@ const walletItemArrowInnerRect = style({
 const walletIcon = sprinkles({
   width: ['6', '8'],
   height: ['6', '8'],
-  marginRight: '2.5'
+  marginRight: '2.5',
+  borderRadius: 'standard'
 })
 
 export default {

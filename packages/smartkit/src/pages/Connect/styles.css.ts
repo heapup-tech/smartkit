@@ -37,7 +37,8 @@ const walletIcon = style([
   sprinkles({
     width: '16',
     height: '16',
-    position: 'absolute'
+    position: 'absolute',
+    borderRadius: 'xlarge'
   }),
   {
     top: '50%',
